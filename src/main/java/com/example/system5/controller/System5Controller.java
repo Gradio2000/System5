@@ -32,7 +32,7 @@ public class System5Controller {
     @GetMapping(value = "/list")
     public String getAll(@AuthenticationPrincipal AuthUser authUser, Model model){
         User user = authUser.getUser();
-        List<System5> system5List = system5Repository.findAll(user.getUserId());
+        List<System5> system5List = system5Repository.findAllByUserId(user.getUserId());
         List<Month> monthList = new ArrayList<>(List.of(Month.values()));
 
         for(System5 system5 : system5List){
