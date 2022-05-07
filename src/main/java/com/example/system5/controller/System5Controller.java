@@ -86,6 +86,8 @@ public class System5Controller {
         system5.setResempl4(system5.getResempl4().toUpperCase());
         system5.setResempl5(system5.getResempl5().toUpperCase());
 
+        system5Repository.updateSistem5(system5.getResempl1(), system5.getMonth());
+
         return null;
     }
 
