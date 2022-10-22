@@ -19,4 +19,5 @@ public interface KladrAllRepository extends JpaRepository<KladrAll, Integer> {
     @Query(nativeQuery = true,
             value = "SELECT * FROM kladr_all WHERE name ~ :value1 AND name ~ :value2 AND name ~ :value3 LIMIT 10")
     List<KladrAll> selectAll(String value1, String value2, String value3);
+
 }
