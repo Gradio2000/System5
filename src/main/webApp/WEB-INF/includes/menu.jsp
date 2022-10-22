@@ -34,8 +34,7 @@
     <a href="/kanban/kanban">Канбан</a>
     <a href="/converter/converter">Конвертер ОИСФЛ</a>
     </br>
-    <br/>
-    <a href="/search">Поиск</a>
+    <a href="/search">Поиск индекса</a>
     <br/>
     <a href="/logout">Выйти</a>
 </div>
