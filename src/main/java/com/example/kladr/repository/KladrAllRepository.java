@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface KladrAllRepository extends JpaRepository<KladrAll, Integer> {
-
     @Query(nativeQuery = true,
     value = "SELECT * FROM kladr_all WHERE name ~ :value1 LIMIT 10")
     List<KladrAll> selectAll(String value1);
