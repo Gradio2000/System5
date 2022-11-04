@@ -33,9 +33,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             value = "SELECT empl_id FROM sys_com_empl WHERE comm_id = :commId")
     List<Integer> getEmplUserIdList(int commId);
 
-    @Modifying
-    @Transactional
     @Query(nativeQuery = true,
-    value = "DELETE FROM sys_com_empl WHERE empl_id = :emplId AND comm_id = :commId")
-    void deleteCommEmpl(int emplId, int commId);
+    value = "SELECT user_id FROM sys_position_user where position_id = :positionId")
+    int getUserId(Integer positionId);
 }

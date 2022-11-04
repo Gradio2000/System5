@@ -30,10 +30,17 @@ public class UserAdminController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable int id, @AuthenticationPrincipal AuthUser authUser){
+    public String deleteUser(@PathVariable int id,
+                             @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
+
+        int userId = userRepository.getUserId(id);
+        User user = userRepository.findById(userId).orElse(null);
+        assert user != null;
+        user.setDeleted(true);
+        userRepository.save(user);
         userRepository.deleteUser(id);
         return "redirect:/admin/shtat";
     }

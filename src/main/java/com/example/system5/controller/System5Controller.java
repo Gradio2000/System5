@@ -61,13 +61,6 @@ public class System5Controller {
 
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 
-        if (authUser.getUser().getName() == null){
-            model.addAttribute("formFinishReg", new FormFinishReg());
-            request.setAttribute("error", "Не завершена процедура регистрации");
-            model.addAttribute("positionList", positionRepository.findAll());
-            return "sys5pages/registrationnext";
-        }
-
         if (year == null){
             year = LocalDate.now().getYear();
         }

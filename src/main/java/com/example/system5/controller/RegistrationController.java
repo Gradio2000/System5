@@ -88,7 +88,7 @@ public class RegistrationController {
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(Role.USER);
         user.setRoles(roleSet);
-
+        user.setDeleted(true);
         userRepository.save(user);
 
         try {
@@ -124,6 +124,7 @@ public class RegistrationController {
         user.setName(formFinishReg.getName());
         Position position = positionRepository.findById(formFinishReg.getPosition_id()).orElse(null);
         user.setPosition(position);
+        user.setDeleted(false);
         userRepository.save(user);
         model.addAttribute("user", UserDto.getInstance(user));
         return "redirect:/list";
