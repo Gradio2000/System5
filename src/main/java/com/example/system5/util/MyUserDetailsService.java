@@ -20,6 +20,10 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         Optional<User> authUser = userRepository.findByLogin(login);
+        assert authUser.orElse(null) != null;
+        if (authUser.orElse(null).getDeleted()){
+            authUser = Optional.empty();
+        }
         return new AuthUser(authUser.orElseThrow(
                 () -> new UsernameNotFoundException("User '" + login + "' was not found")));
     }

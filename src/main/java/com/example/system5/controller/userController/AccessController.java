@@ -4,10 +4,12 @@ import com.example.system5.dto.UserDto;
 import com.example.system5.model.FormFinishReg;
 import com.example.system5.repository.PositionRepository;
 import com.example.system5.util.AuthUser;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,7 +23,8 @@ public class AccessController {
 
     @GetMapping("/loginTrue")
     public String loginTrue(@AuthenticationPrincipal AuthUser authUser,
-                            Model model, HttpServletRequest request){
+                            Model model, HttpServletRequest request, Authentication authentication){
+
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 
         if (authUser.getUser().getName() == null){
@@ -29,6 +32,10 @@ public class AccessController {
             request.setAttribute("error", "Не завершена процедура регистрации");
             model.addAttribute("positionList", positionRepository.findAll());
             return "sys5pages/registrationnext";
+        }
+        if (authUser.getUser().getDeleted()){
+            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
+            return "redirect:/logout";
         }
         return "redirect:/kanban/kanban";
     }

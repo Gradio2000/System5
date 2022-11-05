@@ -67,8 +67,7 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public ModelAndView registration(){
-        MyForm myForm = new MyForm();
-        return new ModelAndView("sys5pages/registration", "myForm", myForm);
+        return new ModelAndView("sys5pages/registration", "myForm", new MyForm());
     }
 
     @PostMapping("/adduser")
