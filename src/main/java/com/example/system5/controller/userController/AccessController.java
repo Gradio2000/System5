@@ -28,7 +28,7 @@ public class AccessController {
 
         if (authUser.getUser().getName() == null){
             model.addAttribute("formFinishReg", new FormFinishReg());
-            request.setAttribute("error", "Не завершена процедура регистрации");
+            request.setAttribute("error", "Завершите процедуру регистрации");
             model.addAttribute("positionList", positionRepository.findAll());
             return "sys5pages/registrationnext";
         }
