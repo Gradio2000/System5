@@ -40,6 +40,7 @@ public class UserAdminController {
         User user = userRepository.findById(userId).orElse(null);
         assert user != null;
         user.setDeleted(true);
+        user.setLogin(null);
         userRepository.save(user);
         userRepository.deleteUser(id);
         return "redirect:/admin/shtat";

@@ -4,7 +4,6 @@ import com.example.system5.dto.UserDto;
 import com.example.system5.model.FormFinishReg;
 import com.example.system5.repository.PositionRepository;
 import com.example.system5.util.AuthUser;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +22,7 @@ public class AccessController {
 
     @GetMapping("/loginTrue")
     public String loginTrue(@AuthenticationPrincipal AuthUser authUser,
-                            Model model, HttpServletRequest request, Authentication authentication){
+                            Model model, HttpServletRequest request){
 
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 

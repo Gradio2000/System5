@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByLogin(String login);
 
-    boolean existsUserByLogin(String login);
+    boolean existsUserByLoginAndDeleted(String login, Boolean deleted);
 
     @Query(nativeQuery = true,
             value = "SELECT EXISTS(SELECT user_id FROM sys_position_user WHERE position_id = :position_id)")

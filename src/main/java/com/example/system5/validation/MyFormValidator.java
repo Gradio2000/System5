@@ -29,7 +29,7 @@ public class MyFormValidator implements Validator {
         if (!password.equals(conpass)){
             errors.rejectValue("confpass", "", "Пароли не совпадают");
         }
-        if (userRepository.existsUserByLogin(login)){
+        if (userRepository.existsUserByLoginAndDeleted(login, false)){
             errors.rejectValue("login", "", "Пользователь с таким логином зарегистрирован ранее");
         }
 

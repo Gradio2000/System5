@@ -87,7 +87,7 @@ public class RegistrationController {
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(Role.USER);
         user.setRoles(roleSet);
-        user.setDeleted(true);
+        user.setDeleted(false);
         userRepository.save(user);
 
         try {
