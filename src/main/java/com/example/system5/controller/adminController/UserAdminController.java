@@ -52,7 +52,7 @@ public class UserAdminController {
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
-        return CollectionModel.of(userRepository.findAll().stream()
+        return CollectionModel.of(userRepository.findAllByDeleted(false).stream()
                 .filter(user -> user.getPosition() == null)
                 .collect(Collectors.toList()));
     }

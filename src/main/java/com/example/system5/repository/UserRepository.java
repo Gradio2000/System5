@@ -13,6 +13,9 @@ import java.util.Optional;
 @RepositoryRestResource(exported = false)
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+
+    List<User> findAllByDeleted(Boolean deleted);
+
     Optional<User> findByLogin(String login);
 
     boolean existsUserByLoginAndDeleted(String login, Boolean deleted);

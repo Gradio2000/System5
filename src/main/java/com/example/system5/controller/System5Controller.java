@@ -4,7 +4,6 @@ package com.example.system5.controller;
 import com.example.system5.dto.UserDto;
 import com.example.system5.model.*;
 import com.example.system5.repository.CommEmplRepository;
-import com.example.system5.repository.PositionRepository;
 import com.example.system5.repository.System5Repository;
 import com.example.system5.repository.UserRepository;
 import com.example.system5.service.system5Service.GetTotalMarkService;
@@ -34,22 +33,18 @@ public class System5Controller {
     private final GetTotalMarkService getTotalMarkService;
     private final SaveOrUpdateSystem5Service saveOrUpdateSystem5Service;
     private final SortService sortService;
-    private final PositionRepository positionRepository;
-
     private final CommEmplRepository commEmplRepository;
 
 
     public System5Controller(System5Repository system5Repository,
                              UserRepository userRepository, GetTotalMarkService getTotalMarkService,
                              SaveOrUpdateSystem5Service saveOrUpdateSystem5Service,
-                             SortService sortService, PositionRepository positionRepository,
-                             CommEmplRepository commEmplRepository) {
+                             SortService sortService, CommEmplRepository commEmplRepository) {
         this.system5Repository = system5Repository;
         this.userRepository = userRepository;
         this.getTotalMarkService = getTotalMarkService;
         this.saveOrUpdateSystem5Service = saveOrUpdateSystem5Service;
         this.sortService = sortService;
-        this.positionRepository = positionRepository;
         this.commEmplRepository = commEmplRepository;
     }
 
@@ -86,7 +81,7 @@ public class System5Controller {
         boolean employer = false;
         model.addAttribute("employer", employer);
 
-        List<User> userList = userRepository.findAll().stream()
+        List<User> userList = userRepository.findAllByDeleted(false).stream()
                 .filter(u -> !Objects.equals(u.getUserId(), authUser.getUser().getUserId()))
                 .collect(Collectors.toList());
         model.addAttribute(userList);

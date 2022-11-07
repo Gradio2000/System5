@@ -8,7 +8,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.context.request.RequestContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,7 +32,6 @@ public class AccessController {
             return "sys5pages/registrationnext";
         }
         if (authUser.getUser().getDeleted()){
-            String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
             return "redirect:/logout";
         }
         return "redirect:/kanban/kanban";
