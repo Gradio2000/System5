@@ -1,5 +1,6 @@
 package com.example.system5.controller.adminController;
 
+import com.example.system5.dto.PositionDtoWithUserDto;
 import com.example.system5.model.Position;
 import com.example.system5.model.User;
 import com.example.system5.repository.PositionRepository;
@@ -34,6 +35,7 @@ public class PositionController {
 
         List<Position> positions;
         Map<String, Boolean> error = new HashMap<>();
+        List<PositionDtoWithUserDto> positionDtoWithUserDtoList;
         try {
             positions = positionRepository.findAllByDivisionId(id);
             for (Position position: positions){
@@ -42,6 +44,9 @@ public class PositionController {
                         .collect(Collectors.toList());
                 position.setUsers(userList);
             }
+            positionDtoWithUserDtoList = positions.stream()
+                    .map(PositionDtoWithUserDto::getInstance)
+                    .collect(Collectors.toList());
         } catch (IndexOutOfBoundsException e) {
             error.put("myer", true);
             return CollectionModel.of(error);
@@ -51,7 +56,7 @@ public class PositionController {
             return CollectionModel.of(error);
         }
 
-        return CollectionModel.of(positions);
+        return CollectionModel.of(positionDtoWithUserDtoList);
     }
 
 

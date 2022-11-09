@@ -118,12 +118,12 @@
                 $('#mybtnDel').show();
                 $('#mybtnCh').show();
             } else {
-                const data1 = data._embedded.positions;
+                const data1 = data._embedded.positionDtoWithUserDtoes;
                 let userName;
                 for (let i = 0; i < data1.length; i++) {
-                    if (data1[i].users.length === 0) {
+                    if (data1[i].userDtoList.length === 0) {
                         userName = "";
-                    } else userName = data1[i].users[0].name;
+                    } else userName = data1[i].userDtoList[0].name;
 
                     let elem1 = document.createElement("tr");
                     elem1.setAttribute("class", "insert");
@@ -145,7 +145,7 @@
                     elem5.id="forRoleAdminTest" + data1[i].position_id;
 
 
-                    if  (data1[i].users.length > 0){
+                    if  (data1[i].userDtoList.length > 0){
                         let a = document.createElement("a");
                         a.setAttribute("id", "userNameInsert");
                         a.innerText = userName;
@@ -154,7 +154,7 @@
                         let elcheck = document.createElement("input");
                         elcheck.type = "checkbox";
                         elcheck.name="checkrole";
-                        if (data1[i].users[0].roles.includes("ADMIN")){
+                        if (data1[i].userDtoList[0].roles.includes("ADMIN")){
                             elcheck.checked = "checked";
                         }
                         elcheck.setAttribute("onchange", "showbutrol(" + data1[i].position_id + ")");
@@ -163,7 +163,7 @@
                         let elcheck2 = document.createElement("input");
                         elcheck2.type = "checkbox";
                         elcheck2.name="checkRoleAdminTest";
-                        if (data1[i].users[0].roles.includes("ADMIN_TEST")){
+                        if (data1[i].userDtoList[0].roles.includes("ADMIN_TEST")){
                             elcheck2.checked = "checked";
                         }
                         elcheck2.setAttribute("onchange", "showbutrol2(" + data1[i].position_id + ")");

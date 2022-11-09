@@ -225,3 +225,79 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-11-09 22:34:03.114  INFO 59942 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
 2022-11-09 22:34:05.545  INFO 59942 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
 2022-11-09 22:34:55.367  WARN 59942 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m14s661ms).
+2022-11-09 22:46:27.356  INFO 60244 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60244 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:46:27.364 DEBUG 60244 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:46:27.367  INFO 60244 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:46:46.665  INFO 60244 --- [main] com.example.System5Application           : Started System5Application in 21.564 seconds (JVM running for 25.856)
+2022-11-09 22:46:50.923  WARN 60244 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [386] milliseconds.
+2022-11-09 22:46:57.094  INFO 60244 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:47:01.396  INFO 60244 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:47:03.606  INFO 60244 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:50:30.720  WARN 60244 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m56s481ms).
+2022-11-09 22:50:48.710  INFO 60378 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60378 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:50:48.719 DEBUG 60378 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:50:48.722  INFO 60378 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:51:03.369  INFO 60378 --- [main] com.example.System5Application           : Started System5Application in 17.027 seconds (JVM running for 21.076)
+2022-11-09 22:51:17.555  INFO 60378 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:51:21.315  INFO 60378 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Иванов С.Н.
+2022-11-09 22:51:23.169  INFO 60378 --- [http-nio-8080-exec-10] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:51:24.887  INFO 60378 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:56:43.041  WARN 60378 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m18s271ms).
+2022-11-09 22:56:54.419  INFO 60513 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60513 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:56:54.433 DEBUG 60513 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:56:54.435  INFO 60513 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:57:05.291  INFO 60513 --- [main] com.example.System5Application           : Started System5Application in 12.363 seconds (JVM running for 14.407)
+2022-11-09 22:57:12.690  INFO 60513 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:57:15.341  INFO 60513 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:57:16.977  INFO 60513 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:59:47.848  WARN 60513 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m49s30ms).
+2022-11-09 23:00:12.635  INFO 60596 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60596 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 23:00:12.643 DEBUG 60596 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 23:00:12.647  INFO 60596 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 23:00:26.734  INFO 60596 --- [main] com.example.System5Application           : Started System5Application in 16.235 seconds (JVM running for 20.355)
+2022-11-09 23:00:36.447  INFO 60596 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 23:00:39.562  INFO 60596 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Иванов С.Н.
+2022-11-09 23:00:41.393  INFO 60596 --- [http-nio-8080-exec-10] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 23:00:43.175  INFO 60596 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:02:06.444  INFO 60649 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60649 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 23:02:06.460 DEBUG 60649 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 23:02:06.462  INFO 60649 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 23:02:22.187  INFO 60649 --- [main] com.example.System5Application           : Started System5Application in 19.286 seconds (JVM running for 24.856)
+2022-11-09 23:02:26.620  WARN 60649 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [157] milliseconds.
+2022-11-09 23:02:31.610  INFO 60649 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 23:02:34.678  INFO 60649 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 23:02:36.195  INFO 60649 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:03:21.677  INFO 60685 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60685 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 23:03:21.690 DEBUG 60685 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 23:03:21.694  INFO 60685 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 23:03:38.857  INFO 60685 --- [main] com.example.System5Application           : Started System5Application in 21.182 seconds (JVM running for 24.712)
+2022-11-09 23:03:49.414  INFO 60685 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 23:03:53.774  INFO 60685 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 23:03:55.544  INFO 60685 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:05:35.079  INFO 60737 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60737 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 23:05:35.122 DEBUG 60737 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 23:05:35.124  INFO 60737 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 23:05:49.699  INFO 60737 --- [main] com.example.System5Application           : Started System5Application in 17.982 seconds (JVM running for 22.464)
+2022-11-09 23:05:53.611  WARN 60737 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [159] milliseconds.
+2022-11-09 23:05:58.356  INFO 60737 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 23:06:01.433  INFO 60737 --- [http-nio-8080-exec-8] c.e.q.controller.AppointTestController   : getUserAppoint Иванов С.Н.
+2022-11-09 23:06:03.603  INFO 60737 --- [http-nio-8080-exec-10] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 23:06:05.072  INFO 60737 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:06:10.952  INFO 60737 --- [http-nio-8080-exec-3] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:06:12.797  INFO 60737 --- [http-nio-8080-exec-4] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:06:13.641  INFO 60737 --- [http-nio-8080-exec-7] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:02.689  INFO 60800 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 60800 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 23:08:02.697 DEBUG 60800 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 23:08:02.701  INFO 60800 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 23:08:15.244  INFO 60800 --- [main] com.example.System5Application           : Started System5Application in 14.18 seconds (JVM running for 17.051)
+2022-11-09 23:08:32.614  INFO 60800 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 23:08:36.596  INFO 60800 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Иванов С.Н.
+2022-11-09 23:08:38.887  INFO 60800 --- [http-nio-8080-exec-10] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 23:08:40.112  INFO 60800 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:47.714  INFO 60800 --- [http-nio-8080-exec-3] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:49.172  INFO 60800 --- [http-nio-8080-exec-4] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:51.224  INFO 60800 --- [http-nio-8080-exec-7] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:53.000  INFO 60800 --- [http-nio-8080-exec-6] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:58.377  INFO 60800 --- [http-nio-8080-exec-5] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:08:59.445  INFO 60800 --- [http-nio-8080-exec-9] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 23:09:00.669  INFO 60800 --- [http-nio-8080-exec-8] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
