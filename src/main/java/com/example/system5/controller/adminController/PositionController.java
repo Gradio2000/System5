@@ -31,9 +31,9 @@ public class PositionController {
                 authUser.getUser().getName());
 
         List<Position> positions;
-        Map<String, Boolean> error = new HashMap();
+        Map<String, Boolean> error = new HashMap<>();
         try {
-            positions = positionRepository.findAllByDivisionId(id);
+            positions = positionRepository.findAllByDivisionIdAndUser_Deleted(id, false);
         } catch (IndexOutOfBoundsException e) {
             error.put("myer", true);
             return CollectionModel.of(error);
