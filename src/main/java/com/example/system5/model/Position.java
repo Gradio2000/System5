@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "sys_positions")
@@ -22,13 +23,11 @@ public class Position {
     @Column(name = "division_id")
     private int divisionId;
 
-    @OneToOne
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "sys_position_user",
             joinColumns = @JoinColumn(name = "position_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     @JsonManagedReference
-    public User user;
-
-
+    public List<User> users;
 
 }

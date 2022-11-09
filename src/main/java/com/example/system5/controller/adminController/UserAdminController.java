@@ -79,7 +79,11 @@ public class UserAdminController {
         Map<String, String> result = new HashMap<>();
         Position position = positionRepository.findById(id).orElse(null);
         assert position != null;
-        User user = position.user;
+        User user = position.users.stream()
+                .filter(u -> u.getDeleted().equals(false))
+                .findFirst()
+                .orElse(null);
+        assert user != null;
         Set<Role> roleSet = user.getRoles();
         if (roleSet.contains(Role.ADMIN)){
             roleSet.remove(Role.ADMIN);
@@ -106,7 +110,11 @@ public class UserAdminController {
         Map<String, String> result = new HashMap<>();
         Position position = positionRepository.findById(id).orElse(null);
         assert position != null;
-        User user = position.user;
+        User user = position.users.stream()
+                .filter(u -> u.getDeleted().equals(false))
+                .findFirst()
+                .orElse(null);
+        assert user != null;
         Set<Role> roleSet = user.getRoles();
         if (roleSet.contains(Role.ADMIN_TEST)){
             roleSet.remove(Role.ADMIN_TEST);

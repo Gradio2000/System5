@@ -41,3 +41,187 @@
 2022-11-09 20:47:55.383  WARN 45435 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m56s414ms).
 2022-11-09 21:17:06.712  WARN 45435 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m11s273ms).
 2022-11-09 21:35:09.508  WARN 45435 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m32s712ms).
+2022-11-09 21:58:36.628  INFO 59111 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59111 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 21:58:36.638 DEBUG 59111 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 21:58:36.640  INFO 59111 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 21:58:48.125  WARN 59111 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'registrationController' defined in file [/Users/aleksejlaskin/IdeaProjects/System5/target/classes/com/example/system5/controller/RegistrationController.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'positionRepository' defined in com.example.system5.repository.PositionRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean); Reason: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''
+2022-11-09 21:58:48.221 ERROR 59111 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'registrationController' defined in file [/Users/aleksejlaskin/IdeaProjects/System5/target/classes/com/example/system5/controller/RegistrationController.class]: Unsatisfied dependency expressed through constructor parameter 2; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'positionRepository' defined in com.example.system5.repository.PositionRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean); Reason: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.4.jar:2.7.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.4.jar:2.7.4]
+	at com.example.System5Application.main(System5Application.java:10) ~[classes/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'positionRepository' defined in com.example.system5.repository.PositionRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean); Reason: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 19 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean); Reason: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:107) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:95) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133) ~[na:na]
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1056) ~[na:na]
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578) ~[na:na]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:97) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:87) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at java.base/java.util.Optional.map(Optional.java:258) ~[na:na]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:87) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:365) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:231) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.util.Lazy.get(Lazy.java:115) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 30 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.example.system5.repository.PositionRepository.findAllByDivisionIdAndUser_Deleted(int,boolean)! No property 'user' found for type 'Position' Did you mean ''users''
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:119) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:259) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:93) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:103) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	... 52 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'user' found for type 'Position' Did you mean ''users''
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:91) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:438) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:414) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:367) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330) ~[na:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:349) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:332) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:250) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[na:na]
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578) ~[na:na]
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:251) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:384) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:177) ~[na:na]
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578) ~[na:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:385) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	... 56 common frames omitted
+
+2022-11-09 22:04:17.196  INFO 59249 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59249 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:04:17.208 DEBUG 59249 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:04:17.213  INFO 59249 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:04:30.547  INFO 59249 --- [main] com.example.System5Application           : Started System5Application in 15.077 seconds (JVM running for 18.023)
+2022-11-09 22:04:48.390  INFO 59249 --- [http-nio-8080-exec-4] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:04:55.995  INFO 59249 --- [http-nio-8080-exec-7] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:04:57.726  INFO 59249 --- [http-nio-8080-exec-9] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:04:57.918  WARN 59249 --- [http-nio-8080-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: failed to lazily initialize a collection of role: com.example.system5.model.Position.users, could not initialize proxy - no Session; nested exception is com.fasterxml.jackson.databind.JsonMappingException: failed to lazily initialize a collection of role: com.example.system5.model.Position.users, could not initialize proxy - no Session (through reference chain: org.springframework.hateoas.CollectionModel["_embedded"]->java.util.LinkedHashMap["positions"]->java.util.ArrayList[0]->com.example.system5.model.Position["users"])]
+2022-11-09 22:05:48.818  INFO 59306 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59306 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:05:48.828 DEBUG 59306 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:05:48.831  INFO 59306 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:06:02.746  INFO 59306 --- [main] com.example.System5Application           : Started System5Application in 15.976 seconds (JVM running for 19.42)
+2022-11-09 22:06:10.680  INFO 59306 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:06:13.365  INFO 59306 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:06:14.375  INFO 59306 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:06:19.174  INFO 59306 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:06:20.572  INFO 59306 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:06:21.813  INFO 59306 --- [http-nio-8080-exec-3] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:06:45.353  INFO 59306 --- [http-nio-8080-exec-4] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:07:14.681  WARN 59306 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50s234ms).
+2022-11-09 22:07:17.927  INFO 59306 --- [http-nio-8080-exec-5] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:11:38.616  WARN 59306 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m23s929ms).
+2022-11-09 22:11:55.379  INFO 59439 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59439 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:11:55.387 DEBUG 59439 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:11:55.390  INFO 59439 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:12:12.603  INFO 59439 --- [main] com.example.System5Application           : Started System5Application in 20.802 seconds (JVM running for 24.942)
+2022-11-09 22:12:16.277  WARN 59439 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [189] milliseconds.
+2022-11-09 22:12:23.409  INFO 59439 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:12:27.612  INFO 59439 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Иванов С.Н.
+2022-11-09 22:12:29.458  INFO 59439 --- [http-nio-8080-exec-10] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:12:31.058  INFO 59439 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:16:57.705  INFO 59556 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59556 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:16:57.714 DEBUG 59556 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:16:57.716  INFO 59556 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:17:09.303  INFO 59556 --- [main] com.example.System5Application           : Started System5Application in 15.21 seconds (JVM running for 20.525)
+2022-11-09 22:17:15.630  WARN 59556 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [170] milliseconds.
+2022-11-09 22:17:20.687  INFO 59556 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:17:25.178  INFO 59556 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:17:26.424  INFO 59556 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:17:40.264  INFO 59556 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:19:31.708  INFO 59628 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59628 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:19:31.725 DEBUG 59628 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:19:31.733  INFO 59628 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:19:48.385  INFO 59628 --- [main] com.example.System5Application           : Started System5Application in 19.981 seconds (JVM running for 26.052)
+2022-11-09 22:19:57.656  INFO 59628 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:20:00.737  INFO 59628 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Иванов С.Н.
+2022-11-09 22:20:03.298  INFO 59628 --- [http-nio-8080-exec-10] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:20:05.123  INFO 59628 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:21:07.082  INFO 59680 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59680 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:21:07.089 DEBUG 59680 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:21:07.091  INFO 59680 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:21:19.181  INFO 59680 --- [main] com.example.System5Application           : Started System5Application in 15.441 seconds (JVM running for 19.907)
+2022-11-09 22:21:26.245  INFO 59680 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:21:31.208  INFO 59680 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:21:32.973  INFO 59680 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:21:37.279  INFO 59680 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:21:38.861  INFO 59680 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:21:41.269  INFO 59680 --- [http-nio-8080-exec-3] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:21:42.421  INFO 59680 --- [http-nio-8080-exec-4] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:24:35.077  INFO 59758 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59758 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:24:35.086 DEBUG 59758 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:24:35.088  INFO 59758 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:24:54.858  INFO 59758 --- [main] com.example.System5Application           : Started System5Application in 23.156 seconds (JVM running for 28.303)
+2022-11-09 22:25:08.728  WARN 59758 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [121] milliseconds.
+2022-11-09 22:25:13.671  INFO 59758 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:25:17.849  INFO 59758 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:25:19.751  INFO 59758 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:25:22.345  INFO 59758 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:25:23.740  INFO 59758 --- [http-nio-8080-exec-2] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:33:35.891  INFO 59942 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 59942 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-09 22:33:35.901 DEBUG 59942 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-09 22:33:35.903  INFO 59942 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-09 22:33:47.341  INFO 59942 --- [main] com.example.System5Application           : Started System5Application in 12.935 seconds (JVM running for 15.479)
+2022-11-09 22:33:56.670  INFO 59942 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-09 22:34:03.114  INFO 59942 --- [http-nio-8080-exec-8] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-09 22:34:05.545  INFO 59942 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-09 22:34:55.367  WARN 59942 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m14s661ms).

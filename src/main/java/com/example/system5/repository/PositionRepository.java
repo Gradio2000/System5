@@ -8,5 +8,5 @@ import java.util.List;
 
 @RepositoryRestResource(exported = false)
 public interface PositionRepository extends JpaRepository<Position, Integer> {
-    List<Position> findAllByDivisionIdAndUser_Deleted(int id, boolean deleted);
+    List<Position> findAllByDivisionId(int id);
 }

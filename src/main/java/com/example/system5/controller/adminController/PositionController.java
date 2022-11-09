@@ -1,6 +1,7 @@
 package com.example.system5.controller.adminController;
 
 import com.example.system5.model.Position;
+import com.example.system5.model.User;
 import com.example.system5.repository.PositionRepository;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
@@ -33,7 +35,13 @@ public class PositionController {
         List<Position> positions;
         Map<String, Boolean> error = new HashMap<>();
         try {
-            positions = positionRepository.findAllByDivisionIdAndUser_Deleted(id, false);
+            positions = positionRepository.findAllByDivisionId(id);
+            for (Position position: positions){
+                List<User> userList = position.users.stream()
+                        .filter(user -> user.getDeleted().equals(false))
+                        .collect(Collectors.toList());
+                position.setUsers(userList);
+            }
         } catch (IndexOutOfBoundsException e) {
             error.put("myer", true);
             return CollectionModel.of(error);
@@ -70,7 +78,7 @@ public class PositionController {
 
         Position position = positionRepository.findById(id).orElse(null);
         assert position != null;
-        if (position.getUser() != null){
+        if (position.getUsers() != null){
             return "redirect:/admin/shtat?errorDeletePosition=true";
         }
         else {

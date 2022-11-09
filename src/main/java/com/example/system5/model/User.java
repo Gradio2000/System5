@@ -45,7 +45,7 @@ public class User{
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    @OneToOne
+    @ManyToOne
     @JoinTable(name = "sys_position_user",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "position_id"))
