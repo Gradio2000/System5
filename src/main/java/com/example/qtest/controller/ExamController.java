@@ -76,6 +76,8 @@ public class ExamController {
         model.addAttribute("groupTestDtoList", groupTestDtoList);
 
         List<UserDto> userDtoList = userRepository.findAllByDeleted(false).stream()
+                .filter(user -> user.getName() != null)
+                .filter(user -> !user.getName().equals("admin"))
                 .map(UserDto::getInstance)
                 .collect(Collectors.toList());
         model.addAttribute("userDtoList", userDtoList);
