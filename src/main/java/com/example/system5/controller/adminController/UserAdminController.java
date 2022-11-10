@@ -8,6 +8,7 @@ import com.example.system5.repository.UserRepository;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.hateoas.CollectionModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -29,21 +30,19 @@ public class UserAdminController {
         this.positionRepository = positionRepository;
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable int id,
-                             @AuthenticationPrincipal AuthUser authUser){
+    @PostMapping("/delete")
+    @ResponseBody
+    public HttpStatus deleteUser(@RequestParam Integer userId,
+                                 @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
-
-        int userId = userRepository.getUserId(id);
         User user = userRepository.findById(userId).orElse(null);
         assert user != null;
         user.setDeleted(true);
         user.setLogin(null);
         userRepository.save(user);
-        userRepository.deleteUser(id);
-        return "redirect:/admin/shtat";
+        return HttpStatus.OK;
     }
 
     @GetMapping("/get")

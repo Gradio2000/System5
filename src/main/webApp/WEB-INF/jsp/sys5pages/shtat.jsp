@@ -144,10 +144,11 @@
                     elem5.setAttribute("class", "tblsht");
                     elem5.id="forRoleAdminTest" + data1[i].position_id;
 
+                    // let elem6 = document.createElement("input");
 
                     if  (data1[i].userDtoList.length > 0){
                         let a = document.createElement("a");
-                        a.setAttribute("id", "userNameInsert");
+                        a.setAttribute("id", data1[i].userDtoList[0].userId);
                         a.innerText = userName;
                         elem3.append(a);
 
@@ -336,10 +337,20 @@
     }
 
     function deleteUser(){
-        let el = document.getElementById("color_table1").getElementsByClassName("clicked_Row").item(0).children.item(0);
-        let id = el.id;
-
-        document.location.href = '/admin/user/delete/' + id;
+        let el = document.getElementById("color_table1")
+            .getElementsByClassName("clicked_Row").item(0).children.item(1).children.item(0);
+        console.log(el);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/user/delete',
+            data: {"userId": el.id},
+            success: function (data) {
+                document.location.href = '/admin/shtat';
+            },
+            error: function () {
+                alert('Ошибка! function deleteUser()');
+            }
+        });
     }
 
     function insertUserInto(){
