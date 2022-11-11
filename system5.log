@@ -149,3 +149,50 @@
 2022-11-11 17:37:02.575  INFO 81878 --- [http-nio-8080-exec-2] c.e.s.c.a.ReportController               : prepareHalfYearReport Иванов С.Н.
 2022-11-11 17:37:04.621  INFO 81878 --- [http-nio-8080-exec-4] c.e.s.c.a.ReportController               : getHalfYearReport Иванов С.Н.
 2022-11-11 17:37:14.860  INFO 81878 --- [http-nio-8080-exec-6] c.e.s.c.a.ReportController               : prepareHalfYearReport Иванов С.Н.
+2022-11-11 17:57:52.573  WARN 81878 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m15s950ms).
+2022-11-11 18:37:11.287  WARN 81878 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m18s624ms).
+2022-11-11 18:51:03.597  INFO 81878 --- [http-nio-8080-exec-7] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-11 18:51:05.515  INFO 81878 --- [http-nio-8080-exec-9] c.e.s.c.a.DivisionController             : getStat Иванов С.Н.
+2022-11-11 18:51:07.065  INFO 81878 --- [http-nio-8080-exec-10] c.e.s.c.a.PositionController             : getPositions Иванов С.Н.
+2022-11-11 18:51:14.659  WARN 81878 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m3s316ms).
+2022-11-11 18:51:15.907  INFO 81878 --- [http-nio-8080-exec-1] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.
+2022-11-11 18:51:32.024  INFO 81878 --- [http-nio-8080-exec-3] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.
+2022-11-11 18:52:35.371  INFO 82301 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 82301 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-11 18:52:35.375 DEBUG 82301 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-11 18:52:35.378  INFO 82301 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-11 18:52:44.611  INFO 82301 --- [main] com.example.System5Application           : Started System5Application in 10.37 seconds (JVM running for 12.21)
+2022-11-11 18:53:01.137  INFO 82301 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-11 18:53:06.016  INFO 82301 --- [http-nio-8080-exec-8] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.
+2022-11-11 18:53:10.150  INFO 82301 --- [http-nio-8080-exec-10] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.
+2022-11-11 18:53:27.759  INFO 82301 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-11 18:53:34.101  INFO 82301 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-11 18:54:53.761  INFO 82301 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-11 18:55:23.547  INFO 82301 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-11 18:56:01.593  WARN 82301 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52s334ms).
+2022-11-11 18:56:16.219  INFO 82395 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 82395 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-11 18:56:16.225 DEBUG 82395 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-11 18:56:16.227  INFO 82395 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-11 18:56:28.623  INFO 82395 --- [main] com.example.System5Application           : Started System5Application in 13.927 seconds (JVM running for 16.829)
+2022-11-11 18:56:32.648  WARN 82395 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [120] milliseconds.
+2022-11-11 18:56:36.492  INFO 82395 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-11 18:56:40.209  INFO 82395 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Иванов С.Н.
+2022-11-11 18:56:43.157  INFO 82395 --- [http-nio-8080-exec-10] c.e.s.c.a.ArchiveController              : getEmployersList Иванов С.Н.
+2022-11-11 18:56:47.153  INFO 82395 --- [http-nio-8080-exec-2] c.e.s.c.a.ArchiveController              : getEmployersList Иванов С.Н.
+2022-11-11 18:57:04.601  INFO 82395 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-11 18:58:01.110  INFO 82395 --- [http-nio-8080-exec-8] c.e.s.c.a.ArchiveController              : getEmployersList Иванов С.Н.
+2022-11-11 18:58:02.542  INFO 82395 --- [http-nio-8080-exec-10] c.e.s.c.a.ArchiveController              : getUserListSystem5 Иванов С.Н.
+2022-11-11 18:58:19.860  INFO 82395 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban dddd dddddd
+2022-11-11 18:58:22.129  INFO 82395 --- [http-nio-8080-exec-10] c.e.s.controller.System5Controller       : getAll dddd dddddd
+2022-11-11 18:58:33.591  INFO 82395 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : add dddd dddddd
+2022-11-11 18:58:33.718  INFO 82395 --- [http-nio-8080-exec-3] c.e.s.controller.System5Controller       : getAll dddd dddddd
+2022-11-11 18:58:51.714  INFO 82395 --- [http-nio-8080-exec-9] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-11 18:59:09.578  INFO 82395 --- [http-nio-8080-exec-3] c.e.s.controller.System5Controller       : Иванов С.Н. enter into controller /list/36
+2022-11-11 18:59:24.468  INFO 82395 --- [http-nio-8080-exec-7] c.e.s.c.a.ReportController               : getMonths Иванов С.Н.
+2022-11-11 18:59:28.184  INFO 82395 --- [http-nio-8080-exec-6] c.e.s.c.a.ReportController               : getMonthReport Иванов С.Н.
+2022-11-11 18:59:40.061  INFO 82395 --- [http-nio-8080-exec-5] c.e.s.c.a.ReportController               : getMonths Иванов С.Н.
+2022-11-11 18:59:43.590  INFO 82395 --- [http-nio-8080-exec-8] c.e.s.c.a.ReportController               : getMonthReport Иванов С.Н.
+2022-11-11 18:59:48.229  INFO 82395 --- [http-nio-8080-exec-9] c.e.s.c.a.ReportController               : prepareHalfYearReport Иванов С.Н.
+2022-11-11 18:59:50.616  INFO 82395 --- [http-nio-8080-exec-10] c.e.s.c.a.ReportController               : getHalfYearReport Иванов С.Н.
+2022-11-11 18:59:54.167  INFO 82395 --- [http-nio-8080-exec-4] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.
+2022-11-11 18:59:59.486  INFO 82395 --- [http-nio-8080-exec-6] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.
+2022-11-11 19:00:01.512  INFO 82395 --- [http-nio-8080-exec-8] c.e.s.c.a.ReportController               : prepareYearReport Иванов С.Н.

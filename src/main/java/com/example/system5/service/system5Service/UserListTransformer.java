@@ -168,7 +168,9 @@ public class UserListTransformer {
             String[] newStrings = new String[13];
             System.arraycopy(strings, 0, newStrings, 0, strings.length);
             newStrings[12] = getTotalMarkService.getTotalYearProcess(strings);
-            userDtoListMap.put(userDto, newStrings);
+            if (newStrings[12] != null){
+                userDtoListMap.put(userDto, newStrings);
+            }
         }
         return userDtoListMap;
     }

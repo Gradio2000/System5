@@ -83,6 +83,7 @@ public class System5Controller {
 
         List<User> userList = userRepository.findAllByDeleted(false).stream()
                 .filter(u -> !Objects.equals(u.getUserId(), authUser.getUser().getUserId()))
+                .filter(user -> !user.getLogin().equals("admin"))
                 .collect(Collectors.toList());
         model.addAttribute(userList);
 
