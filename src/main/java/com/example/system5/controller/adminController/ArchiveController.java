@@ -1,7 +1,10 @@
 package com.example.system5.controller.adminController;
 
 import com.example.system5.dto.UserDto;
-import com.example.system5.model.*;
+import com.example.system5.model.Month;
+import com.example.system5.model.System5;
+import com.example.system5.model.System5empl;
+import com.example.system5.model.User;
 import com.example.system5.repository.System5Repository;
 import com.example.system5.repository.UserRepository;
 import com.example.system5.service.system5Service.GetTotalMarkService;
@@ -131,18 +134,7 @@ public class ArchiveController {
             return "redirect:/admin/getUserSystem5Archive/" + system5empl.getUser_id() + "?error=1";
         }
 
-        System5 system5 = system5Repository.findById(system5empl.getSystem5Id()).orElse(null);
-        assert system5 != null;
-        TotalMark5 totalMark5 = system5.getTotalMark5();
-        totalMark5.setTotalMarkEmpl(getTotalMarkService.getTotalMarkEmpl(system5empl));
-
-        system5.setTotalMark5(totalMark5);
-        system5.setRated(1);
-        system5.setSystem5empl(system5empl);
-
-        system5empl.setSystem5(system5);
-
-        system5Repository.save(system5);
+        System5 system5 = getTotalMarkService.setTotalMarkAndSystem5Save(system5empl, system5Repository, getTotalMarkService);
 
         return "redirect:/admin/getUserSystem5Archive/" + system5.getUserId() + "?year=" + system5.getYear();
     }

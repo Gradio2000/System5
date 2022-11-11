@@ -17,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.*;
@@ -49,7 +48,7 @@ public class System5Controller {
     }
 
     @GetMapping(value = "/list")
-    public String getAll(@AuthenticationPrincipal AuthUser authUser, Model model, HttpServletRequest request,
+    public String getAll(@AuthenticationPrincipal AuthUser authUser, Model model,
                          @RequestParam (required = false) Integer year){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
@@ -178,19 +177,7 @@ public class System5Controller {
         system5empl.setResempl4(system5empl.getResempl4().toUpperCase());
         system5empl.setResempl5(system5empl.getResempl5().toUpperCase());
 
-        System5 system5 = system5Repository.findById(system5empl.getSystem5Id()).orElse(null);
-
-        assert system5 != null;
-        TotalMark5 totalMark5 = system5.getTotalMark5();
-        totalMark5.setTotalMarkEmpl(getTotalMarkService.getTotalMarkEmpl(system5empl));
-
-        system5.setTotalMark5(totalMark5);
-        system5.setRated(1);
-        system5.setSystem5empl(system5empl);
-
-        system5empl.setSystem5(system5);
-
-        system5Repository.save(system5);
+        System5 system5 = getTotalMarkService.setTotalMarkAndSystem5Save(system5empl, system5Repository, getTotalMarkService);
 
         List<System5> system5List = system5Repository.findAllByUserId(userId);
         for (System5 system51 : system5List){
@@ -225,4 +212,6 @@ public class System5Controller {
                 .map(System5::getMonth)
                 .collect(Collectors.toList());
     }
+
+
 }

@@ -2,7 +2,12 @@ package com.example.system5.service.system5Service;
 
 import com.example.system5.model.System5;
 import com.example.system5.model.System5empl;
+import com.example.system5.model.TotalMark5;
+import com.example.system5.repository.System5Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import javax.validation.Valid;
 
 @Service
 public class GetTotalMarkService {
@@ -189,5 +194,23 @@ public class GetTotalMarkService {
                 break;
         }
         return result;
+    }
+
+    public System5 setTotalMarkAndSystem5Save(@ModelAttribute @Valid System5empl system5empl,
+                                                  System5Repository system5Repository,
+                                                  GetTotalMarkService getTotalMarkService) {
+        System5 system5 = system5Repository.findById(system5empl.getSystem5Id()).orElse(null);
+
+        assert system5 != null;
+        TotalMark5 totalMark5 = system5.getTotalMark5();
+        totalMark5.setTotalMarkEmpl(getTotalMarkService.getTotalMarkEmpl(system5empl));
+
+        system5.setTotalMark5(totalMark5);
+        system5.setRated(1);
+        system5.setSystem5empl(system5empl);
+
+        system5empl.setSystem5(system5);
+
+        return system5Repository.save(system5);
     }
 }
