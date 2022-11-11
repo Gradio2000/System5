@@ -65,7 +65,9 @@ public class UserListTransformer {
             String[] newStrings = new String[7];
             System.arraycopy(strings, 0, newStrings, 0, strings.length);
             newStrings[6] = getTotalMarkService.getTotalHalfYearProcess(strings);
-            userDtoListMap.put(userDto, newStrings);
+            if (newStrings[6] != null){
+                userDtoListMap.put(userDto, newStrings);
+            }
         }
         return userDtoListMap;
     }
@@ -105,7 +107,9 @@ public class UserListTransformer {
             String[] newStrings = new String[7];
             System.arraycopy(strings, 0, newStrings, 0, strings.length);
             newStrings[6] = getTotalMarkService.getTotalHalfYearProcess(strings);
-            userDtoListMap.put(userDto, newStrings);
+            if (newStrings[6] != null){
+                userDtoListMap.put(userDto, newStrings);
+            }
         }
         return userDtoListMap;
     }
