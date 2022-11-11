@@ -1,6 +1,5 @@
 package com.example.system5.controller;
 
-import com.example.ServletInitializer;
 import com.example.system5.dto.UserDto;
 import com.example.system5.model.*;
 import com.example.system5.repository.PositionRepository;
@@ -9,6 +8,7 @@ import com.example.system5.util.AuthUser;
 import com.example.system5.validation.FormFinishRegValidator;
 import com.example.system5.validation.MyFormValidator;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -60,8 +60,8 @@ public class RegistrationController {
     }
 
     @GetMapping("/login")
-    public String login(Model model){
-        model.addAttribute("version", ServletInitializer.VERSION);
+    public String login(Model model, @Value("${version}") String version){
+        model.addAttribute("version", version);
         return "login";
     }
 
