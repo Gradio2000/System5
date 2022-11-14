@@ -26,3 +26,36 @@
 2022-11-12 16:07:32.288  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m8s997ms).
 2022-11-12 18:08:29.848  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h27s563ms).
 2022-11-12 18:41:57.611  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m57s765ms).
+2022-11-12 19:07:21.940  INFO 88361 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 88361 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-12 19:07:21.951 DEBUG 88361 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-12 19:07:21.954  INFO 88361 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-12 19:07:42.968  INFO 88361 --- [main] com.example.System5Application           : Started System5Application in 24.552 seconds (JVM running for 29.4)
+2022-11-12 19:22:32.634  INFO 88361 --- [http-nio-8080-exec-8] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
+2022-11-12 19:22:39.322  INFO 88361 --- [http-nio-8080-exec-6] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
+2022-11-12 19:22:45.322  INFO 88361 --- [http-nio-8080-exec-9] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
+2022-11-12 19:22:47.005  INFO 88361 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
+2022-11-12 19:23:14.054  INFO 88361 --- [http-nio-8080-exec-2] c.e.qtest.controller.ExamController      : appointExam Иванов А.А.
+2022-11-12 19:23:17.761  INFO 88361 --- [http-nio-8080-exec-4] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
+2022-11-12 19:23:18.973  INFO 88361 --- [http-nio-8080-exec-6] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
+2022-11-12 19:23:28.934  INFO 88361 --- [http-nio-8080-exec-10] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
+2022-11-12 19:23:33.725  INFO 88361 --- [http-nio-8080-exec-9] c.e.q.controller.TestReportController    : getReport Иванов А.А.
+2022-11-12 19:23:37.738  INFO 88361 --- [http-nio-8080-exec-2] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
+2022-11-12 19:23:41.571  INFO 88361 --- [http-nio-8080-exec-5] c.e.qtest.controller.ExamController      : appointExam Иванов А.А.
+2022-11-12 19:23:42.360  INFO 88361 --- [http-nio-8080-exec-10] c.e.q.controller.GroupTestController     : testGroupList Иванов А.А.
+2022-11-12 19:23:44.462  INFO 88361 --- [http-nio-8080-exec-9] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
+2022-11-12 19:23:45.729  INFO 88361 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
+2022-11-12 19:23:48.225  INFO 88361 --- [http-nio-8080-exec-2] c.e.s.c.a.UserAdminController            : deleteUser Иванов А.А.
+2022-11-12 19:23:48.439  INFO 88361 --- [http-nio-8080-exec-3] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
+2022-11-12 19:23:50.285  INFO 88361 --- [http-nio-8080-exec-5] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
+2022-11-12 19:23:50.900  INFO 88361 --- [http-nio-8080-exec-6] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
+2022-11-12 19:24:23.751  INFO 88361 --- [http-nio-8080-exec-4] c.e.s.controller.RegistrationController  : finishRegistration null
+2022-11-12 19:24:28.041  INFO 88361 --- [http-nio-8080-exec-5] c.e.s.controller.RegistrationController  : finishRegistration null
+2022-11-12 19:24:28.103  INFO 88361 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : getAll Лапшина Т.С.
+2022-11-12 19:24:55.581  INFO 88361 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Лапшина Т.С.
+2022-11-12 19:24:59.875  INFO 88361 --- [http-nio-8080-exec-7] c.e.q.controller.ProcessTestController   : getUserAttempts Лапшина Т.С.
+2022-11-12 19:25:06.427  INFO 88361 --- [http-nio-8080-exec-4] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
+2022-11-12 19:25:10.986  INFO 88361 --- [http-nio-8080-exec-10] c.e.qtest.controller.ExamController      : getJournal Иванов А.А.
+2022-11-12 19:25:15.165  INFO 88361 --- [http-nio-8080-exec-9] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
+2022-11-12 19:25:17.494  INFO 88361 --- [http-nio-8080-exec-1] c.e.qtest.controller.ExamController      : getJournal Иванов А.А.
+2022-11-12 19:25:25.420  INFO 88361 --- [http-nio-8080-exec-3] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
+2022-11-12 19:25:29.679  INFO 88361 --- [http-nio-8080-exec-5] c.e.q.controller.TestReportController    : getReport Иванов А.А.
