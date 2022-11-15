@@ -1,65 +1,38 @@
-2022-11-12 00:19:09.477  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=35m10s118ms).
-2022-11-12 00:26:35.266  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m25s789ms).
-2022-11-12 00:47:55.645  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m20s379ms).
-2022-11-12 04:43:57.103  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h56m1s450ms).
-2022-11-12 07:00:06.576  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h16m9s477ms).
-2022-11-12 09:00:19.706  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h13s125ms).
-2022-11-12 09:51:43.809  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m24s102ms).
-2022-11-12 10:46:07.573  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m23s612ms).
-2022-11-12 11:08:34.635  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m56s960ms).
-2022-11-12 11:25:17.095  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m12s473ms).
-2022-11-12 11:40:45.255  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m58s148ms).
-2022-11-12 11:46:11.257  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m26s2ms).
-2022-11-12 11:47:29.456  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s197ms).
-2022-11-12 11:58:29.320  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m59s864ms).
-2022-11-12 12:15:15.737  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m16s428ms).
-2022-11-12 12:32:28.759  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m43s46ms).
-2022-11-12 12:48:36.704  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m37s970ms).
-2022-11-12 13:07:08.566  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m1s856ms).
-2022-11-12 13:30:24.898  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m16s242ms).
-2022-11-12 13:48:09.741  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m14s868ms).
-2022-11-12 14:04:13.422  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m33s657ms).
-2022-11-12 14:18:40.198  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m26s776ms).
-2022-11-12 14:36:32.774  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m21s850ms).
-2022-11-12 15:46:13.855  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h9m11s105ms).
-2022-11-12 15:50:23.291  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m39s426ms).
-2022-11-12 16:07:32.288  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m8s997ms).
-2022-11-12 18:08:29.848  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h27s563ms).
-2022-11-12 18:41:57.611  WARN 85580 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m57s765ms).
-2022-11-12 19:07:21.940  INFO 88361 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 88361 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
-2022-11-12 19:07:21.951 DEBUG 88361 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
-2022-11-12 19:07:21.954  INFO 88361 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
-2022-11-12 19:07:42.968  INFO 88361 --- [main] com.example.System5Application           : Started System5Application in 24.552 seconds (JVM running for 29.4)
-2022-11-12 19:22:32.634  INFO 88361 --- [http-nio-8080-exec-8] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
-2022-11-12 19:22:39.322  INFO 88361 --- [http-nio-8080-exec-6] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
-2022-11-12 19:22:45.322  INFO 88361 --- [http-nio-8080-exec-9] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
-2022-11-12 19:22:47.005  INFO 88361 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
-2022-11-12 19:23:14.054  INFO 88361 --- [http-nio-8080-exec-2] c.e.qtest.controller.ExamController      : appointExam Иванов А.А.
-2022-11-12 19:23:17.761  INFO 88361 --- [http-nio-8080-exec-4] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
-2022-11-12 19:23:18.973  INFO 88361 --- [http-nio-8080-exec-6] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
-2022-11-12 19:23:28.934  INFO 88361 --- [http-nio-8080-exec-10] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
-2022-11-12 19:23:33.725  INFO 88361 --- [http-nio-8080-exec-9] c.e.q.controller.TestReportController    : getReport Иванов А.А.
-2022-11-12 19:23:37.738  INFO 88361 --- [http-nio-8080-exec-2] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
-2022-11-12 19:23:41.571  INFO 88361 --- [http-nio-8080-exec-5] c.e.qtest.controller.ExamController      : appointExam Иванов А.А.
-2022-11-12 19:23:42.360  INFO 88361 --- [http-nio-8080-exec-10] c.e.q.controller.GroupTestController     : testGroupList Иванов А.А.
-2022-11-12 19:23:44.462  INFO 88361 --- [http-nio-8080-exec-9] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
-2022-11-12 19:23:45.729  INFO 88361 --- [http-nio-8080-exec-1] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
-2022-11-12 19:23:48.225  INFO 88361 --- [http-nio-8080-exec-2] c.e.s.c.a.UserAdminController            : deleteUser Иванов А.А.
-2022-11-12 19:23:48.439  INFO 88361 --- [http-nio-8080-exec-3] c.e.s.c.a.DivisionController             : getStat Иванов А.А.
-2022-11-12 19:23:50.285  INFO 88361 --- [http-nio-8080-exec-5] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
-2022-11-12 19:23:50.900  INFO 88361 --- [http-nio-8080-exec-6] c.e.s.c.a.PositionController             : getPositions Иванов А.А.
-2022-11-12 19:24:23.751  INFO 88361 --- [http-nio-8080-exec-4] c.e.s.controller.RegistrationController  : finishRegistration null
-2022-11-12 19:24:28.041  INFO 88361 --- [http-nio-8080-exec-5] c.e.s.controller.RegistrationController  : finishRegistration null
-2022-11-12 19:24:28.103  INFO 88361 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : getAll Лапшина Т.С.
-2022-11-12 19:24:55.581  INFO 88361 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Лапшина Т.С.
-2022-11-12 19:24:59.875  INFO 88361 --- [http-nio-8080-exec-7] c.e.q.controller.ProcessTestController   : getUserAttempts Лапшина Т.С.
-2022-11-12 19:25:06.427  INFO 88361 --- [http-nio-8080-exec-4] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
-2022-11-12 19:25:10.986  INFO 88361 --- [http-nio-8080-exec-10] c.e.qtest.controller.ExamController      : getJournal Иванов А.А.
-2022-11-12 19:25:15.165  INFO 88361 --- [http-nio-8080-exec-9] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
-2022-11-12 19:25:17.494  INFO 88361 --- [http-nio-8080-exec-1] c.e.qtest.controller.ExamController      : getJournal Иванов А.А.
-2022-11-12 19:25:25.420  INFO 88361 --- [http-nio-8080-exec-3] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
-2022-11-12 19:25:29.679  INFO 88361 --- [http-nio-8080-exec-5] c.e.q.controller.TestReportController    : getReport Иванов А.А.
-2022-11-14 12:03:30.683  INFO 99159 --- [main] c.e.system5.System5ApplicationTests      : Starting System5ApplicationTests using Java 15.0.2 on MacBook-Air.local with PID 99159 (started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
-2022-11-14 12:03:30.685 DEBUG 99159 --- [main] c.e.system5.System5ApplicationTests      : Running with Spring Boot v2.7.4, Spring v5.3.23
-2022-11-14 12:03:30.687  INFO 99159 --- [main] c.e.system5.System5ApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2022-11-14 12:03:47.109  INFO 99159 --- [main] c.e.system5.System5ApplicationTests      : Started System5ApplicationTests in 17.394 seconds (JVM running for 19.817)
+2022-11-15 12:27:44.224  INFO 6741 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 6741 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-15 12:27:44.290 DEBUG 6741 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-15 12:27:44.313  INFO 6741 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-15 12:27:59.755  INFO 6741 --- [main] com.example.System5Application           : Started System5Application in 16.953 seconds (JVM running for 19.986)
+2022-11-15 12:28:23.232  INFO 6741 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-15 12:28:29.940  INFO 6741 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:29:08.219  INFO 6741 --- [http-nio-8080-exec-10] c.e.qtest.controller.ExamController      : getJournalBase Иванов С.Н.
+2022-11-15 12:29:16.314  INFO 6741 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:29:24.794  INFO 6741 --- [http-nio-8080-exec-4] c.e.q.controller.AppointTestController   : getUserAppoint Иванов С.Н.
+2022-11-15 12:29:28.194  INFO 6741 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-15 12:29:31.373  INFO 6741 --- [http-nio-8080-exec-1] c.e.kladr.controlller.RegionController   : getSearchPage Иванов С.Н.
+2022-11-15 12:29:32.621  INFO 6741 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:29:33.381  INFO 6741 --- [http-nio-8080-exec-4] c.e.kladr.controlller.RegionController   : getSearchPage Иванов С.Н.
+2022-11-15 12:29:35.938  INFO 6741 --- [http-nio-8080-exec-6] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:29:37.522  INFO 6741 --- [http-nio-8080-exec-9] c.e.kladr.controlller.RegionController   : getSearchPage Иванов С.Н.
+2022-11-15 12:29:39.744  INFO 6741 --- [http-nio-8080-exec-1] c.e.kladr.controlller.RegionController   : getRegion Иванов С.Н.
+2022-11-15 12:29:43.848  INFO 6741 --- [http-nio-8080-exec-10] c.e.kladr.controlller.RegionController   : getStreetList Иванов С.Н.
+2022-11-15 12:29:48.916  INFO 6741 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:30:07.165  INFO 6741 --- [http-nio-8080-exec-4] c.e.q.controller.ProcessTestController   : getUserAttempts Иванов С.Н.
+2022-11-15 12:49:56.587  INFO 7225 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 7225 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-15 12:49:56.596 DEBUG 7225 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-15 12:49:56.598  INFO 7225 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-15 12:50:16.195  INFO 7225 --- [main] com.example.System5Application           : Started System5Application in 24.48 seconds (JVM running for 27.873)
+2022-11-15 12:51:41.425  INFO 7225 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-15 12:51:44.415  INFO 7225 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:54:16.775  INFO 7331 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 7331 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-15 12:54:16.783 DEBUG 7331 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-15 12:54:16.786  INFO 7331 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-15 12:54:29.793  INFO 7331 --- [main] com.example.System5Application           : Started System5Application in 14.778 seconds (JVM running for 18.232)
+2022-11-15 12:54:45.908  INFO 7331 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-15 12:54:49.141  INFO 7331 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:55:05.270  INFO 7331 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-15 12:57:08.035  INFO 7404 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 7404 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-15 12:57:08.046 DEBUG 7404 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-15 12:57:08.050  INFO 7404 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-15 12:57:20.968  INFO 7404 --- [main] com.example.System5Application           : Started System5Application in 15.12 seconds (JVM running for 17.703)
+2022-11-15 12:57:30.965  INFO 7404 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-15 12:57:33.441  INFO 7404 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
