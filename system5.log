@@ -59,3 +59,7 @@
 2022-11-12 19:25:17.494  INFO 88361 --- [http-nio-8080-exec-1] c.e.qtest.controller.ExamController      : getJournal Иванов А.А.
 2022-11-12 19:25:25.420  INFO 88361 --- [http-nio-8080-exec-3] c.e.qtest.controller.ExamController      : getJournalBase Иванов А.А.
 2022-11-12 19:25:29.679  INFO 88361 --- [http-nio-8080-exec-5] c.e.q.controller.TestReportController    : getReport Иванов А.А.
+2022-11-14 12:03:30.683  INFO 99159 --- [main] c.e.system5.System5ApplicationTests      : Starting System5ApplicationTests using Java 15.0.2 on MacBook-Air.local with PID 99159 (started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-14 12:03:30.685 DEBUG 99159 --- [main] c.e.system5.System5ApplicationTests      : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-14 12:03:30.687  INFO 99159 --- [main] c.e.system5.System5ApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2022-11-14 12:03:47.109  INFO 99159 --- [main] c.e.system5.System5ApplicationTests      : Started System5ApplicationTests in 17.394 seconds (JVM running for 19.817)
