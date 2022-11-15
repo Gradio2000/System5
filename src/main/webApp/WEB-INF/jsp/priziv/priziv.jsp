@@ -39,24 +39,59 @@
       <th>Дата убытия</th>
     </tr>
     <c:forEach var="priziv" items="${prizivList}" varStatus="count">
-      <tr>
-        <td>${count.count}</td>
-        <td>${priziv.commandName}</td>
-        <td><fmt:formatDate value="${priziv.dateArrival}" pattern="dd.MM.yyyy"/></td>
-        <td>${priziv.peopleAmmount}</td>
-        <td>
-          <input type="checkbox" value="${priziv.getPassports}">
-        </td>
-        <td>
-          <input type="checkbox" value="${priziv.processed}">
-        </td>
-        <td>${priziv.issued}</td>
-        <td>${priziv.preparedAndNotIssued}</td>
-        <td><fmt:formatDate value="${priziv.dateDeparture}" pattern="dd.MM.yyyy"/></td>
-      </tr>
+      <form id="prizivForm${priziv.prizivId}">
+        <input type="hidden" name="prizivId" value="${priziv.prizivId}">
+        <input type="hidden" name="commandName" value="${priziv.commandName}">
+        <input type="hidden" name="dateArrival" value="${priziv.dateArrival}">
+        <input type="hidden" name="dateDeparture" value="${priziv.dateDeparture}">
+        <input type="hidden" name="peopleAmmount" value="${priziv.peopleAmmount}">
+        <tr>
+          <td>${count.count}</td>
+          <td>${priziv.commandName}</td>
+          <td><fmt:formatDate value="${priziv.dateArrival}" pattern="dd.MM.yyyy"/></td>
+          <td>${priziv.peopleAmmount}</td>
+          <td>
+            <c:if test="${priziv.getPassports}">
+              <input type="checkbox" name="getPassports" checked onchange="editPriziv(${priziv.prizivId})">
+            </c:if>
+            <c:if test="${!priziv.getPassports}">
+              <input type="checkbox" name="getPassports" onchange="editPriziv(${priziv.prizivId})">
+            </c:if>
+          </td>
+          <td>
+            <c:if test="${priziv.processed}">
+              <input type="checkbox" name="processed" checked onchange="editPriziv(${priziv.prizivId})">
+            </c:if>
+            <c:if test="${!priziv.processed}">
+              <input type="checkbox" name="processed" onchange="editPriziv(${priziv.prizivId})">
+            </c:if>
+          </td>
+          <td><input type="number" class="myinput" name="issued" value="${priziv.issued}" onchange="editPriziv(${priziv.prizivId})"></td>
+          <td><input type="number" class="myinput" name="preparedAndNotIssued" value="${priziv.preparedAndNotIssued}" onchange="editPriziv(${priziv.prizivId})"></td>
+          <td><fmt:formatDate value="${priziv.dateDeparture}" pattern="dd.MM.yyyy"/></td>
+        </tr>
+      </form>
     </c:forEach>
   </table>
 </div>
 </body>
 </html>
+<script>
+  function editPriziv(id){
+    const msg = document.getElementById("prizivForm" + id);
+    console.log(msg);
+    let d = $(msg).serializeArray();
+    $.ajax({
+      type: 'POST',
+      url: '/priziv/change',
+      data: d,
+      success: function (data) {
+      },
+      error: function () {
+        alert('Ошибка изменения записи! Обратитесь к администратору! function editPriziv(id)');
+        console.log(d);
+      }
+    });
+  }
+</script>
 

@@ -2,6 +2,7 @@ package com.example.priziv.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -32,9 +33,11 @@ public class Priziv {
     private Integer preparedAndNotIssued;
 
     @Column(name = "date_arrival")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateArrival;
 
     @Column(name = "date_departure")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateDeparture;
 
     @Column(name = "people_ammount")

@@ -5,10 +5,15 @@ import com.example.priziv.repository.PrizivRepository;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -32,6 +37,19 @@ public class PrizivController {
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
         model.addAttribute("prizivList", prizivList);
         return "/priziv/priziv";
+    }
+
+    @PostMapping("/priziv/change")
+    @ResponseBody
+    public HttpStatus prizivChange(@ModelAttribute @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Priziv priziv){
+        if (priziv.getGetPassports() == null){
+            priziv.setGetPassports(false);
+        }
+        if (priziv.getProcessed() == null){
+            priziv.setProcessed(false);
+        }
+        prizivRepository.save(priziv);
+        return HttpStatus.OK;
     }
 }
 

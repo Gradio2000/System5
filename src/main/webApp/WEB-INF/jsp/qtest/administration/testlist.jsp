@@ -117,8 +117,6 @@
             url: '/tests/change/',
             data: d,
             success: function (data) {
-                let el =  document.getElementById('btnch' + id);
-                $(el).hide();
             },
             error: function () {
                 alert('Ошибка изменения теста! Обратитесь к администратору!');
