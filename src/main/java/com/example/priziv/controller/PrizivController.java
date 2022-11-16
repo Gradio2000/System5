@@ -1,6 +1,6 @@
 package com.example.priziv.controller;
 
-import com.example.priziv.Dto.PrizivDto;
+import com.example.priziv.dto.PrizivDto;
 import com.example.priziv.model.Priziv;
 import com.example.priziv.repository.PrizivRepository;
 import com.example.system5.dto.UserDto;
@@ -79,6 +79,9 @@ public class PrizivController {
         prizivDto.setGetPassports(false);
         prizivDto.setIssued(0);
         prizivDto.setPreparedAndNotIssued(0);
+        if (prizivDto.getPeopleAmmount() == null){
+            prizivDto.setPeopleAmmount(0);
+        }
         Priziv priziv = Priziv.getInstance(prizivDto);
         prizivRepository.save(priziv);
         return "redirect:/priziv";

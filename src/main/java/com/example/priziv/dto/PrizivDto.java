@@ -1,4 +1,4 @@
-package com.example.priziv.Dto;
+package com.example.priziv.dto;
 
 import com.example.priziv.model.Priziv;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package com.example.priziv.model;
 
-import com.example.priziv.Dto.PrizivDto;
+import com.example.priziv.dto.PrizivDto;
 import lombok.Getter;
 import lombok.Setter;
 
