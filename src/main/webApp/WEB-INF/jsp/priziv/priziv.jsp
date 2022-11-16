@@ -28,7 +28,7 @@
 <div class="main">
   <table>
     <tr>
-      <th>№п/п</th>
+      <th style="width: 40px">№ п/п</th>
       <th>Команда</th>
       <th>Дата прибытия</th>
       <th>Количество человек</th>
@@ -42,13 +42,14 @@
       <form id="prizivForm${priziv.prizivId}">
         <input type="hidden" name="prizivId" value="${priziv.prizivId}">
         <input type="hidden" name="commandName" value="${priziv.commandName}">
-        <input type="hidden" name="dateArrival" value="${priziv.dateArrival}">
-        <input type="hidden" name="dateDeparture" value="${priziv.dateDeparture}">
         <input type="hidden" name="peopleAmmount" value="${priziv.peopleAmmount}">
         <tr>
           <td>${count.count}</td>
           <td>${priziv.commandName}</td>
-          <td><fmt:formatDate value="${priziv.dateArrival}" pattern="dd.MM.yyyy"/></td>
+          <td>
+            <input type="date" class="myinput" name="dateArrival" value="${priziv.dateArrival}"
+                   onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
+          </td>
           <td>${priziv.peopleAmmount}</td>
           <td>
             <c:if test="${priziv.getPassports}">
@@ -66,13 +67,42 @@
               <input type="checkbox" name="processed" onchange="editPriziv(${priziv.prizivId})">
             </c:if>
           </td>
-          <td><input type="number" class="myinput" name="issued" value="${priziv.issued}" onchange="editPriziv(${priziv.prizivId})"></td>
-          <td><input type="number" class="myinput" name="preparedAndNotIssued" value="${priziv.preparedAndNotIssued}" onchange="editPriziv(${priziv.prizivId})"></td>
-          <td><fmt:formatDate value="${priziv.dateDeparture}" pattern="dd.MM.yyyy"/></td>
+          <td><input type="number" class="myinput" name="issued" value="${priziv.issued}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"></td>
+          <td><input type="number" class="myinput" name="preparedAndNotIssued" value="${priziv.preparedAndNotIssued}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"></td>
+          <td>
+            <input type="date" class="myinput" name="dateDeparture" value="${priziv.dateDeparture}"
+                   onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
+          </td>
         </tr>
       </form>
     </c:forEach>
   </table>
+  <button type="button" class="btn" onclick="document.location='#openModal'">Добавить</button>
+
+    <div id="openModal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Добавить</h3>
+            <a href="#close" title="Close" class="close">×</a>
+          </div>
+          <div class="modal-body my-modal">
+            <form method="post" action="/addPriziv">
+              <input name="prizivId" type="hidden"/>
+              <input name="commandName" placeholder="Название команды"/>
+              <input type="number" name="peopleAmmount" placeholder="Количество человек"/>
+              <input type="date" name="dateArrival" placeholder="Дата прибытия"/>
+              <input type="date" name="dateDeparture" placeholder="Дата присяги"/>
+              <br/>
+              <button type="submit" class="btn">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>
 </body>
 </html>

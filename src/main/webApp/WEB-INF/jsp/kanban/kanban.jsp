@@ -404,7 +404,6 @@
               url: '/kanban/getKanban',
               data: {kanId: id},
               success: function (data) {
-                  console.log(data);
                   // запустится при успешном выполнении запроса и в data будет ответ скрипта
                   clearModal();
                   document.getElementById("kanbanId").value = data.id;
