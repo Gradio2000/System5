@@ -651,3 +651,23 @@ java.text.ParseException: Unparseable date: ""
 2022-11-16 10:11:03.486  INFO 3806 --- [http-nio-8080-exec-5] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
 2022-11-16 10:11:13.695  INFO 3806 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
 2022-11-16 10:11:39.175  INFO 3806 --- [http-nio-8080-exec-7] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-16 10:14:32.828  INFO 3968 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 3968 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-16 10:14:32.843 DEBUG 3968 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-16 10:14:32.844  INFO 3968 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-16 10:14:45.404  INFO 3968 --- [main] com.example.System5Application           : Started System5Application in 14.718 seconds (JVM running for 17.883)
+2022-11-16 10:14:54.255  INFO 3968 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-16 10:14:56.509  INFO 3968 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-16 10:15:56.778  INFO 4019 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 4019 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-16 10:15:56.789 DEBUG 4019 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-16 10:15:56.791  INFO 4019 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-16 10:16:09.220  INFO 4019 --- [main] com.example.System5Application           : Started System5Application in 14.216 seconds (JVM running for 17.615)
+2022-11-16 10:16:18.918  INFO 4019 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-16 10:16:21.329  INFO 4019 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-16 10:25:56.735  INFO 4240 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 4240 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-16 10:25:56.741 DEBUG 4240 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-16 10:25:56.743  INFO 4240 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-16 10:26:11.915  INFO 4240 --- [main] com.example.System5Application           : Started System5Application in 15.993 seconds (JVM running for 18.461)
+2022-11-16 10:26:17.789  INFO 4240 --- [http-nio-8080-exec-6] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-16 10:26:20.253  INFO 4240 --- [http-nio-8080-exec-9] c.e.kladr.controlller.RegionController   : getSearchPage Иванов С.Н.
+2022-11-16 10:26:21.120  INFO 4240 --- [http-nio-8080-exec-1] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-16 10:27:12.726  INFO 4240 --- [http-nio-8080-exec-6] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.

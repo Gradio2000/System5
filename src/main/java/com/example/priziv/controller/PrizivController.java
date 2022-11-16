@@ -40,8 +40,21 @@ public class PrizivController {
                 .map(PrizivDto::getInstance)
                 .collect(Collectors.toList());
 
+        int totalPeopleAmount = 0;
+        int totalIssued = 0;
+        int totalPreparedAndNotIssued = 0;
+
+        for (PrizivDto prizivDto: prizivList){
+            totalPeopleAmount += prizivDto.getPeopleAmmount();
+            totalIssued += prizivDto.getIssued();
+            totalPreparedAndNotIssued += prizivDto.getPreparedAndNotIssued();
+        }
+
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
         model.addAttribute("prizivList", prizivList);
+        model.addAttribute("totalPeopleAmount", totalPeopleAmount);
+        model.addAttribute("totalIssued", totalIssued);
+        model.addAttribute("totalPreparedAndNotIssued", totalPreparedAndNotIssued);
         return "/priziv/priziv";
     }
 

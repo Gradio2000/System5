@@ -78,6 +78,15 @@
         </tr>
       </form>
     </c:forEach>
+    <tr>
+      <td colspan="3">ИТОГО</td>
+      <td>${totalPeopleAmount}</td>
+      <td>X</td>
+      <td>X</td>
+      <td>${totalIssued}</td>
+      <td>${totalPreparedAndNotIssued}</td>
+      <td>X</td>
+    </tr>
   </table>
   <button type="button" class="btn" onclick="document.location='#openModal'">Добавить</button>
 
