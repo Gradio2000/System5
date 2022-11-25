@@ -89,6 +89,7 @@
     </tr>
   </table>
   <button type="button" class="btn" onclick="document.location='#openModal'">Добавить</button>
+  <button type="button" class="btn" onclick="document.location='/priziv/ill'">Список больных</button>
 
     <div id="openModal" class="modal">
       <div class="modal-dialog">

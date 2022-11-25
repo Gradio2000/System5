@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "p_priziv")
@@ -43,12 +44,15 @@ public class Priziv {
     @Column(name = "people_ammount")
     private Integer peopleAmmount;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "prizivId")
+    private List<Ill> illList;
+
     public Priziv() {
     }
 
     public Priziv(Integer prizivId, String commandName, Boolean getPassports, Boolean processed,
                   Integer issued, Integer preparedAndNotIssued, Date dateArrival, Date dateDeparture,
-                  Integer peopleAmmount) {
+                  Integer peopleAmmount, List<Ill>illList) {
         this.prizivId = prizivId;
         this.commandName = commandName;
         this.getPassports = getPassports;
@@ -58,13 +62,14 @@ public class Priziv {
         this.dateArrival = dateArrival;
         this.dateDeparture = dateDeparture;
         this.peopleAmmount = peopleAmmount;
+        this.illList = illList;
     }
 
     public static Priziv getInstance(PrizivDto prizivDto){
         return new Priziv(prizivDto.getPrizivId(), prizivDto.getCommandName(), prizivDto.getGetPassports(),
                  prizivDto.getProcessed(), prizivDto.getIssued(), prizivDto.getPreparedAndNotIssued(),
                 convertStringToDate(prizivDto.getDateArrival()), convertStringToDate(prizivDto.getDateDeparture()),
-                prizivDto.getPeopleAmmount());
+                prizivDto.getPeopleAmmount(), prizivDto.getIllList());
     }
 
     private static Date convertStringToDate(String str){

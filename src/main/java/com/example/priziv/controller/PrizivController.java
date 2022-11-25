@@ -3,10 +3,9 @@ package com.example.priziv.controller;
 import com.example.priziv.dto.PrizivDto;
 import com.example.priziv.model.Priziv;
 import com.example.priziv.repository.PrizivRepository;
-import com.example.system5.dto.UserDto;
+import com.example.priziv.service.PrizivService;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -16,16 +15,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Controller
 @Slf4j
 public class PrizivController {
     private final PrizivRepository prizivRepository;
+    private final PrizivService prizivService;
 
-    public PrizivController(PrizivRepository prizivRepository) {
+    public PrizivController(PrizivRepository prizivRepository, PrizivService prizivService) {
         this.prizivRepository = prizivRepository;
+        this.prizivService = prizivService;
     }
 
     @GetMapping("/priziv")
@@ -34,28 +32,17 @@ public class PrizivController {
 
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
-
-        List<PrizivDto> prizivList = prizivRepository.findAll(Sort.by("dateArrival", "dateDeparture"))
-                .stream()
-                .map(PrizivDto::getInstance)
-                .collect(Collectors.toList());
-
-        int totalPeopleAmount = 0;
-        int totalIssued = 0;
-        int totalPreparedAndNotIssued = 0;
-
-        for (PrizivDto prizivDto: prizivList){
-            totalPeopleAmount += prizivDto.getPeopleAmmount();
-            totalIssued += prizivDto.getIssued();
-            totalPreparedAndNotIssued += prizivDto.getPreparedAndNotIssued();
-        }
-
-        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
-        model.addAttribute("prizivList", prizivList);
-        model.addAttribute("totalPeopleAmount", totalPeopleAmount);
-        model.addAttribute("totalIssued", totalIssued);
-        model.addAttribute("totalPreparedAndNotIssued", totalPreparedAndNotIssued);
+        prizivService.getAllPriziv(authUser, model);
         return "/priziv/priziv";
+    }
+
+    @GetMapping ("/priziv/ill")
+    public String getAllIll(@AuthenticationPrincipal AuthUser authUser,
+                            Model model){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+        prizivService.getAllPriziv(authUser, model);
+        return "priziv/ill";
     }
 
     @PostMapping("/priziv/change")
