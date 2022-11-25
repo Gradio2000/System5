@@ -44,7 +44,8 @@ public class Priziv {
     @Column(name = "people_ammount")
     private Integer peopleAmmount;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "prizivId")
+    @OneToMany(targetEntity = Ill.class, cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER, mappedBy = "prizivId")
     private List<Ill> illList;
 
     public Priziv() {

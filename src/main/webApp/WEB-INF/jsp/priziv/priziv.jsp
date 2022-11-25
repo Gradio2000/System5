@@ -67,10 +67,13 @@
               <input type="checkbox" name="processed" onchange="editPriziv(${priziv.prizivId})">
             </c:if>
           </td>
-          <td><input type="number" class="myinput" name="issued" value="${priziv.issued}"
-                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"></td>
-          <td><input type="number" class="myinput" name="preparedAndNotIssued" value="${priziv.preparedAndNotIssued}"
-                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"></td>
+          <td>
+            <input type="number" class="myinput" name="issued" value="${priziv.issued}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0">
+          </td>
+          <td>
+            <button id="${priziv.prizivId}" type="button" class="btn" style="margin: 0" onclick="openModalIlled(this.id)">${priziv.illList.size()}</button>
+          </td>
           <td>
             <input type="date" class="myinput" name="dateDeparture" value="${priziv.dateDeparture}"
                    onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
@@ -113,11 +116,53 @@
       </div>
     </div>
 
+    <div id="openModal1" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Добавить больного</h3>
+          <a href="#close" title="Close" class="close">×</a>
+        </div>
+        <div class="modal-body my-modal">
+          <form id="illForm">
+            <input id="prizivIdNumber" name="prizivId" type="hidden"/>
+            <input name="fio" placeholder="Введите фамилию больного"/>
+            <br/>
+            <button type="button" class="btn" onclick="addIlled()">Записать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
 <script>
-  function editPriziv(id){
+  function openModalIlled(prizivId) {
+    document.location='#openModal1';
+    let el = document.getElementById("prizivIdNumber");
+    el.setAttribute("value", prizivId);
+}
+
+function addIlled() {
+    const msg = $('#illForm').serialize();
+    $.ajax({
+      type: 'POST',
+      url: '/priziv/addIlled',
+      data: msg,
+      success: function (data) {
+        // запустится при успешном выполнении запроса и в data будет ответ скрипта
+      },
+      error: function () {
+        alert('Ошибка!');
+        console.log(msg);
+      }
+    });
+
+  }
+
+function editPriziv(id){
     const msg = document.getElementById("prizivForm" + id);
     console.log(msg);
     let d = $(msg).serializeArray();
@@ -129,7 +174,6 @@
       },
       error: function () {
         alert('Ошибка изменения записи! Обратитесь к администратору! function editPriziv(id)');
-        console.log(d);
       }
     });
   }

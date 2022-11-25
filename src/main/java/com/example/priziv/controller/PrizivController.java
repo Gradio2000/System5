@@ -1,6 +1,7 @@
 package com.example.priziv.controller;
 
 import com.example.priziv.dto.PrizivDto;
+import com.example.priziv.model.Ill;
 import com.example.priziv.model.Priziv;
 import com.example.priziv.repository.PrizivRepository;
 import com.example.priziv.service.PrizivService;
@@ -10,10 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -72,6 +72,17 @@ public class PrizivController {
         Priziv priziv = Priziv.getInstance(prizivDto);
         prizivRepository.save(priziv);
         return "redirect:/priziv";
+    }
+
+    @PostMapping("/priziv/addIlled")
+    @ResponseBody
+    public Priziv addIlled(@RequestParam Integer prizivId, @RequestParam String fio){
+        Priziv priziv = prizivRepository.findById(prizivId).orElse(null);
+        assert priziv != null;
+        List<Ill> illList = priziv.getIllList();
+        illList.add(new Ill(fio, prizivId));
+        priziv.setIllList(illList);
+        return prizivRepository.save(priziv);
     }
 }
 

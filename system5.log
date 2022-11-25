@@ -904,3 +904,120 @@ javax.servlet.ServletException: JSP file [&#47;WEB-INF&#47;jsp&#47;error.jsp] no
 2022-11-25 16:57:34.421  INFO 24457 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
 2022-11-25 16:57:37.663  INFO 24457 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
 2022-11-25 16:57:39.011  INFO 24457 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getAllIll Иванов С.Н.
+2022-11-25 17:53:17.494  INFO 24457 --- [http-nio-8080-exec-9] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 17:53:19.586  INFO 24457 --- [http-nio-8080-exec-3] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 17:53:20.464  INFO 24457 --- [http-nio-8080-exec-4] c.e.priziv.controller.PrizivController   : getAllIll Иванов С.Н.
+2022-11-25 18:16:05.978  WARN 24457 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m46s26ms).
+2022-11-25 20:01:22.716  WARN 24457 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h44m46s682ms).
+2022-11-25 20:57:57.389  WARN 24457 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56m34s673ms).
+2022-11-25 22:25:01.561  INFO 24457 --- [http-nio-8080-exec-3] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:25:03.243  INFO 24457 --- [http-nio-8080-exec-7] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:25:04.587  INFO 24457 --- [http-nio-8080-exec-5] c.e.priziv.controller.PrizivController   : getAllIll Иванов С.Н.
+2022-11-25 22:25:30.895  INFO 27689 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 27689 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:25:30.899 DEBUG 27689 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:25:30.900  INFO 27689 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:25:41.817  INFO 27689 --- [main] com.example.System5Application           : Started System5Application in 12.92 seconds (JVM running for 16.166)
+2022-11-25 22:25:53.270  INFO 27689 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:25:55.557  INFO 27689 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:25:57.116  INFO 27689 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getAllIll Иванов С.Н.
+2022-11-25 22:26:37.106  INFO 27689 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:33:11.438  INFO 27889 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 27889 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:33:11.444 DEBUG 27889 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:33:11.446  INFO 27889 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:33:24.320  INFO 27889 --- [main] com.example.System5Application           : Started System5Application in 14.322 seconds (JVM running for 16.902)
+2022-11-25 22:33:32.466  INFO 27889 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:33:34.729  INFO 27889 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:33:37.609  INFO 27889 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:33:46.295  INFO 27889 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:34:22.960  INFO 27926 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 27926 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:34:22.966 DEBUG 27926 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:34:22.969  INFO 27926 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:34:33.411  INFO 27926 --- [main] com.example.System5Application           : Started System5Application in 11.823 seconds (JVM running for 14.297)
+2022-11-25 22:34:42.213  INFO 27926 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:34:44.504  INFO 27926 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:35:42.676  INFO 27926 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:39:19.451  INFO 28049 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28049 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:39:19.460 DEBUG 28049 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:39:19.463  INFO 28049 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:39:30.039  INFO 28049 --- [main] com.example.System5Application           : Started System5Application in 12.048 seconds (JVM running for 14.114)
+2022-11-25 22:39:36.999  INFO 28049 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:39:40.090  INFO 28049 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:40:08.272  INFO 28049 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:41:51.172  INFO 28124 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28124 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:41:51.183 DEBUG 28124 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:41:51.187  INFO 28124 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:42:05.039  INFO 28124 --- [main] com.example.System5Application           : Started System5Application in 16.02 seconds (JVM running for 19.153)
+2022-11-25 22:42:13.609  INFO 28124 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:42:16.297  INFO 28124 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:42:25.848  INFO 28124 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:49:06.522  INFO 28270 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28270 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:49:06.530 DEBUG 28270 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:49:06.532  INFO 28270 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:49:19.902  INFO 28270 --- [main] com.example.System5Application           : Started System5Application in 15.463 seconds (JVM running for 17.818)
+2022-11-25 22:49:28.771  INFO 28270 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:49:31.714  INFO 28270 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:49:35.064  INFO 28270 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:52:34.764  INFO 28352 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28352 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:52:34.776 DEBUG 28352 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:52:34.780  INFO 28352 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:52:48.162  INFO 28352 --- [main] com.example.System5Application           : Started System5Application in 15.457 seconds (JVM running for 18.835)
+2022-11-25 22:52:59.898  INFO 28352 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:53:02.394  INFO 28352 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:53:05.036  INFO 28352 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:56:00.690  INFO 28352 --- [http-nio-8080-exec-7] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:56:04.896  INFO 28352 --- [http-nio-8080-exec-5] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:56:31.161  INFO 28352 --- [http-nio-8080-exec-9] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:56:39.431  INFO 28352 --- [http-nio-8080-exec-1] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 22:57:58.146  INFO 28493 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28493 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 22:57:58.157 DEBUG 28493 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 22:57:58.160  INFO 28493 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 22:58:11.904  INFO 28493 --- [main] com.example.System5Application           : Started System5Application in 15.71 seconds (JVM running for 18.508)
+2022-11-25 22:58:19.232  INFO 28493 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 22:58:22.123  INFO 28493 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:11:26.261  INFO 28788 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28788 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:11:26.270 DEBUG 28788 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:11:26.272  INFO 28788 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:11:37.395  INFO 28788 --- [main] com.example.System5Application           : Started System5Application in 12.581 seconds (JVM running for 14.977)
+2022-11-25 23:13:49.164  WARN 28788 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s468ms).
+2022-11-25 23:15:12.687  WARN 28788 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m23s524ms).
+2022-11-25 23:15:29.563  INFO 28886 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28886 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:15:29.571 DEBUG 28886 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:15:29.574  INFO 28886 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:15:39.808  INFO 28886 --- [main] com.example.System5Application           : Started System5Application in 12.108 seconds (JVM running for 15.152)
+2022-11-25 23:16:25.470  WARN 28886 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51s202ms).
+2022-11-25 23:18:50.386  INFO 28967 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 28967 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:18:50.394 DEBUG 28967 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:18:50.397  INFO 28967 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:19:03.050  INFO 28967 --- [main] com.example.System5Application           : Started System5Application in 14.407 seconds (JVM running for 17.194)
+2022-11-25 23:19:09.476  WARN 28967 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [127] milliseconds.
+2022-11-25 23:19:14.333  INFO 28967 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 23:19:16.711  INFO 28967 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:19:56.605  INFO 28967 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:20:14.454  WARN 28967 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'prizivId' for method parameter type Integer is present but converted to null]
+2022-11-25 23:22:55.310  WARN 28967 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'prizivId' for method parameter type Integer is present but converted to null]
+2022-11-25 23:33:24.643  INFO 29295 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 29295 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:33:24.659 DEBUG 29295 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:33:24.663  INFO 29295 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:33:37.558  INFO 29295 --- [main] com.example.System5Application           : Started System5Application in 15.716 seconds (JVM running for 21.456)
+2022-11-25 23:33:53.926  INFO 29295 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 23:33:56.350  INFO 29295 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:38:01.739  INFO 29391 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 29391 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:38:01.749 DEBUG 29391 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:38:01.754  INFO 29391 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:38:15.719  INFO 29391 --- [main] com.example.System5Application           : Started System5Application in 15.927 seconds (JVM running for 18.678)
+2022-11-25 23:38:26.047  INFO 29391 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 23:38:28.641  INFO 29391 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:38:53.308  INFO 29391 --- [http-nio-8080-exec-1] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:39:04.475  INFO 29391 --- [http-nio-8080-exec-4] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:41:30.790  INFO 29482 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 29482 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:41:30.803 DEBUG 29482 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:41:30.816  INFO 29482 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:41:42.949  INFO 29482 --- [main] com.example.System5Application           : Started System5Application in 13.521 seconds (JVM running for 15.979)
+2022-11-25 23:42:54.154  WARN 29482 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s854ms).
+2022-11-25 23:43:01.594  INFO 29482 --- [http-nio-8080-exec-8] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-25 23:43:03.706  INFO 29482 --- [http-nio-8080-exec-1] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-25 23:44:18.980  WARN 29482 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s812ms).
+2022-11-25 23:44:44.468  INFO 29584 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 29584 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-25 23:44:44.480 DEBUG 29584 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-25 23:44:44.483  INFO 29584 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-25 23:44:55.572  INFO 29584 --- [main] com.example.System5Application           : Started System5Application in 12.748 seconds (JVM running for 15.333)
