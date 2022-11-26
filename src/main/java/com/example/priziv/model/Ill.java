@@ -21,6 +21,9 @@ public class Ill {
     @Column( name = "priziv_id")
     private Integer prizivId;
 
+    public Ill() {
+    }
+
     public Ill(String fio, Integer prizivId) {
         this.fio = fio;
         this.prizivId = prizivId;

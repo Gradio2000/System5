@@ -65,7 +65,6 @@ public class PrizivController {
         prizivDto.setProcessed(false);
         prizivDto.setGetPassports(false);
         prizivDto.setIssued(0);
-        prizivDto.setPreparedAndNotIssued(0);
         if (prizivDto.getPeopleAmmount() == null){
             prizivDto.setPeopleAmmount(0);
         }
@@ -83,6 +82,12 @@ public class PrizivController {
         illList.add(new Ill(fio, prizivId));
         priziv.setIllList(illList);
         return prizivRepository.save(priziv);
+    }
+
+    @GetMapping("priziv/{prizivId}")
+    @ResponseBody
+    public Priziv getPrizivById(@PathVariable Integer prizivId){
+        return prizivRepository.findById(prizivId).orElse(null);
     }
 }
 

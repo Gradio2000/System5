@@ -121,12 +121,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">Добавить больного</h3>
-          <a href="#close" title="Close" class="close">×</a>
+          <a title="Close" class="close" onclick="closeModal()">×</a>
         </div>
         <div class="modal-body my-modal">
+          <label id="labelMembers" class="mylabel-forkanban">Больные:
+            <ul id="membersBlock" class="membersBlock"></ul>
+          </label>
           <form id="illForm">
             <input id="prizivIdNumber" name="prizivId" type="hidden"/>
-            <input name="fio" placeholder="Введите фамилию больного"/>
+            <input id="nameInput" name="fio" placeholder="Введите фамилию"/>
             <br/>
             <button type="button" class="btn" onclick="addIlled()">Записать</button>
           </form>
@@ -140,6 +143,17 @@
 </html>
 <script>
   function openModalIlled(prizivId) {
+    $.ajax({
+      type: 'GET',
+      url: '/priziv/' + prizivId,
+      data: {"prizivId": prizivId},
+      success: function (data) {
+        getMemberBlock(data);
+      },
+      error: function () {
+        alert('Ошибка! function openModalIlled(prizivId)');
+      }
+    });
     document.location='#openModal1';
     let el = document.getElementById("prizivIdNumber");
     el.setAttribute("value", prizivId);
@@ -152,11 +166,11 @@ function addIlled() {
       url: '/priziv/addIlled',
       data: msg,
       success: function (data) {
-        // запустится при успешном выполнении запроса и в data будет ответ скрипта
+        $("#nameInput").val('');
+        getMemberBlock(data);
       },
       error: function () {
         alert('Ошибка!');
-        console.log(msg);
       }
     });
 
@@ -176,6 +190,36 @@ function editPriziv(id){
         alert('Ошибка изменения записи! Обратитесь к администратору! function editPriziv(id)');
       }
     });
+  }
+
+  function getMemberBlock(data){
+    // <ul id="membersBlock" class="membersBlock"><li class="member">Петрова И.Н.</li></ul>
+    $('.contain').remove();
+    let membersBlock = document.getElementById("membersBlock");
+    for (let i = 0; i < data.illList.length; i++){
+      let contain = document.createElement("div");
+      contain.className = "contain";
+      contain.id = "cont" + data.illList[i].id;
+      let member = document.createElement("li");
+      member.innerText = data.illList[i].fio;
+      member.className = "member";
+
+      let del = document.createElement("a");
+      del.className = "del";
+      del.innerText = "X";
+      del.id = data.illList[i].id;
+      del.setAttribute("onclick", "delMember(this.id, " + data.prizivId + ")");
+
+      contain.append(del);
+      contain.append(member);
+      membersBlock.append(contain);
+    }
+    document.getElementById("labelMembers").append(membersBlock);
+  }
+
+  function closeModal(){
+    document.location = '#close';
+    location.reload();
   }
 </script>
 

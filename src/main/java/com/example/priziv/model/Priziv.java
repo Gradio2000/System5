@@ -32,9 +32,6 @@ public class Priziv {
     @Column(name = "issued")
     private Integer issued;
 
-    @Column(name = "prepared_and_not_issued")
-    private Integer preparedAndNotIssued;
-
     @Column(name = "date_arrival")
     private Date dateArrival;
 
@@ -52,14 +49,13 @@ public class Priziv {
     }
 
     public Priziv(Integer prizivId, String commandName, Boolean getPassports, Boolean processed,
-                  Integer issued, Integer preparedAndNotIssued, Date dateArrival, Date dateDeparture,
+                  Integer issued, Date dateArrival, Date dateDeparture,
                   Integer peopleAmmount, List<Ill>illList) {
         this.prizivId = prizivId;
         this.commandName = commandName;
         this.getPassports = getPassports;
         this.processed = processed;
         this.issued = issued;
-        this.preparedAndNotIssued = preparedAndNotIssued;
         this.dateArrival = dateArrival;
         this.dateDeparture = dateDeparture;
         this.peopleAmmount = peopleAmmount;
@@ -68,7 +64,7 @@ public class Priziv {
 
     public static Priziv getInstance(PrizivDto prizivDto){
         return new Priziv(prizivDto.getPrizivId(), prizivDto.getCommandName(), prizivDto.getGetPassports(),
-                 prizivDto.getProcessed(), prizivDto.getIssued(), prizivDto.getPreparedAndNotIssued(),
+                 prizivDto.getProcessed(), prizivDto.getIssued(),
                 convertStringToDate(prizivDto.getDateArrival()), convertStringToDate(prizivDto.getDateDeparture()),
                 prizivDto.getPeopleAmmount(), prizivDto.getIllList());
     }

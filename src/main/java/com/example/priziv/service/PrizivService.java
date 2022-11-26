@@ -33,14 +33,11 @@ public class PrizivService {
         for (PrizivDto prizivDto : prizivList) {
             totalPeopleAmount += prizivDto.getPeopleAmmount();
             totalIssued += prizivDto.getIssued();
-            totalPreparedAndNotIssued += prizivDto.getPreparedAndNotIssued();
         }
 
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
         model.addAttribute("prizivList", prizivList);
         model.addAttribute("totalPeopleAmount", totalPeopleAmount);
         model.addAttribute("totalIssued", totalIssued);
-        model.addAttribute("totalPreparedAndNotIssued", totalPreparedAndNotIssued);
-
     }
 }
