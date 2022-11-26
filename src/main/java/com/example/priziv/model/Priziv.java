@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import static com.example.priziv.service.DateConverter.convertStringToDate;
 
 @Entity
 @Table(name = "p_priziv")
@@ -68,21 +68,4 @@ public class Priziv {
                 convertStringToDate(prizivDto.getDateArrival()), convertStringToDate(prizivDto.getDateDeparture()),
                 prizivDto.getPeopleAmmount(), prizivDto.getIllList());
     }
-
-    private static Date convertStringToDate(String str){
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date date;
-        try {
-            if (str.equals("")){
-                date = null;
-            }else {
-                date = formatter.parse(str);
-            }
-
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        return date;
-    }
-
 }

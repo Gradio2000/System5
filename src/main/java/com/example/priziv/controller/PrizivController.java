@@ -3,6 +3,7 @@ package com.example.priziv.controller;
 import com.example.priziv.dto.PrizivDto;
 import com.example.priziv.model.Ill;
 import com.example.priziv.model.Priziv;
+import com.example.priziv.repository.IllRepository;
 import com.example.priziv.repository.PrizivRepository;
 import com.example.priziv.service.PrizivService;
 import com.example.system5.util.AuthUser;
@@ -19,10 +20,12 @@ import java.util.List;
 public class PrizivController {
     private final PrizivRepository prizivRepository;
     private final PrizivService prizivService;
+    private final IllRepository illRepository;
 
-    public PrizivController(PrizivRepository prizivRepository, PrizivService prizivService) {
+    public PrizivController(PrizivRepository prizivRepository, PrizivService prizivService, IllRepository illRepository) {
         this.prizivRepository = prizivRepository;
         this.prizivService = prizivService;
+        this.illRepository = illRepository;
     }
 
     @GetMapping("/priziv")
@@ -46,7 +49,11 @@ public class PrizivController {
 
     @PostMapping("/priziv/change")
     @ResponseBody
-    public Integer prizivChange(@ModelAttribute PrizivDto prizivDto){
+    public Integer prizivChange(@ModelAttribute PrizivDto prizivDto,
+                                @AuthenticationPrincipal AuthUser authUser){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
         if (prizivDto.getGetPassports() == null){
             prizivDto.setGetPassports(false);
         }
@@ -54,28 +61,36 @@ public class PrizivController {
             prizivDto.setProcessed(false);
         }
 
-        Priziv priziv = Priziv.getInstance(prizivDto);
-        prizivRepository.save(priziv);
-        List<Priziv> prizivList = prizivRepository.findAll();
-        return prizivList.stream().mapToInt(Priziv::getIssued).sum();
+        prizivRepository.save(Priziv.getInstance(prizivDto));
+
+        return prizivRepository.findAll().stream().
+                mapToInt(Priziv::getIssued)
+                .sum();
     }
 
     @PostMapping("/addPriziv")
-    public String addPriziv(@ModelAttribute PrizivDto prizivDto){
+    public String addPriziv(@ModelAttribute PrizivDto prizivDto,
+                            @AuthenticationPrincipal AuthUser authUser){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
         prizivDto.setProcessed(false);
         prizivDto.setGetPassports(false);
         prizivDto.setIssued(0);
         if (prizivDto.getPeopleAmmount() == null){
             prizivDto.setPeopleAmmount(0);
         }
-        Priziv priziv = Priziv.getInstance(prizivDto);
-        prizivRepository.save(priziv);
+        prizivRepository.save(Priziv.getInstance(prizivDto));
         return "redirect:/priziv";
     }
 
     @PostMapping("/priziv/addIlled")
     @ResponseBody
-    public Priziv addIlled(@RequestParam Integer prizivId, @RequestParam String fio){
+    public Priziv addIlled(@RequestParam Integer prizivId, @RequestParam String fio,
+                           @AuthenticationPrincipal AuthUser authUser){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
         Priziv priziv = prizivRepository.findById(prizivId).orElse(null);
         assert priziv != null;
         List<Ill> illList = priziv.getIllList();
@@ -86,7 +101,23 @@ public class PrizivController {
 
     @GetMapping("priziv/{prizivId}")
     @ResponseBody
-    public Priziv getPrizivById(@PathVariable Integer prizivId){
+    public Priziv getPrizivById(@PathVariable Integer prizivId,
+                                @AuthenticationPrincipal AuthUser authUser){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        return prizivRepository.findById(prizivId).orElse(null);
+    }
+
+    @PostMapping("/priziv/deleteIlled")
+    @ResponseBody
+    public Priziv deleteIlled(@RequestParam Integer illedId,
+                              @RequestParam Integer prizivId,
+                              @AuthenticationPrincipal AuthUser authUser){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        illRepository.deleteById(illedId);
         return prizivRepository.findById(prizivId).orElse(null);
     }
 }

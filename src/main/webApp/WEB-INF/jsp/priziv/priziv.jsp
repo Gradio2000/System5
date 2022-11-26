@@ -120,7 +120,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">Добавить больного</h3>
+          <h3 class="modal-title">Добавить/Удалить больного</h3>
           <a title="Close" class="close" onclick="closeModal()">×</a>
         </div>
         <div class="modal-body my-modal">
@@ -224,7 +224,7 @@ function editPriziv(id){
     location.reload();
   }
 
-  function delMember(illId, prizivId){
+  function delMember(illedId, prizivId){
     $.ajax({
       type: 'POST',
       url: '/priziv/deleteIlled',
@@ -233,7 +233,7 @@ function editPriziv(id){
         getMemberBlock(data);
       },
       error: function (){
-        alert("")
+        alert("Ошибка удаления данных. Обратитесь к администратору. \n function delMember(illId, prizivId)");
       }
     });
   }
