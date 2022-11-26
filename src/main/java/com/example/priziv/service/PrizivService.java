@@ -28,7 +28,6 @@ public class PrizivService {
 
         int totalPeopleAmount = 0;
         int totalIssued = 0;
-        int totalPreparedAndNotIssued = 0;
 
         for (PrizivDto prizivDto : prizivList) {
             totalPeopleAmount += prizivDto.getPeopleAmmount();

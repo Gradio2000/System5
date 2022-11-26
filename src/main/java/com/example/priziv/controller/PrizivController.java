@@ -7,7 +7,6 @@ import com.example.priziv.repository.PrizivRepository;
 import com.example.priziv.service.PrizivService;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +46,7 @@ public class PrizivController {
 
     @PostMapping("/priziv/change")
     @ResponseBody
-    public HttpStatus prizivChange(@ModelAttribute PrizivDto prizivDto){
+    public Integer prizivChange(@ModelAttribute PrizivDto prizivDto){
         if (prizivDto.getGetPassports() == null){
             prizivDto.setGetPassports(false);
         }
@@ -57,7 +56,8 @@ public class PrizivController {
 
         Priziv priziv = Priziv.getInstance(prizivDto);
         prizivRepository.save(priziv);
-        return HttpStatus.OK;
+        List<Priziv> prizivList = prizivRepository.findAll();
+        return prizivList.stream().mapToInt(Priziv::getIssued).sum();
     }
 
     @PostMapping("/addPriziv")

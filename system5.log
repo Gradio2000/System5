@@ -929,3 +929,25 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 2022-11-26 09:55:33.731  INFO 34778 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
 2022-11-26 09:55:36.840  INFO 34778 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
 2022-11-26 09:55:43.964  INFO 34778 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:02:40.687  INFO 34778 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:03:50.394  INFO 35027 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 35027 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-26 10:03:50.403 DEBUG 35027 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-26 10:03:50.406  INFO 35027 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-26 10:04:12.944  INFO 35027 --- [main] com.example.System5Application           : Started System5Application in 25.113 seconds (JVM running for 28.795)
+2022-11-26 10:04:21.269  INFO 35027 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-26 10:04:25.810  INFO 35027 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:30:32.709  WARN 35027 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m51s603ms).
+2022-11-26 10:38:39.814  INFO 35305 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 35305 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-26 10:38:39.825 DEBUG 35305 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-26 10:38:39.827  INFO 35305 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-26 10:38:53.160  INFO 35305 --- [main] com.example.System5Application           : Started System5Application in 15.005 seconds (JVM running for 18.224)
+2022-11-26 10:38:57.108  WARN 35305 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [129] milliseconds.
+2022-11-26 10:39:02.264  INFO 35305 --- [http-nio-8080-exec-4] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-26 10:39:05.042  INFO 35305 --- [http-nio-8080-exec-7] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:39:41.677  INFO 35305 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:40:55.813  INFO 35377 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 35377 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-26 10:40:55.820 DEBUG 35377 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-26 10:40:55.822  INFO 35377 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-26 10:41:08.420  INFO 35377 --- [main] com.example.System5Application           : Started System5Application in 15.097 seconds (JVM running for 19.483)
+2022-11-26 10:41:17.413  INFO 35377 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-26 10:41:20.288  INFO 35377 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.

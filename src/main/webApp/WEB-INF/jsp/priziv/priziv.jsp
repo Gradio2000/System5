@@ -86,8 +86,8 @@
       <td>${totalPeopleAmount}</td>
       <td>X</td>
       <td>X</td>
-      <td>${totalIssued}</td>
-      <td>${totalPreparedAndNotIssued}</td>
+      <td id="totalIssued">${totalIssued}</td>
+      <td>${priziv.illList.size()}</td>
       <td>X</td>
     </tr>
   </table>
@@ -185,6 +185,8 @@ function editPriziv(id){
       url: '/priziv/change',
       data: d,
       success: function (data) {
+        let totalIssued = document.getElementById("totalIssued");
+        totalIssued.innerText = data;
       },
       error: function () {
         alert('Ошибка изменения записи! Обратитесь к администратору! function editPriziv(id)');
