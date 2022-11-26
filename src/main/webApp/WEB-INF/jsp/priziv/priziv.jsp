@@ -87,7 +87,7 @@
       <td>X</td>
       <td>X</td>
       <td id="totalIssued">${totalIssued}</td>
-      <td>${priziv.illList.size()}</td>
+      <td>${totalNotIssued}</td>
       <td>X</td>
     </tr>
   </table>

@@ -951,3 +951,15 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 2022-11-26 10:41:08.420  INFO 35377 --- [main] com.example.System5Application           : Started System5Application in 15.097 seconds (JVM running for 19.483)
 2022-11-26 10:41:17.413  INFO 35377 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
 2022-11-26 10:41:20.288  INFO 35377 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:48:00.100  INFO 35608 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 35608 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-26 10:48:00.122 DEBUG 35608 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-26 10:48:00.128  INFO 35608 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-26 10:48:30.621  INFO 35608 --- [main] com.example.System5Application           : Started System5Application in 34.772 seconds (JVM running for 38.254)
+2022-11-26 10:48:46.073  INFO 35649 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 35649 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-26 10:48:46.085 DEBUG 35649 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-26 10:48:46.102  INFO 35649 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-26 10:48:59.567  INFO 35649 --- [main] com.example.System5Application           : Started System5Application in 15.493 seconds (JVM running for 18.917)
+2022-11-26 10:49:28.404  INFO 35649 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов С.Н.
+2022-11-26 10:49:31.468  INFO 35649 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:49:42.958  INFO 35649 --- [http-nio-8080-exec-1] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
+2022-11-26 10:49:50.282  INFO 35649 --- [http-nio-8080-exec-7] c.e.priziv.controller.PrizivController   : getPriziv Иванов С.Н.
