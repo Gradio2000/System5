@@ -68,11 +68,12 @@
             </c:if>
           </td>
           <td>
-            <input type="number" class="myinput" name="issued" value="${priziv.issued}"
+            <input type="number" min="0" class="myinput" name="issued" value="${priziv.issued}"
                      onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0">
           </td>
           <td>
-            <button id="${priziv.prizivId}" type="button" class="btn" style="margin: 0" onclick="openModalIlled(this.id)">${priziv.illList.size()}</button>
+            <button id="${priziv.prizivId}" type="button" class="btn" style="margin: 0"
+                    onclick="openModalIlled(this.id)">${priziv.illList.size()}</button>
           </td>
           <td>
             <input type="date" class="myinput" name="dateDeparture" value="${priziv.dateDeparture}"
@@ -87,7 +88,7 @@
       <td>X</td>
       <td>X</td>
       <td id="totalIssued">${totalIssued}</td>
-      <td>${totalNotIssued}</td>
+      <td id="totalNotIssued">${totalNotIssued}</td>
       <td>X</td>
     </tr>
   </table>
@@ -98,7 +99,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title">Добавить</h3>
+            <h3 class="modal-title">Добавить команду</h3>
             <a href="#close" title="Close" class="close">×</a>
           </div>
           <div class="modal-body my-modal">
@@ -106,8 +107,12 @@
               <input name="prizivId" type="hidden"/>
               <input name="commandName" placeholder="Название команды"/>
               <input type="number" name="peopleAmmount" placeholder="Количество человек"/>
-              <input type="date" name="dateArrival" placeholder="Дата прибытия"/>
-              <input type="date" name="dateDeparture" placeholder="Дата присяги"/>
+              <label class="mylabel-forkanban"> Дата прибытия
+                <input type="date" name="dateArrival" style="margin: 0"/>
+              </label>
+              <label class="mylabel-forkanban"> Дата убытия
+                <input type="date" name="dateDeparture" style="margin: 0;"/>
+              </label>
               <br/>
               <button type="submit" class="btn">Отправить</button>
             </form>
@@ -120,8 +125,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title">Добавить/Удалить больного</h3>
+          <h3 class="modal-title">Добавить/удалить больного</h3>
           <a title="Close" class="close" onclick="closeModal()">×</a>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title" id="commandName"></h5>
         </div>
         <div class="modal-body my-modal">
           <label id="labelMembers" class="mylabel-forkanban">Больные:
@@ -149,17 +157,21 @@
       data: {"prizivId": prizivId},
       success: function (data) {
         getMemberBlock(data);
+        document.getElementById("prizivIdNumber").setAttribute("value", prizivId);
+        document.getElementById("commandName").innerText = data.commandName;
+        document.location='#openModal1';
       },
       error: function () {
         alert('Ошибка! function openModalIlled(prizivId)');
       }
     });
-    document.location='#openModal1';
-    let el = document.getElementById("prizivIdNumber");
-    el.setAttribute("value", prizivId);
 }
 
-function addIlled() {
+  function addIlled() {
+    if ($('#nameInput').val() === ''){
+      alert("Введите фамилию!")
+      return;
+    }
     const msg = $('#illForm').serialize();
     $.ajax({
       type: 'POST',
@@ -176,7 +188,7 @@ function addIlled() {
 
   }
 
-function editPriziv(id){
+  function editPriziv(id){
     const msg = document.getElementById("prizivForm" + id);
     console.log(msg);
     let d = $(msg).serializeArray();
@@ -220,8 +232,19 @@ function editPriziv(id){
   }
 
   function closeModal(){
-    document.location = '#close';
-    location.reload();
+    let prizivId = document.getElementById("prizivIdNumber").getAttribute("value");
+    $.ajax({
+      type: 'GET',
+      url: '/prizivWithTotalIssued/' + prizivId,
+      success: function (data) {
+        document.location = '#close';
+        document.getElementById(prizivId).innerText = data.priziv.illList.length;
+        document.getElementById("totalNotIssued").innerText = data.totalNotIssued;
+      },
+      error: function () {
+        alert('Ошибка изменения записи! Обратитесь к администратору! \n function closeModal()');
+      }
+    });
   }
 
   function delMember(illedId, prizivId){

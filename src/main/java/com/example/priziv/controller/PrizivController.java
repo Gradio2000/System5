@@ -13,7 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @Slf4j
@@ -29,7 +32,7 @@ public class PrizivController {
     }
 
     @GetMapping("/priziv")
-    public String getPriziv(@AuthenticationPrincipal AuthUser authUser,
+    public String getAllPriziv(@AuthenticationPrincipal AuthUser authUser,
                             Model model){
 
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
@@ -120,5 +123,25 @@ public class PrizivController {
         illRepository.deleteById(illedId);
         return prizivRepository.findById(prizivId).orElse(null);
     }
+
+    @GetMapping("/prizivWithTotalIssued/{prizivId}")
+    @ResponseBody
+    public Map<String,Object> getPrizivWithTotalIssued(@PathVariable Integer prizivId){
+        Map<String,Object> result = new HashMap<>();
+        List<Priziv> prizivList = prizivRepository.findAll();
+
+        result.put("priziv", prizivList.stream()
+                .filter(priziv -> Objects.equals(priziv.getPrizivId(), prizivId))
+                .findFirst().orElse(null));
+
+        int totalNotIssued = 0;
+        for (Priziv priziv: prizivList){
+            totalNotIssued += priziv.getIllList().size();
+        }
+        result.put("totalNotIssued", totalNotIssued);
+
+        return result;
+    }
+
 }
 
