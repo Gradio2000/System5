@@ -223,5 +223,19 @@ function editPriziv(id){
     document.location = '#close';
     location.reload();
   }
+
+  function delMember(illId, prizivId){
+    $.ajax({
+      type: 'POST',
+      url: '/priziv/deleteIlled',
+      data: {"illedId": illedId, "prizivId": prizivId},
+      success: function (data){
+        getMemberBlock(data);
+      },
+      error: function (){
+        alert("")
+      }
+    });
+  }
 </script>
 
