@@ -43,6 +43,7 @@ public class Priziv {
 
     @OneToMany(targetEntity = Ill.class, cascade = CascadeType.ALL,
             fetch = FetchType.EAGER, mappedBy = "prizivId")
+    @OrderBy("fio")
     private List<Ill> illList;
 
     public Priziv() {

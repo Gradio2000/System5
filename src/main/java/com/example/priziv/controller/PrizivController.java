@@ -13,10 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @Controller
 @Slf4j
@@ -66,8 +64,8 @@ public class PrizivController {
 
         prizivRepository.save(Priziv.getInstance(prizivDto));
 
-        return prizivRepository.findAll().stream().
-                mapToInt(Priziv::getIssued)
+        return prizivRepository.findAll().stream()
+                .mapToInt(Priziv::getIssued)
                 .sum();
     }
 
@@ -126,21 +124,12 @@ public class PrizivController {
 
     @GetMapping("/prizivWithTotalIssued/{prizivId}")
     @ResponseBody
-    public Map<String,Object> getPrizivWithTotalIssued(@PathVariable Integer prizivId){
-        Map<String,Object> result = new HashMap<>();
-        List<Priziv> prizivList = prizivRepository.findAll();
+    public Map<String,Object> getPrizivWithTotalIssued(@PathVariable Integer prizivId,
+                                                       @AuthenticationPrincipal AuthUser authUser){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
 
-        result.put("priziv", prizivList.stream()
-                .filter(priziv -> Objects.equals(priziv.getPrizivId(), prizivId))
-                .findFirst().orElse(null));
-
-        int totalNotIssued = 0;
-        for (Priziv priziv: prizivList){
-            totalNotIssued += priziv.getIllList().size();
-        }
-        result.put("totalNotIssued", totalNotIssued);
-
-        return result;
+        return prizivService.getResultMapService(prizivId);
     }
 
 }

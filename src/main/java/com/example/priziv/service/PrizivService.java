@@ -1,6 +1,7 @@
 package com.example.priziv.service;
 
 import com.example.priziv.dto.PrizivDto;
+import com.example.priziv.model.Priziv;
 import com.example.priziv.repository.PrizivRepository;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
@@ -8,7 +9,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
@@ -42,5 +46,21 @@ public class PrizivService {
         model.addAttribute("totalPeopleAmount", totalPeopleAmount);
         model.addAttribute("totalIssued", totalIssued);
         model.addAttribute("totalNotIssued", totalNotIssued);
+    }
+
+    public Map<String,Object> getResultMapService(int prizivId){
+        Map<String,Object> result = new HashMap<>();
+        List<Priziv> prizivList = prizivRepository.findAll();
+
+        result.put("priziv", prizivList.stream()
+                .filter(priziv -> Objects.equals(priziv.getPrizivId(), prizivId))
+                .findFirst().orElse(null));
+
+        int totalNotIssued = 0;
+        for (Priziv priziv: prizivList){
+            totalNotIssued += priziv.getIllList().size();
+        }
+        result.put("totalNotIssued", totalNotIssued);
+        return result;
     }
 }
