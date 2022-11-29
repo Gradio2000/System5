@@ -5,7 +5,6 @@ import com.example.kladr.model.House;
 import com.example.kladr.model.KladrAll;
 import com.example.kladr.model.Street;
 import com.example.kladr.repository.HouseRepository;
-import com.example.kladr.repository.KladrAllRepository;
 import com.example.kladr.repository.StreetRepository;
 import com.example.kladr.service.KladrService;
 import com.example.system5.dto.UserDto;
@@ -28,16 +27,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class RegionController {
 
-    private final KladrAllRepository kladrAllRepository;
     private final StreetRepository streetRepository;
-
     private final HouseRepository houseRepository;
-
     private final KladrService kladrService;
 
-    public RegionController(KladrAllRepository kladrAllRepository, StreetRepository streetRepository,
+    public RegionController(StreetRepository streetRepository,
                             HouseRepository houseRepository, KladrService kladrService) {
-        this.kladrAllRepository = kladrAllRepository;
         this.streetRepository = streetRepository;
         this.houseRepository = houseRepository;
         this.kladrService = kladrService;
@@ -57,27 +52,7 @@ public class RegionController {
     public List<KladrAll> getRegion(String value, @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
-        String[] mass = value.split(" ");
-        String value1 = "";
-        String value2 = "";
-        String value3 = "";
-        if (mass.length == 1){
-            return kladrAllRepository.selectAll(mass[0]);
-        }
-        if (mass.length == 2){
-            value1 = mass[0];
-            value2 = mass[1];
-            return kladrAllRepository.selectAll(value1, value2);
-        }
-        if (mass.length == 3){
-            value1 = mass[0];
-            value2 = mass[1];
-            value3 = mass[2];
-            return kladrAllRepository.selectAll(value1, value2, value3);
-        }
-        else {
-            return null;
-        }
+        return kladrService.getKladrAllRepository(value);
     }
 
     @PostMapping("/searchStreet")
