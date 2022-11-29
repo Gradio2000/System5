@@ -261,3 +261,23 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2022-11-27 17:19:48.521  INFO 11290 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getAllPriziv Иванов С.Н.
 2022-11-27 17:19:50.775  INFO 11290 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : getPrizivById Иванов С.Н.
 2022-11-27 17:19:56.656  INFO 11290 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : getAll Иванов С.Н.
+2022-11-27 17:25:47.101  INFO 11544 --- [main] com.example.System5Application           : Starting System5Application using Java 15.0.2 on MacBook-Air.local with PID 11544 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-27 17:25:47.112 DEBUG 11544 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-27 17:25:47.115  INFO 11544 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2022-11-27 17:26:03.961  INFO 11544 --- [main] com.example.System5Application           : Started System5Application in 18.192 seconds (JVM running for 21.375)
+2022-11-27 17:28:03.353  INFO 11544 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Иванов А.А.
+2022-11-27 17:28:05.746  INFO 11544 --- [http-nio-8080-exec-8] c.e.priziv.controller.PrizivController   : getAllPriziv Иванов А.А.
+2022-11-27 17:28:10.194  INFO 11544 --- [http-nio-8080-exec-10] c.e.priziv.controller.PrizivController   : prizivChange Иванов А.А.
+2022-11-27 17:28:12.747  INFO 11544 --- [http-nio-8080-exec-1] c.e.priziv.controller.PrizivController   : prizivChange Иванов А.А.
+2022-11-27 17:28:16.964  INFO 11544 --- [http-nio-8080-exec-2] c.e.priziv.controller.PrizivController   : prizivChange Иванов А.А.
+2022-11-27 17:28:18.126  INFO 11544 --- [http-nio-8080-exec-3] c.e.priziv.controller.PrizivController   : getPrizivById Иванов А.А.
+2022-11-27 17:28:22.036  INFO 11544 --- [http-nio-8080-exec-4] c.e.priziv.controller.PrizivController   : addIlled Иванов А.А.
+2022-11-27 17:28:24.265  INFO 11544 --- [http-nio-8080-exec-7] c.e.priziv.controller.PrizivController   : addIlled Иванов А.А.
+2022-11-27 17:28:32.594  INFO 11544 --- [http-nio-8080-exec-5] c.e.priziv.controller.PrizivController   : prizivChange Иванов А.А.
+2022-11-27 18:07:57.775  WARN 11544 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m2s605ms).
+2022-11-27 18:17:57.960  WARN 11544 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m30s135ms).
+2022-11-27 18:21:12.596  WARN 11544 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m44s628ms).
+2022-11-27 18:23:09.154  INFO 12501 --- [main] c.e.system5.System5ApplicationTests      : Starting System5ApplicationTests using Java 15.0.2 on MacBook-Air.local with PID 12501 (started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2022-11-27 18:23:09.156 DEBUG 12501 --- [main] c.e.system5.System5ApplicationTests      : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-11-27 18:23:09.158  INFO 12501 --- [main] c.e.system5.System5ApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2022-11-27 18:23:20.690  INFO 12501 --- [main] c.e.system5.System5ApplicationTests      : Started System5ApplicationTests in 12.32 seconds (JVM running for 14.102)
