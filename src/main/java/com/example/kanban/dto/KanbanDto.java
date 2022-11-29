@@ -2,7 +2,7 @@ package com.example.kanban.dto;
 
 import com.example.kanban.model.Kanban;
 import com.example.qtest.service.DtoUtils;
-import com.example.system5.dto.UserDtoNameOnly;
+import com.example.system5.dto.NewUserDto;
 import com.example.system5.dto.UserDtoNameOnlyWithPositionDto;
 import lombok.Data;
 
@@ -20,13 +20,13 @@ public class KanbanDto implements Serializable {
     private String describe;
     private UserDtoNameOnlyWithPositionDto userDtoNameOnlyWithPositionDto;
     private Date taskEndDate;
-    private List<UserDtoNameOnly> userDtoNameOnlyList;
+    private List<NewUserDto> newUserDtoList;
     private Boolean arch;
 
     public KanbanDto(Integer id, String kanbanName, Boolean started,
                      Boolean continues, Boolean finished,
                      String describe, UserDtoNameOnlyWithPositionDto userDtoNameOnlyWithPositionDto,
-                     Date taskEndDate, List<UserDtoNameOnly> userDtoNameOnlyList, Boolean arch) {
+                     Date taskEndDate, List<NewUserDto> newUserDtoList, Boolean arch) {
         this.id = id;
         this.kanbanName = kanbanName;
         this.started = started;
@@ -35,7 +35,7 @@ public class KanbanDto implements Serializable {
         this.describe = describe;
         this.userDtoNameOnlyWithPositionDto = userDtoNameOnlyWithPositionDto;
         this.taskEndDate = taskEndDate;
-        this.userDtoNameOnlyList = userDtoNameOnlyList;
+        this.newUserDtoList = newUserDtoList;
         this.arch = arch;
     }
 

@@ -37,11 +37,11 @@
                         <div style="margin-top: 5px"><a style="font-size:10px;">Автор: ${kanbanDto.userDtoNameOnlyWithPositionDto.name}</a></div>
                         <div><a style="font-size:10px">срок: <fmt:formatDate value="${kanbanDto.taskEndDate}" pattern="dd.MM.yyyy"/></a></div>
                         <div>
-                            <c:if test="${kanbanDto.userDtoNameOnlyList.size() > 1}">
-                                <a style="font-size:10px">отв.: ${kanbanDto.userDtoNameOnlyList.get(0).name} и др.</a>
+                            <c:if test="${kanbanDto.newUserDtoList.size() > 1}">
+                                <a style="font-size:10px">отв.: ${kanbanDto.newUserDtoList.get(0).name} и др.</a>
                             </c:if>
-                            <c:if test="${kanbanDto.userDtoNameOnlyList.size() == 1}">
-                                <a style="font-size:10px">отв.: ${kanbanDto.userDtoNameOnlyList.get(0).name}</a>
+                            <c:if test="${kanbanDto.newUserDtoList.size() == 1}">
+                                <a style="font-size:10px">отв.: ${kanbanDto.newUserDtoList.get(0).name}</a>
                             </c:if>
                         </div>
                     </div>
@@ -57,11 +57,11 @@
                         <div><a>${kanbanDto.kanbanName}</a></div>
                         <div style="margin-top: 5px"><a style="font-size:10px">Автор: ${kanbanDto.userDtoNameOnlyWithPositionDto.name}</a></div>
                         <div><a style="font-size:10px">срок: <fmt:formatDate value="${kanbanDto.taskEndDate}" pattern="dd.MM.yyyy"/></a></div>
-                        <c:if test="${kanbanDto.userDtoNameOnlyList.size() > 1}">
-                            <a style="font-size:10px">отв.: ${kanbanDto.userDtoNameOnlyList.get(0).name} и др.</a>
+                        <c:if test="${kanbanDto.newUserDtoList.size() > 1}">
+                            <a style="font-size:10px">отв.: ${kanbanDto.newUserDtoList.get(0).name} и др.</a>
                         </c:if>
-                        <c:if test="${kanbanDto.userDtoNameOnlyList.size() == 1}">
-                            <a style="font-size:10px">отв.: ${kanbanDto.userDtoNameOnlyList.get(0).name}</a>
+                        <c:if test="${kanbanDto.newUserDtoList.size() == 1}">
+                            <a style="font-size:10px">отв.: ${kanbanDto.newUserDtoList.get(0).name}</a>
                         </c:if>
                     </div>
                 </c:if>
@@ -76,11 +76,11 @@
                         <div><a>${kanbanDto.kanbanName}</a></div>
                         <div style="margin-top: 5px"><a style="font-size:10px">Автор: ${kanbanDto.userDtoNameOnlyWithPositionDto.name}</a></div>
                         <div><a style="font-size:10px">срок: <fmt:formatDate value="${kanbanDto.taskEndDate}" pattern="dd.MM.yyyy"/></a></div>
-                        <c:if test="${kanbanDto.userDtoNameOnlyList.size() > 1}">
-                            <a style="font-size:10px">отв.: ${kanbanDto.userDtoNameOnlyList.get(0).name} и др.</a>
+                        <c:if test="${kanbanDto.newUserDtoList.size() > 1}">
+                            <a style="font-size:10px">отв.: ${kanbanDto.newUserDtoList.get(0).name} и др.</a>
                         </c:if>
-                        <c:if test="${kanbanDto.userDtoNameOnlyList.size() == 1}">
-                            <a style="font-size:10px">отв.: ${kanbanDto.userDtoNameOnlyList.get(0).name}</a>
+                        <c:if test="${kanbanDto.newUserDtoList.size() == 1}">
+                            <a style="font-size:10px">отв.: ${kanbanDto.newUserDtoList.get(0).name}</a>
                         </c:if>
                     </div>
                 </c:if>
@@ -293,18 +293,18 @@
 
                   // <ul id="membersBlock" class="membersBlock"><li class="member">Петрова И.Н.</li></ul>
                   let membersBlock = document.getElementById("membersBlock");
-                  for (let i = 0; i < data.userDtoNameOnlyList.length; i++){
+                  for (let i = 0; i < data.newUserDtoList.length; i++){
                       let contain = document.createElement("div");
                       contain.className = "contain";
-                      contain.id = "cont" + data.userDtoNameOnlyList[i].userId;
+                      contain.id = "cont" + data.newUserDtoList[i].userId;
                             let member = document.createElement("li");
-                            member.innerText = data.userDtoNameOnlyList[i].name;
+                            member.innerText = data.newUserDtoList[i].name;
                             member.className = "member";
 
                             let del = document.createElement("a");
                             del.className = "del";
                             del.innerText = "X";
-                            del.id = data.userDtoNameOnlyList[i].userId;
+                            del.id = data.newUserDtoList[i].userId;
                             del.setAttribute("onclick", "delMember(this.id, " + data.id + ")");
 
                       contain.append(del);

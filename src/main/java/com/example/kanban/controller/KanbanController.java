@@ -4,8 +4,8 @@ import com.example.kanban.dto.KanbanDto;
 import com.example.kanban.model.Kanban;
 import com.example.kanban.repository.KanbanRepository;
 import com.example.qtest.service.DtoUtils;
+import com.example.system5.dto.NewUserDto;
 import com.example.system5.dto.UserDto;
-import com.example.system5.dto.UserDtoNameOnly;
 import com.example.system5.model.User;
 import com.example.system5.repository.UserRepository;
 import com.example.system5.util.AuthUser;
@@ -18,7 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Controller
@@ -180,7 +182,7 @@ public class KanbanController {
 
     @GetMapping("/getUserDtoList")
     @ResponseBody
-    public List<UserDtoNameOnly> getUserDtoList(@RequestParam Integer kanId, Model model,
+    public List<NewUserDto> getUserDtoList(@RequestParam Integer kanId, Model model,
                                                 @AuthenticationPrincipal AuthUser authUser){
 
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
@@ -190,7 +192,12 @@ public class KanbanController {
                         .findById(kanId).orElse(null)).getUserList().stream()
                 .map(User::getUserId)
                 .collect(Collectors.toList());
-        List<UserDtoNameOnly> userDtoList = DtoUtils.convertToUserDtoNameOnlyList(userRepository.findAll());
+
+        List<NewUserDto> userDtoList = DtoUtils.convertToUserDtoNameOnlyList(userRepository.findAll().stream()
+                .filter(user -> !user.getDeleted())
+                .filter(user -> !user.getName().equals("admin"))
+                .collect(Collectors.toList()));
+
         userDtoList.removeIf(userDtoNameOnly -> userDtoNameOnlyListIds.contains(userDtoNameOnly.getUserId()));
 
         model.addAttribute("userDtoList", userDtoList);
@@ -199,7 +206,7 @@ public class KanbanController {
 
     @PostMapping("/editMembers")
     @ResponseBody
-    public UserDtoNameOnly editMembers(@RequestParam Integer memberSelect, @RequestParam Integer kanbanId,
+    public NewUserDto editMembers(@RequestParam Integer memberSelect, @RequestParam Integer kanbanId,
                                        @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
@@ -211,12 +218,15 @@ public class KanbanController {
         userList.add(user);
         kanbanRepository.save(kanban);
         assert user != null;
-        return UserDtoNameOnly.getInstance(user);
+        return new NewUserDto.Builder()
+                .withId(user.getUserId())
+                .withName(user.getName())
+                .build();
     }
 
     @PostMapping("/delMember")
     @ResponseBody
-    public UserDtoNameOnly delMember(@RequestParam Integer userId, @RequestParam Integer kanId,
+    public NewUserDto delMember(@RequestParam Integer userId, @RequestParam Integer kanId,
                                      @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
@@ -229,7 +239,10 @@ public class KanbanController {
         kanbanRepository.save(kanban);
         User user = userRepository.findById(userId).orElse(null);
         assert user != null;
-        return UserDtoNameOnly.getInstance(user);
+        return new NewUserDto.Builder()
+                .withId(user.getUserId())
+                .withName(user.getName())
+                .build();
     }
 
     @PostMapping("/delArch")

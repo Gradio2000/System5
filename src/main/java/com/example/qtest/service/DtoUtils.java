@@ -7,8 +7,8 @@ import com.example.qtest.dto.TestDto;
 import com.example.qtest.model.AppointTest;
 import com.example.qtest.model.GroupTest;
 import com.example.qtest.model.Test;
+import com.example.system5.dto.NewUserDto;
 import com.example.system5.dto.PositionDtoNameOnly;
-import com.example.system5.dto.UserDtoNameOnly;
 import com.example.system5.dto.UserDtoNameOnlyWithPositionDto;
 import com.example.system5.model.Position;
 import com.example.system5.model.User;
@@ -53,9 +53,12 @@ public class DtoUtils {
     }
 
 
-    public static List<UserDtoNameOnly> convertToUserDtoNameOnlyList(List<User> userList){
+    public static List<NewUserDto> convertToUserDtoNameOnlyList(List<User> userList){
         return userList.stream()
-                .map(UserDtoNameOnly::getInstance)
+                .map(user -> new NewUserDto.Builder()
+                        .withId(user.getUserId())
+                        .withName(user.getName())
+                        .build())
                 .collect(Collectors.toList());
     }
 
