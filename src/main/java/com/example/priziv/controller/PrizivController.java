@@ -61,6 +61,9 @@ public class PrizivController {
         if (prizivDto.getProcessed() == null){
             prizivDto.setProcessed(false);
         }
+        if (prizivDto.getIssued() == null){
+            prizivDto.setIssued(0);
+        }
 
         prizivRepository.save(Priziv.getInstance(prizivDto));
 
