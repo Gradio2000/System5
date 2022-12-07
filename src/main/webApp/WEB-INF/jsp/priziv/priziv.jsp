@@ -43,43 +43,84 @@
         <input type="hidden" name="prizivId" value="${priziv.prizivId}">
         <input type="hidden" name="commandName" value="${priziv.commandName}">
         <input type="hidden" name="peopleAmmount" value="${priziv.peopleAmmount}">
-        <tr>
-          <td>${count.count}</td>
-          <td>${priziv.commandName}</td>
-          <td>
-            <input type="date" class="myinput" name="dateArrival" value="${priziv.dateArrival}"
-                   onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
-          </td>
-          <td>${priziv.peopleAmmount}</td>
-          <td>
-            <c:if test="${priziv.getPassports}">
-              <input type="checkbox" name="getPassports" checked onchange="editPriziv(${priziv.prizivId})">
-            </c:if>
-            <c:if test="${!priziv.getPassports}">
-              <input type="checkbox" name="getPassports" onchange="editPriziv(${priziv.prizivId})">
-            </c:if>
-          </td>
-          <td>
-            <c:if test="${priziv.processed}">
-              <input type="checkbox" name="processed" checked onchange="editPriziv(${priziv.prizivId})">
-            </c:if>
-            <c:if test="${!priziv.processed}">
-              <input type="checkbox" name="processed" onchange="editPriziv(${priziv.prizivId})">
-            </c:if>
-          </td>
-          <td>
-            <input type="number" min="0" class="myinput" name="issued" value="${priziv.issued}"
+        <c:if test="${priziv.issued > 0}">
+          <tr style="background: #ccfcff">
+            <td>${count.count}</td>
+            <td>${priziv.commandName}</td>
+            <td>
+              <input type="date" class="myinput" name="dateArrival" value="${priziv.dateArrival}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0; background: border-box"/>
+            </td>
+            <td>${priziv.peopleAmmount}</td>
+            <td>
+              <c:if test="${priziv.getPassports}">
+                <input type="checkbox" name="getPassports" checked onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+              <c:if test="${!priziv.getPassports}">
+                <input type="checkbox" name="getPassports" onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+            </td>
+            <td>
+              <c:if test="${priziv.processed}">
+                <input type="checkbox" name="processed" checked onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+              <c:if test="${!priziv.processed}">
+                <input type="checkbox" name="processed" onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+            </td>
+            <td>
+              <input type="number" min="0" class="myinput" name="issued" value="${priziv.issued}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0; background: border-box">
+            </td>
+            <td>
+              <button id="${priziv.prizivId}" type="button" class="btn" style="margin: 0"
+                      onclick="openModalIlled(this.id)">${priziv.illList.size()}</button>
+            </td>
+            <td>
+              <input type="date" class="myinput" name="dateDeparture" value="${priziv.dateDeparture}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0; background: border-box"/>
+            </td>
+          </tr>
+        </c:if>
+        <c:if test="${priziv.issued == 0}">
+          <tr>
+            <td>${count.count}</td>
+            <td>${priziv.commandName}</td>
+            <td>
+              <input type="date" class="myinput" name="dateArrival" value="${priziv.dateArrival}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
+            </td>
+            <td>${priziv.peopleAmmount}</td>
+            <td>
+              <c:if test="${priziv.getPassports}">
+                <input type="checkbox" name="getPassports" checked onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+              <c:if test="${!priziv.getPassports}">
+                <input type="checkbox" name="getPassports" onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+            </td>
+            <td>
+              <c:if test="${priziv.processed}">
+                <input type="checkbox" name="processed" checked onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+              <c:if test="${!priziv.processed}">
+                <input type="checkbox" name="processed" onchange="editPriziv(${priziv.prizivId})">
+              </c:if>
+            </td>
+            <td>
+              <input type="number" min="0" class="myinput" name="issued" value="${priziv.issued}"
                      onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0">
-          </td>
-          <td>
-            <button id="${priziv.prizivId}" type="button" class="btn" style="margin: 0"
-                    onclick="openModalIlled(this.id)">${priziv.illList.size()}</button>
-          </td>
-          <td>
-            <input type="date" class="myinput" name="dateDeparture" value="${priziv.dateDeparture}"
-                   onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
-          </td>
-        </tr>
+            </td>
+            <td>
+              <button id="${priziv.prizivId}" type="button" class="btn" style="margin: 0"
+                      onclick="openModalIlled(this.id)">${priziv.illList.size()}</button>
+            </td>
+            <td>
+              <input type="date" class="myinput" name="dateDeparture" value="${priziv.dateDeparture}"
+                     onchange="editPriziv(${priziv.prizivId})" style="margin: 0; padding: 0"/>
+            </td>
+          </tr>
+        </c:if>
       </form>
     </c:forEach>
     <tr>
