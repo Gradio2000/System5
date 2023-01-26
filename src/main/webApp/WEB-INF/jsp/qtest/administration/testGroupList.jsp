@@ -58,6 +58,7 @@
             <div>
                 <a style="color: crimson; font: bold italic 110% serif">
                     <c:if test="${param.get('error') == 100}">Не выбрана группа тестов!</c:if>
+                    <c:if test="${param.get('error') == 110}">Группа содержит тесты. Удаление невозможно!</c:if>
                     <c:if test="${param.get('error') == 200}">Введите название группы тестов!</c:if>
                 </a>
             </div>

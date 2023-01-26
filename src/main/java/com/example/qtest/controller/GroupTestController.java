@@ -4,6 +4,7 @@ import com.example.qtest.dto.GroupTestDto;
 import com.example.qtest.model.GroupTest;
 import com.example.qtest.repository.GroupTestRepository;
 import com.example.qtest.service.DtoUtils;
+import com.example.qtest.service.TestGroupDeleteException;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
@@ -59,14 +60,23 @@ public class GroupTestController {
     }
 
     @PostMapping("/delete")
-    public String deleteGroupTest(@RequestParam (required = false) Integer[] check, @AuthenticationPrincipal AuthUser authUser){
+    public String deleteGroupTest(@RequestParam (required = false) Integer[] check,
+                                  @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
         try {
+            List<GroupTest> groupTestList = groupTestRepository.findAllById(Arrays.asList(check));
+            for (GroupTest groupTest : groupTestList){
+                if (!groupTest.getTests().isEmpty()){
+                    throw new TestGroupDeleteException();
+                }
+            }
             groupTestRepository.deleteAllById(Arrays.asList(check));
         } catch (NullPointerException e) {
             return "redirect:/testGroup/list?error=100";
+        } catch (TestGroupDeleteException e) {
+            return "redirect:/testGroup/list?error=110";
         }
         return "redirect:/testGroup/list";
     }
