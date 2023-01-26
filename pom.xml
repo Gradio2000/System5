@@ -10,8 +10,8 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>ROOT</artifactId>
-    <version>8.3</version>
-    <packaging>war</packaging>
+    <version>8.4</version>
+    <packaging>jar</packaging>
     <name>System5</name>
     <description>System5</description>
     <properties>

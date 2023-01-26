@@ -20,6 +20,7 @@ public class TestService {
     public List<QuestionsForAttempt> convertTestForSaveBeforeTesting(Set<Question> questions, Integer attemptId){
         List<QuestionsForAttempt> questionsForAttemptList = new ArrayList<>();
         questions.forEach(q -> {
+            Collections.shuffle(q.getAnswers());
             questionsForAttemptList.add(new QuestionsForAttempt(attemptId, q));
         });
         return questionsForAttemptList;
