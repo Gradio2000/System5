@@ -100,11 +100,19 @@ public class System5Controller {
                               @ModelAttribute System5empl system5empl,
                               BindingResult bindingResult1,
                               Model model,
-                              @AuthenticationPrincipal AuthUser authUser){
+                              @AuthenticationPrincipal AuthUser authUser,
+                              @RequestParam (required = false) Integer year){
         User user = authUser.getUser();
         log.info(user.getName() + " enter into controller /list/" + id);
 
-        List<System5> system5List = system5Repository.findByUserIdOrderBySystem5Id(id);
+        if (year == null){
+            year = LocalDate.now().getYear();
+        }
+        Integer finalYear = year;
+
+        List<System5> system5List = system5Repository.findByUserIdOrderBySystem5Id(id).stream()
+                .filter(s5 -> s5.getYear().equals(finalYear))
+                .collect(Collectors.toList());
 
         Map<Integer, Month> monthMap = new HashMap<>();
         for (System5 system51 : system5List){
@@ -120,6 +128,8 @@ public class System5Controller {
         model.addAttribute("months", monthMap);
         model.addAttribute("userId", id);
         model.addAttribute("user", UserDto.getInstance(user));
+        model.addAttribute("years", system5Repository.getYears());
+        model.addAttribute("selectedYear", finalYear);
 
         return "sys5pages/lists";
     }

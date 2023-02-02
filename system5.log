@@ -8,3 +8,148 @@
 2023-02-02 10:20:01.117  INFO 17863 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
 2023-02-02 10:20:01.833  INFO 17863 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
 2023-02-02 10:20:04.094  INFO 17863 --- [http-nio-8080-exec-10] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:21:18.349  INFO 17863 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:22:13.826  INFO 17863 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:23:00.089  INFO 17863 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:23:06.070  INFO 17863 --- [http-nio-8080-exec-7] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-02 10:23:06.975  INFO 17863 --- [http-nio-8080-exec-1] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-02 10:23:07.669  INFO 17863 --- [http-nio-8080-exec-3] c.e.q.controller.AppointTestController   : getUserAppoint Ласкин А.А.
+2023-02-02 10:23:08.688  INFO 17863 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:23:41.081  INFO 17863 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:23:42.851  INFO 17863 --- [http-nio-8080-exec-7] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:24:50.340  INFO 17863 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:26:40.289  INFO 18063 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18063 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 10:26:40.290 DEBUG 18063 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 10:26:40.290  INFO 18063 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 10:26:42.962  INFO 18063 --- [main] com.example.System5Application           : Started System5Application in 2.845 seconds (JVM running for 3.499)
+2023-02-02 10:26:52.045  INFO 18063 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:26:55.469  INFO 18063 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:28:17.927  WARN 18063 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m36s605ms).
+2023-02-02 10:28:20.514  INFO 18063 --- [http-nio-8080-exec-3] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:28:34.974  INFO 18063 --- [http-nio-8080-exec-7] c.e.s.c.a.ArchiveController              : getEmployersList Ласкин А.А.
+2023-02-02 10:28:36.643  INFO 18063 --- [http-nio-8080-exec-5] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:31:17.460  INFO 18063 --- [http-nio-8080-exec-8] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:32:36.112  INFO 18137 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18137 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 10:32:36.114 DEBUG 18137 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 10:32:36.114  INFO 18137 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 10:32:38.627  INFO 18137 --- [main] com.example.System5Application           : Started System5Application in 2.682 seconds (JVM running for 2.976)
+2023-02-02 10:32:48.361  INFO 18137 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:32:51.220  INFO 18137 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:33:03.975  WARN 18137 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "list"]
+2023-02-02 10:33:07.230  INFO 18137 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:33:16.775  WARN 18137 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "list"]
+2023-02-02 10:37:49.300  INFO 18137 --- [http-nio-8080-exec-1] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:37:52.545  INFO 18137 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:39:27.037  WARN 18137 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m49s907ms).
+2023-02-02 10:44:26.178  INFO 18269 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18269 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 10:44:26.181 DEBUG 18269 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 10:44:26.181  INFO 18269 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 10:44:28.731  INFO 18269 --- [main] com.example.System5Application           : Started System5Application in 2.708 seconds (JVM running for 3.007)
+2023-02-02 10:44:38.911  INFO 18269 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:44:43.754  INFO 18269 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:44:54.732  WARN 18269 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "list"]
+2023-02-02 10:44:55.628  INFO 18269 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:45:10.778  INFO 18269 --- [http-nio-8080-exec-4] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:45:14.617  INFO 18269 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/4
+2023-02-02 10:45:19.451  INFO 18269 --- [http-nio-8080-exec-1] c.e.s.c.a.ArchiveController              : getEmployersList Ласкин А.А.
+2023-02-02 10:45:20.476  INFO 18269 --- [http-nio-8080-exec-3] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:45:25.518  INFO 18269 --- [http-nio-8080-exec-7] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:45:29.162  INFO 18269 --- [http-nio-8080-exec-5] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:45:31.014  INFO 18269 --- [http-nio-8080-exec-9] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:45:38.731  INFO 18269 --- [http-nio-8080-exec-1] c.e.s.c.a.ArchiveController              : getEmployersList Ласкин А.А.
+2023-02-02 10:45:39.933  INFO 18269 --- [http-nio-8080-exec-3] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:45:48.620  INFO 18269 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:49:22.323  INFO 18358 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18358 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 10:49:22.325 DEBUG 18358 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 10:49:22.326  INFO 18358 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 10:49:24.831  INFO 18358 --- [main] com.example.System5Application           : Started System5Application in 2.678 seconds (JVM running for 2.978)
+2023-02-02 10:49:32.153  INFO 18358 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 10:49:39.872  INFO 18358 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:49:44.868  WARN 18358 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "list"]
+2023-02-02 10:49:55.786  INFO 18358 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 10:50:01.816  INFO 18358 --- [http-nio-8080-exec-4] c.e.s.c.a.ArchiveController              : getEmployersList Ласкин А.А.
+2023-02-02 10:50:03.339  INFO 18358 --- [http-nio-8080-exec-6] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:50:13.607  INFO 18358 --- [http-nio-8080-exec-8] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 10:50:21.105  INFO 18358 --- [http-nio-8080-exec-10] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:50:23.418  INFO 18358 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:50:30.095  INFO 18358 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:50:41.922  INFO 18358 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 10:53:53.716  INFO 18358 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/4
+2023-02-02 10:53:58.803  WARN 18358 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "list"]
+2023-02-02 10:54:14.760  INFO 18358 --- [http-nio-8080-exec-7] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/4
+2023-02-02 10:54:16.207  WARN 18358 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "list"]
+2023-02-02 10:54:21.034  INFO 18358 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/4
+2023-02-02 11:06:18.523  INFO 18358 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:06:20.561  INFO 18358 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:06:37.863  INFO 18358 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:06:40.304  INFO 18358 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:06:42.798  INFO 18358 --- [http-nio-8080-exec-10] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:09:54.063  INFO 18723 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18723 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:09:54.066 DEBUG 18723 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:09:54.066  INFO 18723 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:09:56.683  INFO 18723 --- [main] com.example.System5Application           : Started System5Application in 2.814 seconds (JVM running for 3.131)
+2023-02-02 11:10:00.803  INFO 18723 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:10:02.596  INFO 18723 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:10:30.602  INFO 18723 --- [http-nio-8080-exec-10] c.e.s.c.a.ArchiveController              : getEmployersList Ласкин А.А.
+2023-02-02 11:10:32.021  INFO 18723 --- [http-nio-8080-exec-2] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 11:10:34.033  INFO 18723 --- [http-nio-8080-exec-4] c.e.s.c.a.ArchiveController              : getUserListSystem5 Ласкин А.А.
+2023-02-02 11:10:39.688  INFO 18723 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:11:34.880  INFO 18723 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:12:05.954  INFO 18768 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18768 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:12:05.955 DEBUG 18768 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:12:05.957  INFO 18768 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:12:08.727  INFO 18768 --- [main] com.example.System5Application           : Started System5Application in 2.929 seconds (JVM running for 3.222)
+2023-02-02 11:12:13.796  INFO 18768 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:12:18.301  INFO 18768 --- [http-nio-8080-exec-8] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-02 11:12:20.855  INFO 18768 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:12:28.184  INFO 18768 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/4
+2023-02-02 11:12:32.133  INFO 18768 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/5
+2023-02-02 11:12:35.713  INFO 18768 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:13:53.382  INFO 18768 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:14:40.785  INFO 18803 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18803 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:14:40.785 DEBUG 18803 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:14:40.787  INFO 18803 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:14:43.308  INFO 18803 --- [main] com.example.System5Application           : Started System5Application in 2.68 seconds (JVM running for 2.972)
+2023-02-02 11:14:56.513  INFO 18803 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:15:04.580  INFO 18803 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:15:19.381  INFO 18803 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:16:36.386  INFO 18833 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18833 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:16:36.387 DEBUG 18833 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:16:36.389  INFO 18833 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:16:38.934  INFO 18833 --- [main] com.example.System5Application           : Started System5Application in 2.717 seconds (JVM running for 3.037)
+2023-02-02 11:16:45.328  INFO 18833 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:16:52.563  INFO 18833 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:17:16.026  INFO 18863 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18863 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:17:16.030 DEBUG 18863 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:17:16.031  INFO 18863 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:17:18.578  INFO 18863 --- [main] com.example.System5Application           : Started System5Application in 2.718 seconds (JVM running for 2.998)
+2023-02-02 11:17:23.420  INFO 18863 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:17:26.230  INFO 18863 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:17:27.919  INFO 18863 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:17:32.045  INFO 18863 --- [http-nio-8080-exec-3] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:17:33.971  INFO 18863 --- [http-nio-8080-exec-7] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:17:37.149  INFO 18863 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:17:39.091  INFO 18863 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:17:42.919  INFO 18863 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:17:46.208  INFO 18863 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:17:47.682  INFO 18863 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:18:00.223  INFO 18863 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:18:06.543  INFO 18863 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:18:32.351  INFO 18903 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 18903 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:18:32.352 DEBUG 18903 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:18:32.352  INFO 18903 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:18:34.942  INFO 18903 --- [main] com.example.System5Application           : Started System5Application in 2.761 seconds (JVM running for 3.06)
+2023-02-02 11:18:40.468  INFO 18903 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:18:48.837  INFO 18903 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:18:51.654  INFO 18903 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:18:56.408  INFO 18903 --- [http-nio-8080-exec-3] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:18:58.759  INFO 18903 --- [http-nio-8080-exec-7] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:19:00.346  INFO 18903 --- [http-nio-8080-exec-5] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:19:02.896  INFO 18903 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : getAll Ласкин А.А.
+2023-02-02 11:19:12.737  INFO 18903 --- [http-nio-8080-exec-1] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-02 11:19:14.120  INFO 18903 --- [http-nio-8080-exec-3] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-02 11:19:16.982  INFO 18903 --- [http-nio-8080-exec-6] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:19:19.175  INFO 18903 --- [http-nio-8080-exec-8] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:19:22.646  INFO 18903 --- [http-nio-8080-exec-10] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:19:33.703  INFO 18903 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:19:35.144  INFO 18903 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3

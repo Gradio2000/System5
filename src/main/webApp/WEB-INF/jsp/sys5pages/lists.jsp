@@ -27,8 +27,7 @@
 
 <div class="main">
     <div style="margin-top: 80px">
-        <select class="select-css" id="userIdSelect" name="userId" onchange="setYear(this.value)"
-                                                  style="width: max-content;">
+        <select class="select-css" id="userIdSelect" name="userId" onchange="setYear(this.value, ${userId})" style="width: max-content;">
             <option disabled selected>Год</option>
             <c:forEach var="year" items="${years}">
                 <option value="${year}">${year}</option>
@@ -258,7 +257,12 @@
         document.location='#openModalEdit';
     }
 
-    function setYear(year){
-        document.location = "list?year=" + year;
+    function setYear(year, userId){
+        if (userId !== undefined){
+            document.location = "/list/" + userId + "?year=" + year;
+        }
+        else {
+            document.location = "list?year=" + year;
+        }
     }
 </script>
