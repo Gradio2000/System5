@@ -17,24 +17,24 @@ public class PddAnswer {
     private int id;
 
     @Column(name = "pdd_answer_name")
-    private String pddAnswerName;
+    private String answerName;
 
     @Column(name = "pdd_ques_id")
     private Integer pddQuesId;
 
     @Column(name = "istrue")
-    private Boolean istrue;
+    private Boolean isRight;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PddAnswer pddAnswer = (PddAnswer) o;
-        return id == pddAnswer.id && Objects.equals(pddAnswerName, pddAnswer.pddAnswerName) && Objects.equals(pddQuesId, pddAnswer.pddQuesId) && Objects.equals(istrue, pddAnswer.istrue);
+        return id == pddAnswer.id && Objects.equals(answerName, pddAnswer.answerName) && Objects.equals(pddQuesId, pddAnswer.pddQuesId) && Objects.equals(isRight, pddAnswer.isRight);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pddAnswerName, pddQuesId, istrue);
+        return Objects.hash(id, answerName, pddQuesId, isRight);
     }
 }

@@ -19,7 +19,7 @@ public class PddQuestion {
     private int id;
 
     @Column(name = "pdd_question_name")
-    private String pddQuestionName;
+    private String questionName;
 
     @Column(name = "image_ref")
     private String imageRef;
@@ -32,7 +32,7 @@ public class PddQuestion {
 
     @OneToMany(targetEntity = PddAnswer.class, fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, mappedBy = "pddQuesId")
-    private List<Answer> pddAnswerList;
+    private List<Answer> answers;
 
 
     @Override
@@ -43,7 +43,7 @@ public class PddQuestion {
         PddQuestion that = (PddQuestion) o;
 
         if (id != that.id) return false;
-        if (!Objects.equals(pddQuestionName, that.pddQuestionName))
+        if (!Objects.equals(questionName, that.questionName))
             return false;
         if (!Objects.equals(imageRef, that.imageRef)) return false;
 
@@ -53,7 +53,7 @@ public class PddQuestion {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (pddQuestionName != null ? pddQuestionName.hashCode() : 0);
+        result = 31 * result + (questionName != null ? questionName.hashCode() : 0);
         result = 31 * result + (imageRef != null ? imageRef.hashCode() : 0);
         return result;
     }
