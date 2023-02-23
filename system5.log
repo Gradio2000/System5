@@ -153,3 +153,12 @@
 2023-02-02 11:19:22.646  INFO 18903 --- [http-nio-8080-exec-10] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
 2023-02-02 11:19:33.703  INFO 18903 --- [http-nio-8080-exec-2] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
 2023-02-02 11:19:35.144  INFO 18903 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:22:37.143  INFO 19012 --- [main] c.e.system5.System5ApplicationTests      : Starting System5ApplicationTests using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 19012 (started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-02 11:22:37.144 DEBUG 19012 --- [main] c.e.system5.System5ApplicationTests      : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-02 11:22:37.144  INFO 19012 --- [main] c.e.system5.System5ApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2023-02-02 11:22:39.532  INFO 19012 --- [main] c.e.system5.System5ApplicationTests      : Started System5ApplicationTests in 2.681 seconds (JVM running for 3.067)
+2023-02-02 11:23:07.249  INFO 18903 --- [http-nio-8080-exec-3] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-02 11:23:09.301  INFO 18903 --- [http-nio-8080-exec-6] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-02 11:23:11.830  INFO 18903 --- [http-nio-8080-exec-9] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:23:15.242  INFO 18903 --- [http-nio-8080-exec-1] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/3
+2023-02-02 11:23:18.971  INFO 18903 --- [http-nio-8080-exec-4] c.e.s.controller.System5Controller       : Ласкин А.А. enter into controller /list/4
