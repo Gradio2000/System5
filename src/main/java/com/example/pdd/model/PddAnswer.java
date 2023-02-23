@@ -19,27 +19,22 @@ public class PddAnswer {
     @Column(name = "pdd_answer_name")
     private String pddAnswerName;
 
-//    @Column(name = "pdd_ques_id")
-//    private Integer pddQuesId;
+    @Column(name = "pdd_ques_id")
+    private Integer pddQuesId;
 
     @Column(name = "istrue")
     private Boolean istrue;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "pdd_ques_id")
-    private PddQuestion pddQuestion;
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PddAnswer pddAnswer = (PddAnswer) o;
-        return id == pddAnswer.id && Objects.equals(pddAnswerName, pddAnswer.pddAnswerName) && Objects.equals(istrue, pddAnswer.istrue) && Objects.equals(pddQuestion, pddAnswer.pddQuestion);
+        return id == pddAnswer.id && Objects.equals(pddAnswerName, pddAnswer.pddAnswerName) && Objects.equals(pddQuesId, pddAnswer.pddQuesId) && Objects.equals(istrue, pddAnswer.istrue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pddAnswerName, istrue, pddQuestion);
+        return Objects.hash(id, pddAnswerName, pddQuesId, istrue);
     }
 }

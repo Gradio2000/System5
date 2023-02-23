@@ -31,7 +31,7 @@ public class PddQuestion {
     private Integer biletNumber;
 
     @OneToMany(targetEntity = PddAnswer.class, fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL, mappedBy = "pddQuestion")
+            cascade = CascadeType.ALL, mappedBy = "pddQuesId")
     private List<Answer> pddAnswerList;
 
 
