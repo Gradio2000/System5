@@ -21,6 +21,8 @@
 <head>
     <jsp:include page="../../includes/header.jsp"/>
     <jsp:include page="../../includes/menu.jsp"/>
+<%--    <jsp:include page="WEB-INF/includes/header.jsp"/>--%>
+<%--    <jsp:include page="WEB-INF/includes/menu.jsp"/>--%>
 
     <title>Тестирование ПДД</title>
 </head>
@@ -43,11 +45,17 @@
                             <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}</th>
                         </tr>
                         <tr>
+                            <td colspan="2" class="tblsht">
+                                <c:if test="${question.imageRef != null}">
+                                    <img src="<c:url value="${question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/></td>
+                                </c:if>
+                        </tr>
+                        <tr>
                             <td colspan="2" class="tblsht">${question.questionName}</td>
                         </tr>
                         <c:forEach var="answer" items="${question.answers}">
                             <tr>
-                                <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
+                                <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
                                 <td class="tblsht">${answer.answerName}</td>
                             </tr>
                         </c:forEach>
@@ -85,7 +93,7 @@
     </c:forEach>
 
     <div id="lastpage">
-        <button class="btn" type="submit" form="finishForm">Завершить</button>
+        <button class="btn" type="submit" >Завершить</button>
     </div >
 </div>
 
