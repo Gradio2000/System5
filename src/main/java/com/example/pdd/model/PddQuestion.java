@@ -1,6 +1,5 @@
 package com.example.pdd.model;
 
-import com.example.qtest.model.Answer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,7 +31,7 @@ public class PddQuestion {
 
     @OneToMany(targetEntity = PddAnswer.class, fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, mappedBy = "pddQuesId")
-    private List<Answer> answers;
+    private List<PddAnswer> answers;
 
 
     @Override

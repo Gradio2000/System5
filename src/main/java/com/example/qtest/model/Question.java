@@ -31,5 +31,12 @@ public class Question implements Serializable {
     @OrderBy("id")
     private List<Answer> answers;
 
+    @Column(name = "image_ref")
+    private String imageRef;
+
+    @Column(name = "promt")
+    private String promt;
+
+
 
 }
