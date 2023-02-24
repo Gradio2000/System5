@@ -23,7 +23,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
             value = "SELECT test_id, question_name, q_questions.question_id, deleted, image_ref, promt " +
                     "FROM q_questions JOIN q_questions_for_attempt " +
                     "ON q_questions.question_id = q_questions_for_attempt.question_id " +
-                    "WHERE attempt_id = :attemptId ORDER BY test_id")
+                    "WHERE attempt_id = :attemptId ORDER BY q_questions.question_id")
     List<Question> findQuestionsByAttemptId(Integer attemptId);
 
     @Query(nativeQuery = true, value = "SELECT question_id FROM q_questions_for_attempt")

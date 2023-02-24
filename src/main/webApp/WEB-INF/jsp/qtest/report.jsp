@@ -52,8 +52,8 @@
                 <td>${attempt.amountFalseAnswers}</td>
             </tr>
             <tr>
-                <td>Критерий прохождения теста</td>
-                <td>${attempt.criteria}</td>
+                <td>Критерий прохождения теста, %</td>
+                <td>${attempt.criteria} %</td>
             </tr>
             <tr>
                 <td>Результат, %</td>
