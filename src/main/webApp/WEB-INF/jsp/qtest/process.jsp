@@ -43,6 +43,12 @@
                             <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}</th>
                         </tr>
                         <tr>
+                            <td colspan="2" class="tblsht">
+                                <c:if test="${question.question.imageRef != null}">
+                                <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/></td>
+                            </c:if>
+                        </tr>
+                        <tr>
                             <td colspan="2" class="tblsht">${question.question.questionName}</td>
                         </tr>
                         <c:forEach var="answer" items="${question.question.answers}">
@@ -63,6 +69,12 @@
                 <table style="width: 100%; table-layout: auto">
                     <tr>
                         <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="tblsht">
+                            <c:if test="${question.question.imageRef != null}">
+                            <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/></td>
+                        </c:if>
                     </tr>
                     <tr>
                         <td colspan="2" class="tblsht">${question.question.questionName}</td>

@@ -9,15 +9,10 @@ import com.example.qtest.model.Test;
 import com.example.qtest.repository.AnswerRepository;
 import com.example.qtest.repository.QuestionRepository;
 import com.example.qtest.repository.TestReposytory;
-import com.example.system5.dto.UserDto;
-import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -39,23 +34,12 @@ public class pddController {
         this.testReposytory = testReposytory;
     }
 
-    @GetMapping("/pdd/{biletNumber}")
-    public String getQuestionsByBiletNumber(@PathVariable int biletNumber,
-                                                       Model model,
-                                                       @AuthenticationPrincipal AuthUser authUser){
-        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
-                authUser.getUser().getName());
-
-        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
-        model.addAttribute("questionList", pddQuestionRepository.findAllByBiletNumber(biletNumber));
-        return "pdd/processPdd";
-    }
 
     @GetMapping("/conv")
     @ResponseBody
     public HttpStatus convert(){
 
-        for (int i = 40; i <= 40 ; i++) {
+        for (int i = 1; i <= 40 ; i++) {
             Test test = new Test();
             test.setTestName("Билет " + i);
             test.setDeleted(false);
@@ -65,7 +49,7 @@ public class pddController {
 
 
             List<PddQuestion> pddQuestionList = pddQuestionRepository.findAllByBiletNumber(i);
-            List<Question> questionList = new ArrayList<>();
+
             for (PddQuestion pddQuestion: pddQuestionList){
                 Question question = new Question();
                 question.setQuestionName(pddQuestion.getQuestionName());
@@ -82,7 +66,7 @@ public class pddController {
                 for (PddAnswer pddAnswer: pddAnswers){
                     Answer resultAnswer = new Answer();
                     resultAnswer.setQuestion(question);
-                    resultAnswer.setAnswerName(pddAnswer.getAnswerName());
+                    resultAnswer.setAnswerName(pddAnswer.getAnswerName().substring(3));
                     resultAnswer.setIsRight(pddAnswer.getIsRight());
                     resultAnswerList.add(resultAnswer);
                 }
@@ -90,8 +74,6 @@ public class pddController {
 
             }
         }
-
-
 
         return HttpStatus.OK;
     }
