@@ -1,6 +1,6 @@
 package com.example.qtest.service;
 
-import com.example.qtest.controller.utils.UtilsMethods;
+import com.example.qtest.utils.UtilsMethods;
 import com.example.qtest.model.Question;
 import com.example.qtest.model.Test;
 import com.example.qtest.repository.TestReposytory;

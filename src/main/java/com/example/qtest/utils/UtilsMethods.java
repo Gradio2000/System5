@@ -1,4 +1,4 @@
-package com.example.qtest.controller.utils;
+package com.example.qtest.utils;
 
 import com.example.qtest.model.Answer;
 import com.example.qtest.model.Question;
@@ -27,6 +27,12 @@ public class UtilsMethods {
                 ques.setManyChoose(true);
             }
         });
+    }
+
+    public boolean checkAndSetManyChooseParameter(List<Answer> answers){
+        return answers.stream()
+                .filter(Answer::getIsRight)
+                .count() > 1;
     }
 
     public List<Question> parserFile(File newFile, Integer testId){
