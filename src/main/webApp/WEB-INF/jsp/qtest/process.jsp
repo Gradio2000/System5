@@ -26,6 +26,7 @@
 </head>
 <body>
 <div class="main">
+
     <div class="minibuttons">
         <c:forEach items="${questionList}" varStatus="count">
             <button id="minibtn${count.count}" class="minibtn" onclick="stepTo(${count.count})"></button>
@@ -33,78 +34,59 @@
     </div>
 
     <c:forEach var="question" items="${questionList}" varStatus="count">
-        <c:if test="${!resultTestQuestionsIdsList.contains(question.question.id)}">
-            <div id="wrapper${count.count}" style="display: none">
-                <form id="form${question.question.id}">
-                    <input name="attemptId" type="hidden" value="${attemptId}">
-                    <input name="questionId" type="hidden" value="${question.question.id}">
-                    <table id="color_table" style="width: 100%; table-layout: auto">
-                            <tr>
-                                <c:if test="${question.question.manyChoose}">
-                                    <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}. Множественный выбор</th>
-                                </c:if>
-                                <c:if test="${!question.question.manyChoose}">
-                                    <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}. Единственный выбор</th>
-                                </c:if>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="tblsht">
-                                    <c:if test="${question.question.imageRef != null}">
-                                        <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/>
-                                    </c:if>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="tblsht">${question.question.questionName}</td>
-                            </tr>
-                            <c:forEach var="answer" items="${question.question.answers}">
-                                <tr>
-                                    <c:if test="${question.question.manyChoose}">
-                                        <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
-                                    </c:if>
-                                    <c:if test="${!question.question.manyChoose}">
-                                        <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
-                                    </c:if>
-                                    <td class="tblsht">${answer.answerName}</td>
-                                </tr>
-                            </c:forEach>
-                    </table>
-                </form>
-                <button id="btn${count.count}" class="btn" onclick="saveUserAnswer(${question.question.id}, ${count.count}, ${questionList.size()})">Ответить</button>
-                <button id="buttonch${count.count}" class="buttonch" onclick="skipAnswer(${count.count}, ${questionList.size()})">Пропустить</button>
-            </div>
-        </c:if>
-
-        <c:if test="${resultTestQuestionsIdsList.contains(question.question.id)}">
-            <div id="wrapper${count.count}" class="wrapperContainsAnswers" style="display: none">
-                <table style="width: 100%; table-layout: auto">
+        <div id="wrapper${count.count}"
+                <c:if test="${resultTestQuestionsIdsList.contains(question.question.id)}">
+                    class="wrapperContainsAnswers"
+                </c:if>  style="display: none">
+            <form id="form${question.question.id}">
+                <input name="attemptId" type="hidden" value="${attemptId}">
+                <input name="questionId" type="hidden" value="${question.question.id}">
+                <table id="color_table" style="width: 100%; table-layout: auto">
                     <tr>
-                        <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}</th>
+                        <c:if test="${question.question.manyChoose}">
+                            <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}. Множественный выбор</th>
+                        </c:if>
+                        <c:if test="${!question.question.manyChoose}">
+                            <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}. Единственный выбор</th>
+                        </c:if>
                     </tr>
                     <tr>
                         <td colspan="2" class="tblsht">
                             <c:if test="${question.question.imageRef != null}">
-                            <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/></td>
-                        </c:if>
+                                <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/>
+                            </c:if>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2" class="tblsht">${question.question.questionName}</td>
                     </tr>
                     <c:forEach var="answer" items="${question.question.answers}">
                         <tr>
-                            <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
-                                <td style="width: 10%;"><input name="check" class="check" type="checkbox" checked disabled value="${answer.id}"></td>
-                            </c:if>
                             <c:if test="${!resultTestAnswerIdsList.contains(answer.id)}">
-                                <td style="width: 10%;"><input name="check" class="check" type="checkbox" disabled value="${answer.id}"></td>
+                                <c:if test="${question.question.manyChoose}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
+                                </c:if>
+                                <c:if test="${!question.question.manyChoose}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
+                                </c:if>
+                                <td class="tblsht">${answer.answerName}</td>
                             </c:if>
-                            <td class="tblsht">${answer.answerName}</td>
+                            <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
+                                <c:if test="${question.question.manyChoose}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" checked disabled value="${answer.id}"></td>
+                                </c:if>
+                                <c:if test="${!question.question.manyChoose}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="radio" checked disabled value="${answer.id}"></td>
+                                </c:if>
+                                <td class="tblsht">${answer.answerName}</td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                 </table>
-            </div>
-        </c:if>
-
+            </form>
+            <button id="btn${count.count}" class="btn" onclick="saveUserAnswer(${question.question.id}, ${count.count}, ${questionList.size()})">Ответить</button>
+            <button id="buttonch${count.count}" class="buttonch" onclick="skipAnswer(${count.count}, ${questionList.size()})">Пропустить</button>
+        </div>
     </c:forEach>
 
     <div id="lastpage">
