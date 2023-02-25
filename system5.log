@@ -2463,3 +2463,15 @@ java.net.SocketException: Invalid argument
 2023-02-24 22:15:42.844  INFO 18317 --- [http-nio-8080-exec-1] c.e.q.controller.ProcessTestController   : listForTesting Ласкин А.А.
 2023-02-24 22:15:46.836  INFO 18317 --- [http-nio-8080-exec-3] c.e.q.c.TestProcessingController         : startTestProcessing Ласкин А.А.
 2023-02-24 22:16:39.955  WARN 18317 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s587ms).
+2023-02-24 23:20:38.154  INFO 35599 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 35599 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-24 23:20:38.156 DEBUG 35599 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-24 23:20:38.159  INFO 35599 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-24 23:20:40.746  INFO 35599 --- [main] com.example.System5Application           : Started System5Application in 2.767 seconds (JVM running for 3.369)
+2023-02-24 23:20:55.007  INFO 35599 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-24 23:22:29.949  INFO 35599 --- [http-nio-8080-exec-8] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-24 23:22:35.075  INFO 35599 --- [http-nio-8080-exec-1] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-24 23:22:44.699  INFO 35599 --- [http-nio-8080-exec-3] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-24 23:28:34.579  INFO 35599 --- [http-nio-8080-exec-5] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-24 23:28:41.174  INFO 35599 --- [http-nio-8080-exec-10] c.e.q.controller.GroupTestController     : addGroupTest Ласкин А.А.
+2023-02-24 23:28:41.216  INFO 35599 --- [http-nio-8080-exec-9] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-24 23:29:13.861  INFO 35599 --- [http-nio-8080-exec-2] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
