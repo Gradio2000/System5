@@ -1295,3 +1295,290 @@ javax.persistence.EntityNotFoundException: Unable to find com.example.qtest.mode
 2023-02-25 14:13:33.904  INFO 39223 --- [http-nio-8080-exec-9] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
 2023-02-25 14:13:36.289  INFO 39223 --- [http-nio-8080-exec-1] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
 2023-02-25 14:13:37.535  INFO 39223 --- [http-nio-8080-exec-3] c.e.q.c.TestProcessingController         : continueTest Ласкин А.А.
+2023-02-25 14:42:09.976  INFO 39711 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 39711 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 14:42:09.978 DEBUG 39711 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 14:42:09.978  INFO 39711 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 14:42:13.250  INFO 39711 --- [main] com.example.System5Application           : Started System5Application in 3.486 seconds (JVM running for 4.228)
+2023-02-25 14:42:26.541  INFO 39711 --- [http-nio-8080-exec-7] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 14:42:36.476  INFO 39711 --- [http-nio-8080-exec-1] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-25 14:42:40.107  INFO 39711 --- [http-nio-8080-exec-3] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 14:42:42.083  INFO 39711 --- [http-nio-8080-exec-5] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 14:42:46.200  INFO 39711 --- [http-nio-8080-exec-9] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 14:42:46.251  INFO 39711 --- [http-nio-8080-exec-8] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 14:42:47.858  INFO 39711 --- [http-nio-8080-exec-10] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 14:43:03.166  INFO 39711 --- [http-nio-8080-exec-2] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 14:43:03.250  INFO 39711 --- [http-nio-8080-exec-3] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 14:43:03.256  WARN 39711 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42703
+2023-02-25 14:43:03.256 ERROR 39711 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Колонки many_choose не найдено в этом ResultSet’’е.
+2023-02-25 14:43:03.268 ERROR 39711 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute query; SQL [SELECT test_id, question_name, question_id, deleted, image_ref, promt FROM q_questions WHERE test_id = ? AND deleted = false ORDER BY test_id]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute query] with root cause
+
+org.postgresql.util.PSQLException: Колонки many_choose не найдено в этом ResultSet’’е.
+	at org.postgresql.jdbc.PgResultSet.findColumn(PgResultSet.java:2958) ~[postgresql-42.3.7.jar:42.3.7]
+	at org.postgresql.jdbc.PgResultSet.getBoolean(PgResultSet.java:2821) ~[postgresql-42.3.7.jar:42.3.7]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getBoolean(HikariProxyResultSet.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.type.descriptor.sql.BooleanTypeDescriptor$2.doExtract(BooleanTypeDescriptor.java:59) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:257) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:253) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:243) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.type.AbstractStandardBasicType.hydrate(AbstractStandardBasicType.java:329) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3214) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1887) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.hydrateEntityState(Loader.java:1811) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1784) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.getRow(Loader.java:1624) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:748) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.getRowsFromResultSet(Loader.java:1047) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.processResultSet(Loader.java:998) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:967) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2868) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2850) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2682) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2677) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.loader.custom.CustomLoader.list(CustomLoader.java:338) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.SessionImpl.listCustomQuery(SessionImpl.java:2186) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.list(AbstractSharedSessionContract.java:1204) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.query.internal.NativeQueryImpl.doList(NativeQueryImpl.java:177) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.query.internal.AbstractProducedQuery.list(AbstractProducedQuery.java:1617) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at org.hibernate.query.Query.getResultList(Query.java:165) ~[hibernate-core-5.6.11.Final.jar:5.6.11.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:406) ~[spring-orm-5.3.23.jar:5.3.23]
+	at com.sun.proxy.$Proxy199.getResultList(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$CollectionExecution.doExecute(JpaQueryExecution.java:128) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:90) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:156) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:144) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:160) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81) ~[spring-data-commons-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:145) ~[spring-data-jpa-2.7.3.jar:2.7.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.23.jar:5.3.23]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.23.jar:5.3.23]
+	at com.sun.proxy.$Proxy158.findAllByTestIdOrderById(Unknown Source) ~[na:na]
+	at com.example.qtest.controller.QuestionController.getQuestionsList(QuestionController.java:36) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:147) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:125) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-25 14:43:36.576  INFO 39814 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 39814 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 14:43:36.577 DEBUG 39814 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 14:43:36.577  INFO 39814 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 14:43:39.226  INFO 39814 --- [main] com.example.System5Application           : Started System5Application in 2.826 seconds (JVM running for 3.721)
+2023-02-25 14:43:53.356  INFO 39814 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 14:43:59.596  INFO 39814 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-25 14:44:01.241  INFO 39814 --- [http-nio-8080-exec-10] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-25 14:44:12.125  INFO 39814 --- [http-nio-8080-exec-2] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 14:44:15.498  INFO 39814 --- [http-nio-8080-exec-4] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 14:44:16.842  INFO 39814 --- [http-nio-8080-exec-6] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 14:44:23.765  INFO 39814 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-25 14:44:25.598  INFO 39814 --- [http-nio-8080-exec-10] c.e.q.controller.ProcessTestController   : listForTesting Ласкин А.А.
+2023-02-25 14:44:28.273  INFO 39814 --- [http-nio-8080-exec-2] c.e.q.c.TestProcessingController         : startTestProcessing Ласкин А.А.
+2023-02-25 14:44:43.854  INFO 39814 --- [http-nio-8080-exec-4] c.e.q.controller.ProcessTestController   : listForTesting Ласкин А.А.
+2023-02-25 14:44:47.787  INFO 39814 --- [http-nio-8080-exec-6] c.e.q.controller.ProcessTestController   : listForTesting Ласкин А.А.
+2023-02-25 14:44:49.088  INFO 39814 --- [http-nio-8080-exec-8] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-25 14:44:50.179  INFO 39814 --- [http-nio-8080-exec-10] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-25 14:44:52.608  INFO 39814 --- [http-nio-8080-exec-2] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-02-25 14:44:54.757  INFO 39814 --- [http-nio-8080-exec-6] c.e.q.c.TestProcessingController         : continueTest Ласкин А.А.
+2023-02-25 15:05:56.417  WARN 39814 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m48s778ms).
+2023-02-25 15:10:19.737  WARN 39814 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m23s323ms).
+2023-02-25 15:12:06.633  WARN 39814 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m46s895ms).
+2023-02-25 15:20:57.064  WARN 39814 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m50s432ms).
+2023-02-25 15:34:23.686  WARN 39814 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m26s621ms).
+2023-02-25 15:35:31.691  WARN 39814 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m8s5ms).
+2023-02-25 15:49:13.864  INFO 40095 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 40095 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 15:49:13.867 DEBUG 40095 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 15:49:13.869  INFO 40095 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 15:49:20.066  INFO 40095 --- [main] com.example.System5Application           : Started System5Application in 6.808 seconds (JVM running for 7.635)
+2023-02-25 15:49:27.772  INFO 40095 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 15:49:31.298  INFO 40095 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-02-25 15:49:38.541  INFO 40095 --- [http-nio-8080-exec-10] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 15:50:17.366  INFO 40095 --- [http-nio-8080-exec-2] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 15:50:21.106  INFO 40095 --- [http-nio-8080-exec-4] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 15:50:21.155  INFO 40095 --- [http-nio-8080-exec-7] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 15:50:23.028  INFO 40095 --- [http-nio-8080-exec-5] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 15:50:28.878  INFO 40095 --- [http-nio-8080-exec-1] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 15:51:17.023  WARN 40095 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m451ms).
+2023-02-25 15:51:59.392  INFO 40095 --- [http-nio-8080-exec-3] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 15:52:32.267  INFO 40143 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 40143 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 15:52:32.268 DEBUG 40143 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 15:52:32.269  INFO 40143 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 15:52:36.647  INFO 40143 --- [main] com.example.System5Application           : Started System5Application in 4.691 seconds (JVM running for 5.825)
+2023-02-25 15:52:40.802  INFO 40143 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 15:52:44.164  INFO 40143 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 15:52:46.978  INFO 40143 --- [http-nio-8080-exec-10] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 15:52:48.633  INFO 40143 --- [http-nio-8080-exec-2] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 15:52:55.383  INFO 40143 --- [http-nio-8080-exec-4] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 15:52:59.961  INFO 40143 --- [http-nio-8080-exec-6] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 15:53:00.003  INFO 40143 --- [http-nio-8080-exec-5] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 15:53:01.292  INFO 40143 --- [http-nio-8080-exec-9] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 15:53:09.517  INFO 40143 --- [http-nio-8080-exec-1] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 16:07:36.327  WARN 40143 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m32s389ms).
+2023-02-25 16:07:43.235  INFO 40424 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 40424 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 16:07:43.236 DEBUG 40424 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 16:07:43.237  INFO 40424 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 16:07:47.516  INFO 40424 --- [main] com.example.System5Application           : Started System5Application in 4.58 seconds (JVM running for 5.684)
+2023-02-25 16:07:57.218  INFO 40424 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 16:07:59.667  INFO 40424 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 16:08:02.059  INFO 40424 --- [http-nio-8080-exec-10] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 16:08:07.834  INFO 40424 --- [http-nio-8080-exec-2] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 16:08:07.875  INFO 40424 --- [http-nio-8080-exec-3] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 16:08:10.111  INFO 40424 --- [http-nio-8080-exec-7] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 16:08:15.252  INFO 40424 --- [http-nio-8080-exec-5] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 16:08:23.667  INFO 40424 --- [http-nio-8080-exec-8] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 16:28:24.728  WARN 40424 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m9s837ms).
+2023-02-25 16:37:53.528  WARN 40424 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m28s800ms).
+2023-02-25 16:49:34.699  WARN 40424 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m11s59ms).
+2023-02-25 17:03:24.670  WARN 40424 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m19s834ms).
+2023-02-25 17:20:47.037  INFO 41106 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 41106 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 17:20:47.039 DEBUG 41106 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 17:20:47.040  INFO 41106 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 17:20:51.621  INFO 41106 --- [main] com.example.System5Application           : Started System5Application in 5.078 seconds (JVM running for 6.0)
+2023-02-25 17:21:00.654  INFO 41106 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 17:21:03.628  INFO 41106 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 17:21:06.328  INFO 41106 --- [http-nio-8080-exec-10] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:21:27.292  INFO 41106 --- [http-nio-8080-exec-2] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 17:21:27.339  INFO 41106 --- [http-nio-8080-exec-3] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:21:28.336  INFO 41106 --- [http-nio-8080-exec-7] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 17:21:33.107  INFO 41106 --- [http-nio-8080-exec-5] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 17:21:33.202  INFO 41106 --- [http-nio-8080-exec-8] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 17:21:44.173  INFO 41138 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 41138 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 17:21:44.176 DEBUG 41138 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 17:21:44.177  INFO 41138 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 17:21:48.379  INFO 41138 --- [main] com.example.System5Application           : Started System5Application in 4.548 seconds (JVM running for 5.422)
+2023-02-25 17:22:01.062  INFO 41138 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 17:22:04.447  INFO 41138 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 17:22:07.155  INFO 41138 --- [http-nio-8080-exec-10] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:22:14.041  INFO 41138 --- [http-nio-8080-exec-7] c.e.q.controller.AdminTestController     : deleteGroupTest Ласкин А.А.
+2023-02-25 17:22:14.251  INFO 41138 --- [http-nio-8080-exec-6] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:22:16.864  INFO 41138 --- [http-nio-8080-exec-8] c.e.q.controller.AdminTestController     : undeleteTest Ласкин А.А.
+2023-02-25 17:22:16.889  INFO 41138 --- [http-nio-8080-exec-9] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:22:20.090  INFO 41138 --- [http-nio-8080-exec-1] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 17:22:20.121  INFO 41138 --- [http-nio-8080-exec-2] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:22:21.296  INFO 41138 --- [http-nio-8080-exec-4] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 17:22:32.688  INFO 41138 --- [http-nio-8080-exec-6] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 17:23:29.901  WARN 41138 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m14s141ms).
+2023-02-25 17:23:30.024  INFO 41138 --- [http-nio-8080-exec-8] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 17:23:38.627  INFO 41184 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 41184 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-02-25 17:23:38.629 DEBUG 41184 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-02-25 17:23:38.629  INFO 41184 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-02-25 17:23:42.752  INFO 41184 --- [main] com.example.System5Application           : Started System5Application in 4.396 seconds (JVM running for 5.305)
+2023-02-25 17:23:49.813  INFO 41184 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-02-25 17:23:54.734  INFO 41184 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-02-25 17:23:56.736  INFO 41184 --- [http-nio-8080-exec-10] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:24:00.004  INFO 41184 --- [http-nio-8080-exec-2] c.e.q.controller.AdminTestController     : addGroupTest Ласкин А.А.
+2023-02-25 17:24:00.062  INFO 41184 --- [http-nio-8080-exec-3] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-02-25 17:24:01.347  INFO 41184 --- [http-nio-8080-exec-7] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
+2023-02-25 17:24:06.184  INFO 41184 --- [http-nio-8080-exec-5] c.e.qtest.controller.FileController      : loadFile Ласкин А.А.
+2023-02-25 17:24:06.186  INFO 41184 --- [http-nio-8080-exec-5] c.e.qtest.controller.utils.UtilsMethods  : parserFile Ласкин А.А.
+2023-02-25 17:24:38.158  WARN 41184 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58s30ms).
+2023-02-25 17:24:51.812  INFO 41184 --- [http-nio-8080-exec-10] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.

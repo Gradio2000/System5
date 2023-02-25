@@ -14,7 +14,7 @@ import java.util.Set;
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     @Query(nativeQuery = true,
-            value = "SELECT test_id, question_name, question_id, deleted, image_ref, promt " +
+            value = "SELECT test_id, question_name, question_id, deleted, image_ref, promt, many_choose " +
                     "FROM q_questions " +
                     "WHERE test_id = :id AND deleted = false ORDER BY test_id")
     List<Question> findAllByTestIdOrderById(Integer id);
