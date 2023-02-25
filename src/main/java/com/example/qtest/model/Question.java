@@ -37,6 +37,8 @@ public class Question implements Serializable {
     @Column(name = "promt")
     private String promt;
 
+    @Column(name = "many_choose")
+    private Boolean manyChoose;
 
 
 }

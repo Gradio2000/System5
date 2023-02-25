@@ -39,24 +39,35 @@
                     <input name="attemptId" type="hidden" value="${attemptId}">
                     <input name="questionId" type="hidden" value="${question.question.id}">
                     <table id="color_table" style="width: 100%; table-layout: auto">
-                        <tr>
-                            <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}</th>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="tblsht">
-                                <c:if test="${question.question.imageRef != null}">
-                                <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/></td>
-                            </c:if>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="tblsht">${question.question.questionName}</td>
-                        </tr>
-                        <c:forEach var="answer" items="${question.question.answers}">
                             <tr>
-                                <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
-                                <td class="tblsht">${answer.answerName}</td>
+                                <c:if test="${question.question.manyChoose}">
+                                    <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}. Множественный выбор</th>
+                                </c:if>
+                                <c:if test="${!question.question.manyChoose}">
+                                    <th colspan="2" class="tblsht">Вопрос ${count.count} из ${questionList.size()}. Единственный выбор</th>
+                                </c:if>
                             </tr>
-                        </c:forEach>
+                            <tr>
+                                <td colspan="2" class="tblsht">
+                                    <c:if test="${question.question.imageRef != null}">
+                                        <img src="<c:url value="${question.question.imageRef}"/>" alt="Вопрос без рисунка" style="height: 400px; width: max-content"/>
+                                    </c:if>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="tblsht">${question.question.questionName}</td>
+                            </tr>
+                            <c:forEach var="answer" items="${question.question.answers}">
+                                <tr>
+                                    <c:if test="${question.question.manyChoose}">
+                                        <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
+                                    </c:if>
+                                    <c:if test="${!question.question.manyChoose}">
+                                        <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
+                                    </c:if>
+                                    <td class="tblsht">${answer.answerName}</td>
+                                </tr>
+                            </c:forEach>
                     </table>
                 </form>
                 <button id="btn${count.count}" class="btn" onclick="saveUserAnswer(${question.question.id}, ${count.count}, ${questionList.size()})">Ответить</button>
