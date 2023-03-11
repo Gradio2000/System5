@@ -37,7 +37,8 @@
         <div id="wrapper${count.count}"
                 <c:if test="${resultTestQuestionsIdsList.contains(question.question.id)}">
                     class="wrapperContainsAnswers"
-                </c:if>  style="display: none">
+                </c:if>
+                    style="display: none">
             <form id="form${question.question.id}">
                 <input name="attemptId" type="hidden" value="${attemptId}">
                 <input name="questionId" type="hidden" value="${question.question.id}">
@@ -62,21 +63,21 @@
                     </tr>
                     <c:forEach var="answer" items="${question.question.answers}">
                         <tr>
-                            <c:if test="${!resultTestAnswerIdsList.contains(answer.id)}">
-                                <c:if test="${question.question.manyChoose}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
+                            <c:if test="${question.question.manyChoose}">
+                                <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" checked value="${answer.id}"></td>
                                 </c:if>
-                                <c:if test="${!question.question.manyChoose}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
+                                <c:if test="${!resultTestAnswerIdsList.contains(answer.id)}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
                                 </c:if>
                                 <td class="tblsht">${answer.answerName}</td>
                             </c:if>
-                            <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
-                                <c:if test="${question.question.manyChoose}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" checked disabled value="${answer.id}"></td>
+                            <c:if test="${!question.question.manyChoose}">
+                                <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="radio" checked value="${answer.id}"></td>
                                 </c:if>
-                                <c:if test="${!question.question.manyChoose}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="radio" checked disabled value="${answer.id}"></td>
+                                <c:if test="${!resultTestAnswerIdsList.contains(answer.id)}">
+                                    <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
                                 </c:if>
                                 <td class="tblsht">${answer.answerName}</td>
                             </c:if>
@@ -113,8 +114,15 @@
 
         let wrapperContainsAnswers = document.getElementsByClassName('wrapperContainsAnswers');
         for (let i = 0; i < wrapperContainsAnswers.length; i++) {
-            let ids = wrapperContainsAnswers[i].getAttribute("id").slice(-1);
+            let ids = wrapperContainsAnswers[i].getAttribute("id").slice(7);
+            console.log(ids);
             document.getElementById("minibtn" + ids).setAttribute("class", "right");
+            let checkEls = wrapperContainsAnswers[i].getElementsByClassName("check");
+                for (let j = 0; j < checkEls.length; j++){
+                    checkEls[j].setAttribute("disabled", "disabled");
+                }
+            wrapperContainsAnswers[i].getElementsByClassName("btn").item(0).remove();
+            wrapperContainsAnswers[i].getElementsByClassName("buttonch").item(0).remove();
         }
     }
 
