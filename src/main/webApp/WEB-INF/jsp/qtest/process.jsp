@@ -115,7 +115,6 @@
         let wrapperContainsAnswers = document.getElementsByClassName('wrapperContainsAnswers');
         for (let i = 0; i < wrapperContainsAnswers.length; i++) {
             let ids = wrapperContainsAnswers[i].getAttribute("id").slice(7);
-            console.log(ids);
             document.getElementById("minibtn" + ids).setAttribute("class", "right");
             let checkEls = wrapperContainsAnswers[i].getElementsByClassName("check");
                 for (let j = 0; j < checkEls.length; j++){
