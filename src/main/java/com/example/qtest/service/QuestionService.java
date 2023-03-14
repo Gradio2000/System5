@@ -4,6 +4,7 @@ import com.example.qtest.model.Answer;
 import com.example.qtest.model.Question;
 import com.example.qtest.repository.AnswerRepository;
 import com.example.qtest.repository.QuestionRepository;
+import com.example.qtest.utils.UtilsMethods;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -13,10 +14,13 @@ import java.util.*;
 public class QuestionService {
     private final QuestionRepository questionRepository;
     private final AnswerRepository answerRepository;
+    private final UtilsMethods utilsMethods;
 
-    public QuestionService(QuestionRepository questionRepository, AnswerRepository answerRepository) {
+    public QuestionService(QuestionRepository questionRepository, AnswerRepository answerRepository,
+                           UtilsMethods utilsMethods) {
         this.questionRepository = questionRepository;
         this.answerRepository = answerRepository;
+        this.utilsMethods = utilsMethods;
     }
 
     public Question makeQuestionCopy(Question question){
@@ -73,6 +77,9 @@ public class QuestionService {
             }
             answer.setId(null);
         }
+        newQuestion.setImageRef(oldQuestion.getImageRef());
+        newQuestion.setPromt(oldQuestion.getPromt());
+        newQuestion.setManyChoose(utilsMethods.checkAndSetManyChooseParameter(answerList));
         questionRepository.save(newQuestion);
     }
 
@@ -89,6 +96,10 @@ public class QuestionService {
         newQuestion.setAnswers(newAnswerList);
         newQuestion.setTestId(oldQuestion.getTestId());
         newQuestion.setDeleted(false);
+        newQuestion.setImageRef(oldQuestion.getImageRef());
+        newQuestion.setPromt(oldQuestion.getPromt());
+        newQuestion.setManyChoose(utilsMethods.checkAndSetManyChooseParameter(newAnswerList));
+
 
         questionRepository.save(newQuestion);
         questionRepository.save(oldQuestion);

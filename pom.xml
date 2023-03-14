@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>ROOT</artifactId>
     <version>9.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>System5</name>
     <description>System5</description>
     <properties>

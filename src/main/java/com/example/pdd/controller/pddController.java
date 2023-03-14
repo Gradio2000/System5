@@ -35,6 +35,7 @@ public class pddController {
     }
 
 
+    //скрипт создания тестов по билетам ПДД
     @GetMapping("/conv")
     @ResponseBody
     public HttpStatus convert(){
@@ -75,6 +76,30 @@ public class pddController {
             }
         }
 
+        return HttpStatus.OK;
+    }
+
+
+
+    //скрипт изменения в БД вопросов со множественными ответами
+    @GetMapping("/conv1")
+    @ResponseBody
+    public HttpStatus convert1(){
+        List<Question> questionList = questionRepository.findAll();
+        for (Question question: questionList){
+            List<Answer> answers = question.getAnswers();
+            int i = 0;
+            for (Answer answer: answers){
+                if (answer.getIsRight()){
+                    i++;
+                }
+            }
+            if (i > 1){
+                question.setManyChoose(true);
+            }
+        }
+
+        questionRepository.saveAll(questionList);
         return HttpStatus.OK;
     }
 }

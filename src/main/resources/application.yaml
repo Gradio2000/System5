@@ -1,5 +1,10 @@
+
 #  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
   jpa:
 #    show-sql: true
     open-in-view: false
@@ -15,7 +20,7 @@ spring:
         jdbc.batch_size: 20
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/system5DB
+    url: jdbc:postgresql://localhost:5432/system5DB_branch
     username: admin
     password: admin
 
