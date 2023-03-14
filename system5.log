@@ -274,3 +274,24 @@ java.lang.NullPointerException: null
 2023-03-14 15:38:17.637  WARN 1616 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m10s914ms).
 2023-03-14 15:53:55.422  WARN 1616 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m7s659ms).
 2023-03-14 16:09:03.844  WARN 1616 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m8s423ms).
+2023-03-14 22:35:13.733  INFO 4874 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 4874 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-03-14 22:35:13.735 DEBUG 4874 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-03-14 22:35:13.735  INFO 4874 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-03-14 22:35:16.457  INFO 4874 --- [main] com.example.System5Application           : Started System5Application in 2.925 seconds (JVM running for 3.528)
+2023-03-14 23:06:14.313  INFO 5531 --- [main] com.example.System5Application           : Starting System5Application using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 5531 (/Users/aleksejlaskin/IdeaProjects/System5/target/classes started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
+2023-03-14 23:06:14.314 DEBUG 5531 --- [main] com.example.System5Application           : Running with Spring Boot v2.7.4, Spring v5.3.23
+2023-03-14 23:06:14.314  INFO 5531 --- [main] com.example.System5Application           : No active profile set, falling back to 1 default profile: "default"
+2023-03-14 23:06:17.503  INFO 5531 --- [main] com.example.System5Application           : Started System5Application in 3.417 seconds (JVM running for 3.929)
+2023-03-14 23:06:28.140  INFO 5531 --- [http-nio-8080-exec-5] c.e.kanban.controller.KanbanController   : getAllKanban Ласкин А.А.
+2023-03-14 23:06:40.410  INFO 5531 --- [http-nio-8080-exec-8] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-03-14 23:06:41.302  INFO 5531 --- [http-nio-8080-exec-10] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-03-14 23:06:42.193  INFO 5531 --- [http-nio-8080-exec-2] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-03-14 23:06:43.481  INFO 5531 --- [http-nio-8080-exec-4] c.e.q.controller.AppointTestController   : getUserAppoint Ласкин А.А.
+2023-03-14 23:06:44.623  INFO 5531 --- [http-nio-8080-exec-6] c.e.q.controller.GroupTestController     : getAllTestsForTesting Ласкин А.А.
+2023-03-14 23:06:45.964  INFO 5531 --- [http-nio-8080-exec-8] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-03-14 23:06:46.948  INFO 5531 --- [http-nio-8080-exec-10] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-03-14 23:06:48.701  INFO 5531 --- [http-nio-8080-exec-2] c.e.q.controller.TestReportController    : getReport Ласкин А.А.
+2023-03-14 23:06:51.077  INFO 5531 --- [http-nio-8080-exec-4] c.e.q.controller.ProcessTestController   : getUserAttempts Ласкин А.А.
+2023-03-14 23:07:01.203  INFO 5531 --- [http-nio-8080-exec-6] c.e.q.controller.GroupTestController     : testGroupList Ласкин А.А.
+2023-03-14 23:07:03.390  INFO 5531 --- [http-nio-8080-exec-8] c.e.q.controller.AdminTestController     : getAllTest Ласкин А.А.
+2023-03-14 23:07:04.753  INFO 5531 --- [http-nio-8080-exec-10] c.e.qtest.controller.QuestionController  : getQuestionsList Ласкин А.А.
