@@ -14,6 +14,11 @@ ADD promt varchar;
 alter table q_questions
 ADD image_ref varchar;
 
+alter table q_questions
+    ADD many_choose boolean;
+
+
+
 create table pdd_question
 (
     id                serial

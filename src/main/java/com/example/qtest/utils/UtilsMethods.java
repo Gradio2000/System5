@@ -21,11 +21,7 @@ public class UtilsMethods {
 
     public void setManyChooseProperty(List<Question> questionList){
         questionList.forEach(ques -> {
-            if (ques.getAnswers().stream()
-                    .filter(Answer::getIsRight)
-                    .count() > 1){
-                ques.setManyChoose(true);
-            }
+            ques.setManyChoose(checkAndSetManyChooseParameter(ques.getAnswers()));
         });
     }
 
