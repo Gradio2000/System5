@@ -52,11 +52,16 @@
                 <td>${attempt.amountFalseAnswers}</td>
             </tr>
             <tr>
-                <td>Критерий прохождения теста, %</td>
-                <td>${attempt.criteria} %</td>
+                <td>Критерий прохождения теста</td>
+                <c:if test="${attempt.criteria != 0}">
+                    <td>${attempt.criteria} %</td>
+                </c:if>
+                <c:if test="${attempt.criteria == 0}">
+                    <td>Не задан</td>
+                </c:if>
             </tr>
             <tr>
-                <td>Результат, %</td>
+                <td>Результат</td>
                 <td>${attempt.result} %</td>
             </tr>
             <tr>

@@ -34,7 +34,7 @@ public class Attempttest {
     private Integer amountTrueAnswers;
 
     @Column(name = "result")
-    private Double result;
+    private Integer result;
 
     @Column(name = "testresult")
     private String testResult;

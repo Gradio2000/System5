@@ -89,11 +89,11 @@ public class ResultTestService {
         List<Question> quesList = questionRepository.findQuestionsByAttemptId(attemptId);
         Set<Integer> falseAnswerSet = getFalseAnswerSet(mapOfUserAnswers, quesList);
         int trueAnswers = quesList.size() - falseAnswerSet.size();
-        double result = getResult(trueAnswers, quesList.size());
+        int result = (int) getResult(trueAnswers, quesList.size());
 
         Attempttest attemptTest = attemptestReporitory.findById(attemptId).orElse(null);
         assert attemptTest != null;
-        String testResult = getTestResult(result, criteria) ? "Удовлетворительно" : "Неудовлетворительно";
+        String testResult = getTestResult(result, criteria) ? "Зачёт сдан" : "Зачёт не сдан";
 
         //Ок. А теперь кое-что запишем в бд, чтоб админ мог использовать
         attemptTest.setAmountQues(quesList.size());
@@ -121,13 +121,15 @@ public class ResultTestService {
         return resultTestRepository.findAllByAttemptIdOrderById(attemptId);
     }
 
-    public Double getResult(int trueCountAnswers, int totalCountAnswers) {
+    public double getResult(int trueCountAnswers, int totalCountAnswers) {
         BigDecimal bigDecimal1 = new BigDecimal(trueCountAnswers);
         BigDecimal bigDecimal2 = new BigDecimal(totalCountAnswers);
-        return bigDecimal2.compareTo(BigDecimal.ZERO) == 0 ? 0 : bigDecimal1.divide(bigDecimal2, 2, RoundingMode.DOWN).multiply(new BigDecimal("100")).doubleValue();
+        return bigDecimal2.compareTo(BigDecimal.ZERO) == 0 ? 0 : bigDecimal1.divide(bigDecimal2, 2, RoundingMode.DOWN)
+                .multiply(new BigDecimal("100"))
+                .doubleValue();
     }
 
-    private boolean getTestResult(Double result, Integer criteria) {
+    private boolean getTestResult(Integer result, Integer criteria) {
         return result >= criteria;
     }
 

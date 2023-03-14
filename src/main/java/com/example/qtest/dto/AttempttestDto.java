@@ -16,13 +16,13 @@ public class AttempttestDto implements Serializable {
     private Integer amountQues;
     private Integer amountFalseAnswers;
     private Integer amountTrueAnswers;
-    private Double result;
+    private Integer result;
     private String testResult;
     private String testName;
     private Boolean consolidTest;
 
     public AttempttestDto(Integer id, Date dateTime, Integer amountQues, Integer amountFalseAnswers,
-                          Integer amountTrueAnswers, Double result, String testResult,
+                          Integer amountTrueAnswers, Integer result, String testResult,
                           String testName, Boolean consolidTest) {
         this.id = id;
         this.dateTime = dateTime;
