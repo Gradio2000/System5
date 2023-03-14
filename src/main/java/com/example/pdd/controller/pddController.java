@@ -35,6 +35,7 @@ public class pddController {
     }
 
 
+    //скрипт создания тестов по билетам ПДД
     @GetMapping("/conv")
     @ResponseBody
     public HttpStatus convert(){
@@ -80,6 +81,7 @@ public class pddController {
 
 
 
+    //скрипт изменения в БД вопросов со множественными ответами
     @GetMapping("/conv1")
     @ResponseBody
     public HttpStatus convert1(){
