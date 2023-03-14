@@ -32,7 +32,7 @@
             <tr>
                 <th>Дата и номер распорядительного акта ПУ (письма ДПУ), являющегося основанием для проведения зачета</th>
                 <th>Формат и дата проведения зачета</th>
-                <th>Фамилия, инициалы и должность лица, сдавшего зачет</th>
+                <th>Фамилия, инициалы и должность лица, сдававшего зачет</th>
                 <th>Сумма набранных баллов</th>
                 <th>Решение комиссии</th>
             </tr>
@@ -40,8 +40,8 @@
             <tr>
                 <td>${appointTestDto.base}</td>
                 <td>
+                    очное тестирование
                     <fmt:formatDate value="${appointTestDto.attempttestDto.dateTime}" pattern="dd.MM.yyyy"/>
-                    тестирование
                 </td>
                 <td>${appointTestDto.userDtoNameOnlyWithPositionDto.name} ${appointTestDto.userDtoNameOnlyWithPositionDto.positionDtoNameOnly.position}</td>
                 <td>${appointTestDto.attempttestDto.amountTrueAnswers} из ${appointTestDto.attempttestDto.amountQues}</td>
