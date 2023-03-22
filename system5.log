@@ -1,8 +1,0 @@
-2023-03-15 11:21:22.500  INFO 6879 --- [main] c.e.system5.System5ApplicationTests      : Starting System5ApplicationTests using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 6879 (started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
-2023-03-15 11:21:22.502 DEBUG 6879 --- [main] c.e.system5.System5ApplicationTests      : Running with Spring Boot v2.7.4, Spring v5.3.23
-2023-03-15 11:21:22.502  INFO 6879 --- [main] c.e.system5.System5ApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2023-03-15 11:21:25.055  INFO 6879 --- [main] c.e.system5.System5ApplicationTests      : Started System5ApplicationTests in 2.721 seconds (JVM running for 3.147)
-2023-03-15 11:32:47.177  INFO 7177 --- [main] c.e.system5.System5ApplicationTests      : Starting System5ApplicationTests using Java 11.0.17 on MacBook-Air-Aleksej.local with PID 7177 (started by aleksejlaskin in /Users/aleksejlaskin/IdeaProjects/System5)
-2023-03-15 11:32:47.178 DEBUG 7177 --- [main] c.e.system5.System5ApplicationTests      : Running with Spring Boot v2.7.4, Spring v5.3.23
-2023-03-15 11:32:47.178  INFO 7177 --- [main] c.e.system5.System5ApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2023-03-15 11:32:49.729  INFO 7177 --- [main] c.e.system5.System5ApplicationTests      : Started System5ApplicationTests in 2.898 seconds (JVM running for 3.319)

@@ -65,21 +65,21 @@
                         <tr>
                             <c:if test="${question.question.manyChoose}">
                                 <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" checked value="${answer.id}"></td>
+                                    <td style="width: 10%;"><input id="checkId${answer.id}" name="check" class="check" type="checkbox" checked value="${answer.id}"></td>
                                 </c:if>
                                 <c:if test="${!resultTestAnswerIdsList.contains(answer.id)}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="checkbox" value="${answer.id}"></td>
+                                    <td style="width: 10%;"><input id="checkId${answer.id}" name="check" class="check" type="checkbox" value="${answer.id}"></td>
                                 </c:if>
-                                <td class="tblsht">${answer.answerName}</td>
+                                <td class="tblsht"><label for="checkId${answer.id}">${answer.answerName}</label></td>
                             </c:if>
                             <c:if test="${!question.question.manyChoose}">
                                 <c:if test="${resultTestAnswerIdsList.contains(answer.id)}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="radio" checked value="${answer.id}"></td>
+                                    <td style="width: 10%;"><input id="radioId${answer.id}" name="check" class="check" type="radio" checked value="${answer.id}"></td>
                                 </c:if>
                                 <c:if test="${!resultTestAnswerIdsList.contains(answer.id)}">
-                                    <td style="width: 10%;"><input name="check" class="check" type="radio" value="${answer.id}"></td>
+                                    <td style="width: 10%;"><input id="radioId${answer.id}" name="check" class="check" type="radio" value="${answer.id}"></td>
                                 </c:if>
-                                <td class="tblsht">${answer.answerName}</td>
+                                <td class="tblsht"><label for="radioId${answer.id}">${answer.answerName}</label></td>
                             </c:if>
                         </tr>
                     </c:forEach>
