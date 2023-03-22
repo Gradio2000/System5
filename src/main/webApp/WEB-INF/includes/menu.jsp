@@ -26,15 +26,15 @@
     <c:if test="${role == 'ADMIN_TEST'}">
     <a href="/testGroup/list">Редактирование тестов</a>
     <a href="/exam/exam">Назначение зачётов</a>
-    <a href="/exam/journal">Журнал зачётов (ЭКР)</a>
-    <a href="/exam/journalBase">Журнал зачетов (общий)</a>
+<%--    <a href="/exam/journal">Журнал зачётов (ЭКР)</a>--%>
+    <a href="/exam/journalBase">Журнал зачетов</a>
     <br/>
     </c:if>
 </c:forEach>
     <a href="/kanban/kanban">Канбан</a>
-    <a href="/converter/converter">Конвертер ОИСФЛ</a>
+<%--    <a href="/converter/converter">Конвертер ОИСФЛ</a>--%>
     <a href="/search">Поиск индекса</a>
-    <a href="/priziv">Призыв</a>
+<%--    <a href="/priziv">Призыв</a>--%>
 
     <br/>
     <a href="/logout">Выйти</a>

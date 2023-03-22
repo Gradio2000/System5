@@ -34,7 +34,7 @@
     </select>
   </div>
   <div id="printableArea" style="text-align: center; margin-top: 10px">
-    <p>Оценка работников полевого учреждения Банка России № 42667 за ${selectedYear} год</p>
+    <p>Оценка работников за ${selectedYear} год</p>
     <table class="table">
       <tbody>
       <tr>
