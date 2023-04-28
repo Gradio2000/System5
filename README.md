@@ -23,7 +23,7 @@ docker-compose up
 ```
 По завершению запуска контейнеров, программа будет доступна на 8001 порту
 ```sh
-http://localhost:8001
+http://localhost:8001/login
 ```
 
 ## Credentials: 
