@@ -15,7 +15,7 @@
 - jsp
 
 ## Docker
-Для запуска демо-версии воспользуйтесль [Docker].
+Для запуска демо-версии используйте [Docker].
 Сохраните [docker-compose](https://github.com/Gradio2000/System5/blob/docker_branch_finish/docker-compose.yml) в <ваша папка> и просто запустите 
 ```sh
 cd <ваша папка>
