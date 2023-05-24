@@ -27,10 +27,12 @@
 <body>
 <div class="main">
   <select name="month" class="select-css" style="width: max-content;">
+    <option selected>Выбирете призыв</option>
   <c:forEach var="prizivMonthYearName" items="${prizivMonthYearNameDtoList}">
     <option>${prizivMonthYearName.monthYearName}</option>
   </c:forEach>
   </select>
+  <p>${prizivMonthYearName}</p>
   <table>
     <tr>
       <th style="width: 40px">№ п/п</th>
