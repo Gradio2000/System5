@@ -84,8 +84,7 @@ public class PrizivController {
         }
 
         prizivRepository.save(Priziv.getInstance(prizivDto));
-
-        return prizivRepository.findAll().stream()
+        return prizivRepository.findAllByMonthYearId(prizivDto.getMonthYearId()).stream()
                 .mapToInt(Priziv::getIssued)
                 .sum();
     }
