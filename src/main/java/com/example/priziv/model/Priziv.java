@@ -54,7 +54,7 @@ public class Priziv {
 
     public Priziv(Integer prizivId, String commandName, Boolean getPassports, Boolean processed,
                   Integer issued, Date dateArrival, Date dateDeparture,
-                  Integer peopleAmmount, List<Ill>illList) {
+                  Integer peopleAmmount, List<Ill>illList, Integer monthYearId) {
         this.prizivId = prizivId;
         this.commandName = commandName;
         this.getPassports = getPassports;
@@ -64,12 +64,13 @@ public class Priziv {
         this.dateDeparture = dateDeparture;
         this.peopleAmmount = peopleAmmount;
         this.illList = illList;
+        this.monthYearId = monthYearId;
     }
 
     public static Priziv getInstance(PrizivDto prizivDto){
         return new Priziv(prizivDto.getPrizivId(), prizivDto.getCommandName(), prizivDto.getGetPassports(),
                  prizivDto.getProcessed(), prizivDto.getIssued(),
                 convertStringToDate(prizivDto.getDateArrival()), convertStringToDate(prizivDto.getDateDeparture()),
-                prizivDto.getPeopleAmmount(), prizivDto.getIllList());
+                prizivDto.getPeopleAmmount(), prizivDto.getIllList(), prizivDto.getMonthYearId());
     }
 }

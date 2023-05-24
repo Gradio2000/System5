@@ -24,9 +24,12 @@ public class PrizivDto {
 
     private List<Ill> illList;
 
+    private Integer monthYearId;
+
     public PrizivDto(Integer prizivId, String commandName, Boolean getPassports,
                      Boolean processed, Integer issued,
-                     String dateArrival, String dateDeparture, Integer peopleAmmount, List<Ill>illList) {
+                     String dateArrival, String dateDeparture, Integer peopleAmmount, List<Ill>illList,
+                     Integer monthYearId) {
         this.prizivId = prizivId;
         this.commandName = commandName;
         this.getPassports = getPassports;
@@ -36,13 +39,14 @@ public class PrizivDto {
         this.dateDeparture = dateDeparture;
         this.peopleAmmount = peopleAmmount;
         this.illList = illList;
+        this.monthYearId = monthYearId;
     }
 
     public static PrizivDto getInstance(Priziv priziv){
         return new PrizivDto(priziv.getPrizivId(), priziv.getCommandName(), priziv.getGetPassports(),
                 priziv.getProcessed(), priziv.getIssued(),
                 convetToString(priziv.getDateArrival()), convetToString(priziv.getDateDeparture()),
-                priziv.getPeopleAmmount(), priziv.getIllList());
+                priziv.getPeopleAmmount(), priziv.getIllList(), priziv.getMonthYearId());
     }
 
     public static String convetToString(Date date){

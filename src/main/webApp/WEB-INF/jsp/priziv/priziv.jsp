@@ -26,6 +26,11 @@
 </head>
 <body>
 <div class="main">
+  <select name="month" class="select-css" style="width: max-content;">
+  <c:forEach var="prizivMonthYearName" items="${prizivMonthYearNameDtoList}">
+    <option>${prizivMonthYearName.monthYearName}</option>
+  </c:forEach>
+  </select>
   <table>
     <tr>
       <th style="width: 40px">№ п/п</th>
@@ -43,6 +48,7 @@
         <input type="hidden" name="prizivId" value="${priziv.prizivId}">
         <input type="hidden" name="commandName" value="${priziv.commandName}">
         <input type="hidden" name="peopleAmmount" value="${priziv.peopleAmmount}">
+        <input type="hidden" name="monthYearId" value="${priziv.monthYearId}">
         <c:if test="${priziv.issued > 0}">
           <tr style="background: #ccfcff">
             <td>${count.count}</td>
@@ -231,7 +237,6 @@
 
   function editPriziv(id){
     const msg = document.getElementById("prizivForm" + id);
-    console.log(msg);
     let d = $(msg).serializeArray();
     $.ajax({
       type: 'POST',
