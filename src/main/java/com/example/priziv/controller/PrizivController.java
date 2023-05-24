@@ -3,9 +3,12 @@ package com.example.priziv.controller;
 import com.example.priziv.dto.PrizivDto;
 import com.example.priziv.model.Ill;
 import com.example.priziv.model.Priziv;
+import com.example.priziv.model.PrizivMonthYear;
 import com.example.priziv.repository.IllRepository;
+import com.example.priziv.repository.PrizivMonthYearRepository;
 import com.example.priziv.repository.PrizivRepository;
 import com.example.priziv.service.PrizivService;
+import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -22,20 +25,34 @@ public class PrizivController {
     private final PrizivRepository prizivRepository;
     private final PrizivService prizivService;
     private final IllRepository illRepository;
+    private final PrizivMonthYearRepository prizivMonthYearRepository;
 
-    public PrizivController(PrizivRepository prizivRepository, PrizivService prizivService, IllRepository illRepository) {
+    public PrizivController(PrizivRepository prizivRepository, PrizivService prizivService,
+                            IllRepository illRepository, PrizivMonthYearRepository prizivMonthYearRepository) {
         this.prizivRepository = prizivRepository;
         this.prizivService = prizivService;
         this.illRepository = illRepository;
+        this.prizivMonthYearRepository = prizivMonthYearRepository;
     }
 
-    @GetMapping("/priziv")
-    public String getAllPriziv(@AuthenticationPrincipal AuthUser authUser,
-                            Model model){
+//    @GetMapping("/priziv")
+//    public String getAllPriziv(@AuthenticationPrincipal AuthUser authUser,
+//                            Model model){
+//
+//        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+//                authUser.getUser().getName());
+//        prizivService.getAllPriziv(authUser, model);
+//        return "/priziv/priziv";
+//    }
 
+    @GetMapping("/prizivAll")
+    public String getAllPrizivNew(@AuthenticationPrincipal AuthUser authUser, Model model){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
-        prizivService.getAllPriziv(authUser, model);
+        PrizivMonthYear prizivMonthYear = prizivMonthYearRepository.findFirstByOrderByIdDesc();
+        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+        prizivService.getAllPriziv(model, prizivMonthYear);
+
         return "/priziv/priziv";
     }
 
@@ -44,7 +61,8 @@ public class PrizivController {
                             Model model){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
-        prizivService.getAllPriziv(authUser, model);
+        //todo
+//        prizivService.getAllPriziv(authUser, model);
         return "priziv/ill";
     }
 

@@ -46,6 +46,9 @@ public class Priziv {
     @OrderBy("fio")
     private List<Ill> illList;
 
+    @Column(name = "month_year_id")
+    private Integer monthYearId;
+
     public Priziv() {
     }
 

@@ -1,11 +1,11 @@
 package com.example.priziv.service;
 
 import com.example.priziv.dto.PrizivDto;
+import com.example.priziv.dto.PrizivMonthYearDto;
 import com.example.priziv.model.Priziv;
+import com.example.priziv.model.PrizivMonthYear;
+import com.example.priziv.repository.PrizivMonthYearRepository;
 import com.example.priziv.repository.PrizivRepository;
-import com.example.system5.dto.UserDto;
-import com.example.system5.util.AuthUser;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
@@ -18,15 +18,16 @@ import java.util.stream.Collectors;
 @Component
 public class PrizivService {
     private final PrizivRepository prizivRepository;
+    private final PrizivMonthYearRepository prizivMonthYearRepository;
 
-    public PrizivService(PrizivRepository prizivRepository) {
+    public PrizivService(PrizivRepository prizivRepository, PrizivMonthYearRepository prizivMonthYearRepository) {
         this.prizivRepository = prizivRepository;
+        this.prizivMonthYearRepository = prizivMonthYearRepository;
     }
 
-    public void getAllPriziv(AuthUser authUser, Model model) {
+    public void getAllPriziv(Model model, PrizivMonthYear prizivMonthYear) {
 
-        List<PrizivDto> prizivList = prizivRepository.findAll(Sort.by("dateArrival", "dateDeparture"))
-                .stream()
+        List<PrizivDto> prizivList = prizivMonthYear.getPrizivList().stream()
                 .map(PrizivDto::getInstance)
                 .collect(Collectors.toList());
 
@@ -40,8 +41,11 @@ public class PrizivService {
             totalNotIssued += prizivDto.getIllList().size();
         }
 
+        List<PrizivMonthYearDto> prizivMonthYearNameDtoList = prizivMonthYearRepository.findAll().stream()
+                .map(PrizivMonthYearDto::getInstance)
+                .collect(Collectors.toList());
 
-        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+        model.addAttribute("prizivMonthYearNameDtoList", prizivMonthYearNameDtoList);
         model.addAttribute("prizivList", prizivList);
         model.addAttribute("totalPeopleAmount", totalPeopleAmount);
         model.addAttribute("totalIssued", totalIssued);
