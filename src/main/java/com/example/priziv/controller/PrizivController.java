@@ -152,5 +152,19 @@ public class PrizivController {
         return prizivService.getResultMapService(prizivId);
     }
 
+    @GetMapping("/priziv/getpriziv/{prizivMonthYearId}")
+    public String getPrizivByPrizimMonthYearId(@PathVariable Integer prizivMonthYearId,
+                                               @AuthenticationPrincipal AuthUser authUser, Model model){
+
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+        PrizivMonthYear prizivMonthYear = prizivMonthYearRepository.findById(prizivMonthYearId).orElse(null);
+        assert prizivMonthYear != null;
+        prizivService.getAllPriziv(model, prizivMonthYear);
+        return "/priziv/priziv";
+    }
+
 }
 

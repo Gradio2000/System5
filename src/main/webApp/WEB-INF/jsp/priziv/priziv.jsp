@@ -26,10 +26,10 @@
 </head>
 <body>
 <div class="main">
-  <select name="month" class="select-css" style="width: max-content;">
+  <select id="selectPriziv" name="month" class="select-css" style="width: max-content;" onchange="selectPriziv()">
     <option selected>Выбирете призыв</option>
   <c:forEach var="prizivMonthYearName" items="${prizivMonthYearNameDtoList}">
-    <option>${prizivMonthYearName.monthYearName}</option>
+    <option value="${prizivMonthYearName.id}">${prizivMonthYearName.monthYearName}</option>
   </c:forEach>
   </select>
   <p>${prizivMonthYearName}</p>
@@ -307,6 +307,11 @@
         alert("Ошибка удаления данных. Обратитесь к администратору. \n function delMember(illId, prizivId)");
       }
     });
+  }
+
+  function selectPriziv(){
+    var a = $("#selectPriziv").val();
+    window.location.href = '/priziv/getpriziv/' + a;
   }
 </script>
 
