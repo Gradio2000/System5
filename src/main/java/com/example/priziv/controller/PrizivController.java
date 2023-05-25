@@ -52,11 +52,10 @@ public class PrizivController {
                             @PathVariable Integer monthYearId){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
-        //todo
-        PrizivMonthYear prizivMonthYear = prizivMonthYearRepository.findById(monthYearId).orElse(null);
-        assert prizivMonthYear != null;
+
+        List<Priziv> prizivList = prizivRepository.findAllByMonthYearId(monthYearId);
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
-        model.addAttribute("prizivList", prizivMonthYear.getPrizivList());
+        model.addAttribute("prizivList", prizivList);
 
         return "priziv/ill";
     }
@@ -86,7 +85,8 @@ public class PrizivController {
 
     @PostMapping("/addPriziv")
     public String addPriziv(@ModelAttribute PrizivDto prizivDto,
-                            @AuthenticationPrincipal AuthUser authUser){
+                            @AuthenticationPrincipal AuthUser authUser,
+                            Model model){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
@@ -97,7 +97,11 @@ public class PrizivController {
             prizivDto.setPeopleAmmount(0);
         }
         prizivRepository.save(Priziv.getInstance(prizivDto));
-        return "redirect:/priziv";
+        PrizivMonthYear prizivMonthYear = prizivMonthYearRepository.findById(prizivDto.getMonthYearId()).orElse(null);
+        assert prizivMonthYear != null;
+        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+        prizivService.getAllPriziv(model, prizivMonthYear);
+        return "/priziv/priziv";
     }
 
     @PostMapping("/priziv/addIlled")

@@ -154,6 +154,7 @@
           <div class="modal-body my-modal">
             <form method="post" action="/addPriziv">
               <input name="prizivId" type="hidden"/>
+              <input name="monthYearId" type="hidden" value="${prizivMonthId}">
               <input name="commandName" placeholder="Название команды"/>
               <input type="number" name="peopleAmmount" placeholder="Количество человек"/>
               <label class="mylabel-forkanban"> Дата прибытия
