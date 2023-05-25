@@ -51,6 +51,7 @@ public class PrizivService {
         model.addAttribute("totalIssued", totalIssued);
         model.addAttribute("totalNotIssued", totalNotIssued);
         model.addAttribute("prizivMonthYearName", prizivMonthYear.getMonthYearName());
+        model.addAttribute("prizivMonthId", prizivMonthYear.getId());
     }
 
     public Map<String,Object> getResultMapService(int prizivId){

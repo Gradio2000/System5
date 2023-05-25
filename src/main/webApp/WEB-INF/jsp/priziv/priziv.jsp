@@ -142,7 +142,7 @@
     </tr>
   </table>
   <button type="button" class="btn" onclick="document.location='#openModal'">Добавить</button>
-  <button type="button" class="btn" onclick="document.location='/priziv/ill'">Список больных</button>
+  <button type="button" class="btn" onclick="getPrizivIll(${prizivMonthId})">Список больных</button>
 
     <div id="openModal" class="modal">
       <div class="modal-dialog">
@@ -312,6 +312,10 @@
   function selectPriziv(){
     var a = $("#selectPriziv").val();
     window.location.href = '/priziv/getpriziv/' + a;
+  }
+
+  function getPrizivIll(monthYearId){
+    window.location.href = '/priziv/ill/' + monthYearId;
   }
 </script>
 

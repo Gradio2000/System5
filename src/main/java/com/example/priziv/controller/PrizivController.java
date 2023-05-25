@@ -35,16 +35,6 @@ public class PrizivController {
         this.prizivMonthYearRepository = prizivMonthYearRepository;
     }
 
-//    @GetMapping("/priziv")
-//    public String getAllPriziv(@AuthenticationPrincipal AuthUser authUser,
-//                            Model model){
-//
-//        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
-//                authUser.getUser().getName());
-//        prizivService.getAllPriziv(authUser, model);
-//        return "/priziv/priziv";
-//    }
-
     @GetMapping("/prizivAll")
     public String getAllPrizivNew(@AuthenticationPrincipal AuthUser authUser, Model model){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
@@ -56,13 +46,18 @@ public class PrizivController {
         return "/priziv/priziv";
     }
 
-    @GetMapping ("/priziv/ill")
+    @GetMapping ("/priziv/ill/{monthYearId}")
     public String getAllIll(@AuthenticationPrincipal AuthUser authUser,
-                            Model model){
+                            Model model,
+                            @PathVariable Integer monthYearId){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
         //todo
-//        prizivService.getAllPriziv(authUser, model);
+        PrizivMonthYear prizivMonthYear = prizivMonthYearRepository.findById(monthYearId).orElse(null);
+        assert prizivMonthYear != null;
+        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+        model.addAttribute("prizivList", prizivMonthYear.getPrizivList());
+
         return "priziv/ill";
     }
 
