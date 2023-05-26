@@ -21,5 +21,6 @@ public class PrizivMonthYear {
 
     @OneToMany(targetEntity = Priziv.class, cascade = CascadeType.ALL,
             fetch = FetchType.EAGER, mappedBy = "monthYearId")
+    @OrderBy("dateArrival, dateDeparture")
     private Set<Priziv> prizivList;
 }
