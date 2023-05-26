@@ -27,7 +27,7 @@
 <body>
 <div class="main">
   <select id="selectPriziv" name="month" class="select-css" style="width: max-content;" onchange="selectPriziv()">
-    <option selected>Выбирете призыв</option>
+    <option selected>Выберите призыв</option>
   <c:forEach var="prizivMonthYearName" items="${prizivMonthYearNameDtoList}">
     <option value="${prizivMonthYearName.id}">${prizivMonthYearName.monthYearName}</option>
   </c:forEach>
