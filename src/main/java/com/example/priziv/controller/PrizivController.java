@@ -141,14 +141,14 @@ public class PrizivController {
         return prizivRepository.findById(prizivId).orElse(null);
     }
 
-    @GetMapping("/prizivWithTotalIssued/{prizivId}")
+    @GetMapping("/prizivWithTotalIssued/{prizivId}/{prizivMonthId}")
     @ResponseBody
-    public Map<String,Object> getPrizivWithTotalIssued(@PathVariable Integer prizivId,
+    public Map<String,Object> getPrizivWithTotalIssued(@PathVariable Integer prizivId, @PathVariable Integer prizivMonthId,
                                                        @AuthenticationPrincipal AuthUser authUser){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
-        return prizivService.getResultMapService(prizivId);
+        return prizivService.getResultMapService(prizivId, prizivMonthId);
     }
 
     @GetMapping("/priziv/getpriziv/{prizivMonthYearId}")

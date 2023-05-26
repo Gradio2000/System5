@@ -176,7 +176,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">Добавить/удалить больного</h3>
-          <a title="Close" class="close" onclick="closeModal()">×</a>
+          <a title="Close" class="close" onclick="closeModal(${prizivMonthId})">×</a>
         </div>
         <div class="modal-header">
           <h5 class="modal-title" id="commandName"></h5>
@@ -280,11 +280,11 @@
     document.getElementById("labelMembers").append(membersBlock);
   }
 
-  function closeModal(){
+  function closeModal(prizivMonthId){
     let prizivId = document.getElementById("prizivIdNumber").getAttribute("value");
     $.ajax({
       type: 'GET',
-      url: '/prizivWithTotalIssued/' + prizivId,
+      url: '/prizivWithTotalIssued/' + prizivId + "/" + prizivMonthId,
       success: function (data) {
         document.location = '#close';
         document.getElementById(prizivId).innerText = data.priziv.illList.length;

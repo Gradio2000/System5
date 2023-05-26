@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "p_priziv_month_year")
@@ -21,5 +21,5 @@ public class PrizivMonthYear {
 
     @OneToMany(targetEntity = Priziv.class, cascade = CascadeType.ALL,
             fetch = FetchType.EAGER, mappedBy = "monthYearId")
-    private List<Priziv> prizivList;
+    private Set<Priziv> prizivList;
 }

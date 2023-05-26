@@ -54,9 +54,9 @@ public class PrizivService {
         model.addAttribute("prizivMonthId", prizivMonthYear.getId());
     }
 
-    public Map<String,Object> getResultMapService(int prizivId){
+    public Map<String,Object> getResultMapService(int prizivId, int prizivMonthId){
         Map<String,Object> result = new HashMap<>();
-        List<Priziv> prizivList = prizivRepository.findAll();
+        List<Priziv> prizivList = prizivRepository.findAllByMonthYearId(prizivMonthId);
 
         result.put("priziv", prizivList.stream()
                 .filter(priziv -> Objects.equals(priziv.getPrizivId(), prizivId))
