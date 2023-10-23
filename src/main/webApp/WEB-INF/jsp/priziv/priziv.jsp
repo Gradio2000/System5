@@ -276,7 +276,7 @@
       url: '/priziv/addPrizivMonthName',
       data: msg,
       success: function (data) {
-        console.log("aaa")
+        
       },
       error: function () {
         alert('Ошибка!');
