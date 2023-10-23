@@ -276,7 +276,7 @@
       url: '/priziv/addPrizivMonthName',
       data: msg,
       success: function (data) {
-        
+        document.location = '/prizivAll'
       },
       error: function () {
         alert('Ошибка!');

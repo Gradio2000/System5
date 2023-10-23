@@ -115,7 +115,6 @@ public class PrizivController {
         assert priziv != null;
         List<Ill> illList = priziv.getIllList();
         illList.add(new Ill(fio, prizivId));
-        priziv.setIllList(illList);
         return prizivRepository.save(priziv);
     }
 
