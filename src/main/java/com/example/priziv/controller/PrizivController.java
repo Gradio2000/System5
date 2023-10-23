@@ -166,7 +166,8 @@ public class PrizivController {
     }
 
     @PostMapping("/priziv/addPrizivMonthName")
-    public String addPrizivMonthName( ){
+    public String addPrizivMonthName(@RequestParam String monthYearName){
+        System.out.println(monthYearName);
         return "/priziv/priziv";
     }
 
