@@ -165,5 +165,10 @@ public class PrizivController {
         return "/priziv/priziv";
     }
 
+    @PostMapping("/priziv/addPrizivMonthName")
+    public String addPrizivMonthName( ){
+        return "/priziv/priziv";
+    }
+
 }
 

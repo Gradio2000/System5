@@ -28,10 +28,11 @@
 <div class="main">
   <select id="selectPriziv" name="month" class="select-css" style="width: max-content;" onchange="selectPriziv()">
     <option selected>Выберите призыв</option>
-  <c:forEach var="prizivMonthYearName" items="${prizivMonthYearNameDtoList}">
+    <c:forEach var="prizivMonthYearName" items="${prizivMonthYearNameDtoList}">
     <option value="${prizivMonthYearName.id}">${prizivMonthYearName.monthYearName}</option>
   </c:forEach>
   </select>
+  <button type="button" class="btn" onclick="document.location='#openModal2'">Новый призыв</button>
   <p>${prizivMonthYearName}</p>
   <table>
     <tr>
@@ -196,6 +197,31 @@
     </div>
   </div>
 
+  <div id="openModal2" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Создать новый призыв</h3>
+          <a title="Close" class="close" onclick="closeModal2()">×</a>
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title" id="commandName2"></h5>
+        </div>
+        <div class="modal-body my-modal">
+          <label id="labelMembers2" class="mylabel-forkanban">Наименование:
+            <ul id="membersBlock2" class="membersBlock"></ul>
+          </label>
+          <form id="prizivNameForm">
+            <input id="prizivMonthYearName" name="monthYearName" placeholder="Наименование призыва"/>
+            <br/>
+            <button type="button" class="btn" onclick="addMonthYearName()">Записать</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 </body>
 </html>
@@ -236,6 +262,26 @@
       }
     });
 
+  }
+
+  function addMonthYearName(monthYearName){
+    console.log(monthYearName)
+    if ($('#prizivMonthYearName').val() === ''){
+      alert("Введите название призыва!")
+      return;
+    }
+    const msg = $('#prizivNameForm').serialize();
+    $.ajax({
+      type: 'POST',
+      url: '/priziv/addPrizivMonthName',
+      data: msg,
+      success: function (data) {
+        console.log("aaa")
+      },
+      error: function () {
+        alert('Ошибка!');
+      }
+    });
   }
 
   function editPriziv(id){
@@ -294,6 +340,10 @@
         alert('Ошибка изменения записи! Обратитесь к администратору! \n function closeModal()');
       }
     });
+  }
+
+  function closeModal2(){
+    document.location = '#close';
   }
 
   function delMember(illedId, prizivId){
