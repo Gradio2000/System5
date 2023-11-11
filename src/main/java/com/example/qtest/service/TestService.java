@@ -11,8 +11,9 @@ import java.util.stream.Collectors;
 public class TestService {
 
     public Set<Question> getShuffleTest(Set<Question> questionList, Integer quesAmount) {
-        Collections.shuffle(Arrays.asList(questionList.toArray()));
-        return questionList.stream()
+        List<Question> questions = new ArrayList<>(questionList);
+        Collections.shuffle(questions);
+        return questions.stream()
                 .limit(quesAmount)
                 .collect(Collectors.toSet());
     }
