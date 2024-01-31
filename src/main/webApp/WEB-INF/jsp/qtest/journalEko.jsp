@@ -54,6 +54,9 @@
     <div>
         <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
     </div>
+    <div>
+        <input type="button" value="Сохранить в Excel" class="btn" onclick="document.location.href = '/exam/getExcelFile'"/>
+    </div>
 </div>
 
 </body>
@@ -64,10 +67,15 @@
         const originalContents = document.body.innerHTML;
 
         document.body.innerHTML = printContents;
-
         window.print();
-
         document.body.innerHTML = originalContents;
     }
+
+    function saveToExcel(){
+        console.log('aaa');
+        document.location.href = '/exam/getExcelFile';
+        // fetch('/exam/getExcelFile')
+    }
+
 </script>
 

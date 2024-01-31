@@ -8,20 +8,24 @@ import com.example.qtest.model.GroupTest;
 import com.example.qtest.model.Test;
 import com.example.qtest.repository.*;
 import com.example.qtest.service.DtoUtils;
+import com.example.qtest.service.ImportExcel;
 import com.example.qtest.service.TestService;
 import com.example.system5.dto.UserDto;
 import com.example.system5.model.User;
 import com.example.system5.repository.UserRepository;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -191,6 +195,7 @@ public class ExamController {
 
         Page<AppointTestDto> appointTestDtoPage = new PageImpl<>(appointTestList.getContent().stream()
                 .filter(appointTest -> appointTest.getAttempttest() != null)
+                .filter(appointTest -> !appointTest.getEko())
                 .map(AppointTestDto::getInstance)
                 .collect(Collectors.toList()), pageable, appointTestList.getTotalElements());
 
@@ -209,6 +214,25 @@ public class ExamController {
         appointTestAmountRepository.deleteAllByAppointId(appointId);
         return HttpStatus.OK;
     }
+    @GetMapping("/getExcelFile")
+    public ResponseEntity<InputStreamResource> getExcelFile() throws IOException {
+        List<AppointTest> appointTestList = appointTestRepository.findAllByFinishedAndEko(true, true);
+        List<AppointTestDto> appointTestDtoList = dtoUtils.convertToAppointTestDtoList(appointTestList);
+        ImportExcel.importToExcel(appointTestDtoList);
 
+        return ImportExcel.downloadFile();
+    }
+
+
+    @GetMapping("/getExcelFileBaseJournal")
+    public ResponseEntity<InputStreamResource> getExcelFileBaseJournal() throws IOException {
+        List<AppointTest> appointTestList = appointTestRepository.findAll().stream()
+                .filter(appointTest -> !appointTest.getEko())
+                .collect(Collectors.toList());
+        List<AppointTestDto> appointTestDtoList = dtoUtils.convertToAppointTestDtoList(appointTestList);
+        ImportExcel.importToExcelBaseJournal(appointTestDtoList);
+
+        return ImportExcel.downloadFile();
+    }
 
 }

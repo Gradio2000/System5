@@ -19,6 +19,7 @@
 </head>
 <body>
 <div class="main">
+
     <div style="display: flex; justify-content: space-between">
         <div class="pagination">
             <a onclick="pagin(${appointTestDtoPage.previousOrFirstPageable().pageNumber}, ${appointTestDtoPage.size})">«</a>
@@ -46,6 +47,8 @@
             </label>
         </div>
     </div>
+
+    <div id="printableArea">
 
     <table id="color_table" style="width: 100%">
         <tbody>
@@ -75,6 +78,16 @@
         </tbody>
     </table>
 
+    </div>
+
+
+    <div>
+        <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
+    </div>
+
+    <div>
+        <input type="button" value="Сохранить в Excel" class="btn" onclick="document.location.href = '/exam/getExcelFileBaseJournal'"/>
+    </div>
 </div>
 </body>
 <script>
@@ -104,5 +117,15 @@
         let size = ${appointTestDtoPage.size};
         document.location='/exam/journalBase?page=0&size=' + size + '&sort=' + value;
     }
+
+    function printDiv(divName) {
+        const printContents = document.getElementById(divName).innerHTML;
+        const originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+
 </script>
 </html>
