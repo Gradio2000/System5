@@ -1,6 +1,9 @@
 
 #  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
+  config:
+    activate:
+      on-profile: prod
   mvc:
     view:
       prefix: /WEB-INF/jsp/
@@ -34,6 +37,62 @@ spring:
 #    defaultPageSize: 20
 #    returnBodyOnCreate: true
 
+logging:
+  level:
+    root: WARN
+    com.example: DEBUG
+
+    org:
+      springframework:
+        security=debug:
+
+          org:
+            hibernate:
+              SQL=debug:
+  file:
+    name: system5.log
+
+server.servlet:
+  encoding:
+    charset: UTF-8 # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly
+    enabled: true # Enable http encoding support
+    force: true
+
+spring.mvc.pathmatch.matching-strategy: ant_path_matcher
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  jpa:
+    #    show-sql: true
+    open-in-view: false
+    #   Настройка для автоматической инициализации БД. отключил
+    #    hibernate:
+    #      ddl-auto: create
+    properties:
+      #  http://docs.jboss.org/hibernate/orm/5.3/userguide/html_single/Hibernate_User_Guide.html#configurations
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        # https://stackoverflow.com/questions/21257819/what-is-the-difference-between-hibernate-jdbc-fetch-size-and-hibernate-jdbc-batc
+        jdbc.batch_size: 20
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/system5DB_branch
+    username: admin
+    password: admin
+
+    #  https://docs.spring.io/spring-data/rest/docs/current/reference/html/#getting-started.basic-settings
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 
 logging:
   level:

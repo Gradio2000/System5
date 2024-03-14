@@ -191,11 +191,10 @@ public class ExamController {
             pageable = PageRequest.of(page, size, Sort.by("attempttest.dateTime").ascending());
         }
 
-        Page<AppointTest> appointTestList = appointTestRepository.findAll(pageable);
+        Page<AppointTest> appointTestList = appointTestRepository.findByEkoFalse(pageable);
 
         Page<AppointTestDto> appointTestDtoPage = new PageImpl<>(appointTestList.getContent().stream()
                 .filter(appointTest -> appointTest.getAttempttest() != null)
-                .filter(appointTest -> !appointTest.getEko())
                 .map(AppointTestDto::getInstance)
                 .collect(Collectors.toList()), pageable, appointTestList.getTotalElements());
 

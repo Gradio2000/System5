@@ -2,6 +2,8 @@ package com.example.qtest.repository;
 
 import com.example.qtest.model.AppointTest;
 import com.example.system5.model.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +14,7 @@ import java.util.List;
 
 @Repository
 public interface AppointTestRepository extends JpaRepository<AppointTest, Integer> {
+    Page<AppointTest> findByEkoFalse(Pageable pageable);
     List<AppointTest> findAllByUser(User user);
 
     @Modifying
