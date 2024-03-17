@@ -31,11 +31,12 @@
     <c:forEach items="${business.docsList}" var="docs">
       <div>
         <p>
-          <a href="${pathToRepo}/${docs.fileName}">${docs.docName}</a>
+          <a href="/doc/getDoc/${docs.fileName}">${docs.docName}</a>
         </p>
       </div>
     </c:forEach>
   </div>
+
 </div>
 </body>
 </html>

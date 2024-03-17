@@ -69,6 +69,7 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+
   jpa:
     #    show-sql: true
     open-in-view: false
