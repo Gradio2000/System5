@@ -25,11 +25,24 @@
   <title>Бизнесс процессы</title>
 </head>
 <body>
-<div class="main">
-  <c:forEach items="${businessDtoList}" var="businessDto">
-    <div><a href="getBusinessById/${businessDto.dtoBusinessId}">${businessDto.dtoBusinessName}</a> <p></p></div>
-  </c:forEach>
-</div>
+  <div class="main">
+    <table id="color_table" style="width: 100%; table-layout: auto">
+      <tr>
+        <th class="tblsht">Участки работы (бизнес-процессы)</th>
+      </tr>
+      <c:forEach var="businessDto" items="${businessDtoList}">
+        <tr>
+          <td class="tblsht">
+            <a href="getBusinessById/${businessDto.dtoBusinessId}">${businessDto.dtoBusinessName}</a>          </td>
+        </tr>
+      </c:forEach>
+    </table>
+
+    <form id="add" action="/docs/addbusiness" method="post">
+      <input name="businessName" class="myinput" type="text" placeholder="Введите название бизнес-процесса"/>
+    </form>
+    <button form="add" name="addDiv" id="mybtn" type="submit" class="btn">Добавить</button>
+  </div>
 </body>
 </html>
 

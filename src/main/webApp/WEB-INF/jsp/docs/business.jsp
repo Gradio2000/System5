@@ -25,18 +25,18 @@
   <title>Бизнесс процесс</title>
 </head>
 <body>
-<div class="main">
-  <div><h3>${business.businessName}</h3></div>
-  <div>
-    <c:forEach items="${business.docsList}" var="docs">
-      <div>
-        <p>
-          <a href="/doc/getDoc/${docs.fileName}">${docs.docName}</a>
-        </p>
-      </div>
-    </c:forEach>
+  <div class="main">
+    <table id="color_table" style="width: 100%; table-layout: auto">
+      <tr>
+        <th class="tblsht">${business.businessName}</th>
+      </tr>
+      <c:forEach var="docs" items="${business.docsList}">
+        <tr>
+          <td class="tblsht">
+            <a href="/doc/getDoc/${docs.fileName}">${docs.docName}</a>
+        </tr>
+      </c:forEach>
+    </table>
   </div>
-
-</div>
 </body>
 </html>

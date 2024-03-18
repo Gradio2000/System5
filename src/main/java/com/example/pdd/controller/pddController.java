@@ -94,12 +94,7 @@ public class pddController {
                     i++;
                 }
             }
-            if (i > 1){
-                question.setManyChoose(true);
-            }
-            else {
-                question.setManyChoose(false);
-            }
+            question.setManyChoose(i > 1);
         }
 
         questionRepository.saveAll(questionList);
