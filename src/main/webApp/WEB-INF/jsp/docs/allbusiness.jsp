@@ -49,7 +49,7 @@
               <a href="getBusinessById/${businessDto.dtoBusinessId}">Список документов</a>
             </td>
             <td>
-              <input type="text" class="myinput" name="name" value="${businessDto.dtoBusinessName}" onchange="changeGroupName(${businessDto.dtoBusinessId})" style="margin-top: 0; padding: 0"/>
+              <input type="text" class="myinput" name="businessName" value="${businessDto.dtoBusinessName}" onchange="changeGroupName(${businessDto.dtoBusinessId})" style="margin-top: 0; padding: 0"/>
             </td>
           </tr>
         </form>

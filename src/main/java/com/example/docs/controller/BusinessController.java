@@ -7,6 +7,7 @@ import com.example.docs.service.BusinessDeleteException;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +35,7 @@ public class BusinessController {
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 
 
-        List<Business> businessList = businessRepository.findAll();
+        List<Business> businessList = businessRepository.findAllOrderById();
         List<BusinessDto> businessDtoList = businessList.stream()
                 .map(BusinessDto::getInstance)
                 .collect(Collectors.toList());
@@ -92,8 +93,19 @@ public class BusinessController {
     }
 
     @PostMapping("/changeBusinessName")
-    public String changeBusinessName(){
+    @ResponseBody
+    public HttpStatus changeBusinessName(@AuthenticationPrincipal AuthUser authUser,
+                                         @RequestParam Integer businessId,
+                                         @RequestParam String businessName) {
 
-        return "redirect:/docs/getAllBusiness";
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        Business business = businessRepository.findById(businessId).orElse(null);
+        assert business != null;
+        business.setBusinessName(businessName);
+        businessRepository.save(business);
+
+        return HttpStatus.OK;
     }
 }
