@@ -10,11 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.zwobble.mammoth.DocumentConverter;
 import org.zwobble.mammoth.Result;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Set;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 @Controller
 @RequestMapping("/docs")
@@ -50,8 +47,12 @@ public class DocController {
         try {
             result = converter.convertToHtml(new File("/Users/aleksejlaskin/Documents/repo/123.docx"));
             String html = result.getValue(); // The generated HTML
-            Set<String> warnings = result.getWarnings(); // Any warnings during conversion
             model.addAttribute("htmlFile", html);
+
+         try (FileWriter fileWriter = new FileWriter("/Users/aleksejlaskin/Documents/repo/555.html", StandardCharsets.UTF_16))
+            {
+                fileWriter.write(html);
+            }
 
         } catch (FileNotFoundException e){
             model.addAttribute("htmlFile", "Файл не найден");
