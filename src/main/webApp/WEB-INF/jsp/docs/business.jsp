@@ -33,10 +33,11 @@
       <c:forEach var="docs" items="${business.docsList}">
         <tr>
           <td class="tblsht">
-            <a href="/doc/getDoc/${docs.fileName}">${docs.docName}</a>
+            <a href="/docs/getDoc/${docs.fileName}">${docs.docName}</a>
         </tr>
       </c:forEach>
     </table>
+    <button name="addDiv" id="mybtn" class="btn" onclick="document.location='/docs/uploadDoc'">Добавить</button>
   </div>
 </body>
 </html>

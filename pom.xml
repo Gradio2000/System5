@@ -60,6 +60,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.zwobble.mammoth</groupId>
+            <artifactId>mammoth</artifactId>
+            <version>1.7.0</version>
+        </dependency>
 
 
         <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->

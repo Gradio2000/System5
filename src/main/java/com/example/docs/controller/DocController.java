@@ -6,15 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.zwobble.mammoth.DocumentConverter;
+import org.zwobble.mammoth.Result;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Set;
 
 @Controller
-@RequestMapping("/doc")
+@RequestMapping("/docs")
 @Slf4j
 public class DocController {
 
@@ -40,8 +43,21 @@ public class DocController {
         return "docs/viewForDoc";
     }
 
-    @PostMapping("/adddoc")
-    public String addDoc(){
-        return "aaa";
+    @GetMapping("/uploadDoc")
+    public String addDoc(Model model){
+        DocumentConverter converter = new DocumentConverter();
+        Result<String> result;
+        try {
+            result = converter.convertToHtml(new File("/Users/aleksejlaskin/Documents/repo/123.docx"));
+            String html = result.getValue(); // The generated HTML
+            Set<String> warnings = result.getWarnings(); // Any warnings during conversion
+            model.addAttribute("htmlFile", html);
+
+        } catch (FileNotFoundException e){
+            model.addAttribute("htmlFile", "Файл не найден");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return "docs/viewForDoc";
     }
 }
