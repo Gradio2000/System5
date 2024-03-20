@@ -37,7 +37,12 @@
         </tr>
       </c:forEach>
     </table>
-    <button name="addDiv" id="mybtn" class="btn" onclick="document.location='/docs/uploadDoc'">Добавить</button>
+    <form id="loadFile" method="POST" action="/docs/fileUpload" enctype="multipart/form-data">
+      <input type="file" name="file"/>
+      <button name="addDiv" id="mybtn" class="btn" type="submit">Загрузить файл</button>
+    </form>
+
+
   </div>
 </body>
 </html>

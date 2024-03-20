@@ -7,11 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.zwobble.mammoth.DocumentConverter;
-import org.zwobble.mammoth.Result;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/docs")
@@ -40,25 +39,6 @@ public class DocController {
         return "docs/viewForDoc";
     }
 
-    @GetMapping("/uploadDoc")
-    public String addDoc(Model model){
-        DocumentConverter converter = new DocumentConverter();
-        Result<String> result;
-        try {
-            result = converter.convertToHtml(new File("/Users/aleksejlaskin/Documents/repo/123.docx"));
-            String html = result.getValue(); // The generated HTML
-            model.addAttribute("htmlFile", html);
 
-         try (FileWriter fileWriter = new FileWriter("/Users/aleksejlaskin/Documents/repo/555.html", StandardCharsets.UTF_16))
-            {
-                fileWriter.write(html);
-            }
 
-        } catch (FileNotFoundException e){
-            model.addAttribute("htmlFile", "Файл не найден");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return "docs/viewForDoc";
-    }
 }
