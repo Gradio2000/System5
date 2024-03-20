@@ -26,24 +26,64 @@
 </head>
 <body>
   <div class="main">
-    <table id="color_table" style="width: 100%; table-layout: auto">
-      <tr>
-        <th class="tblsht">${business.businessName}</th>
-      </tr>
-      <c:forEach var="docs" items="${business.docsList}">
-        <tr>
-          <td class="tblsht">
-            <a href="/docs/getDoc/${docs.docId}">${docs.docName}</a>
-        </tr>
-      </c:forEach>
-    </table>
+
+    <div id="wrapper">
+      <div id="left">
+        <table id="color_table" style="table-layout: auto">
+          <tr>
+            <th class="tblsht">${business.businessName}</th>
+          </tr>
+          <c:forEach var="docs" items="${business.docsList}">
+            <tr>
+              <td class="tblsht">
+                <a onclick="getTextFromFile(${docs.docId})">${docs.docName}</a>
+            </tr>
+          </c:forEach>
+        </table>
+        <input form="loadFile" type="file" name="file"/>
+        <button form="loadFile" name="addDiv" id="mybtn" class="btn" type="submit">Загрузить файл</button>
+      </div>
+      <div id="textFromFile"></div>
+    </div>
+
     <form id="loadFile" method="POST" action="/docs/fileUpload" enctype="multipart/form-data">
       <input type="hidden" value="${business.businessId}" name="businessId"/>
-      <input type="file" name="file"/>
-      <button name="addDiv" id="mybtn" class="btn" type="submit">Загрузить файл</button>
     </form>
 
 
   </div>
 </body>
+<script>
+  function getTextFromFile(id){
+    $.ajax({
+      type: 'GET',
+      url: '/docs/getDoc/' + id,
+      dataType: 'html',
+      success: function (data) {
+        $('#textFromFile').html(data);
+      },
+      error: function () {
+        alert('Ошибка получения фвйла!');
+      }
+    });
+  }
+</script>
+
+
+<style>
+  #left {
+    float: left;
+    width: 40%;
+    overflow: hidden;
+  }
+
+  #textFromFile {
+    overflow: hidden;
+    border: thin solid gray;
+    min-height: 100%;
+  }
+
+
+
+</style>
 </html>

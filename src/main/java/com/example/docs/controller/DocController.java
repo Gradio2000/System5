@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,17 +25,19 @@ public class DocController {
     DocsRepository docsRepository;
 
     @GetMapping("/getDoc/{docId}")
-    public String getDoc(Model model, @Value("${pathToRepo}") String pathToRepo,
-                         @PathVariable Integer docId){
+    @ResponseBody
+    public StringBuilder getDoc(Model model, @Value("${pathToRepo}") String pathToRepo,
+                             @PathVariable Integer docId){
 
         Docs docs = docsRepository.findById(docId).orElse(null);
 
         assert docs != null;
         String url = pathToRepo + docs.getFileName();
+        StringBuilder text = null;
 
         try (FileReader fileReader = new FileReader(url, StandardCharsets.UTF_16)) {
             int c;
-            StringBuilder text = new StringBuilder();
+            text = new StringBuilder();
             while((c = fileReader.read())!=-1){
                 text.append((char) c);
             }
@@ -45,7 +48,7 @@ public class DocController {
             throw new RuntimeException(e);
         }
 
-        return "docs/viewForDoc";
+        return text;
     }
 
 
