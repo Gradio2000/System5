@@ -26,16 +26,17 @@ public class FileLoadController {
     FileService fileService;
 
     @PostMapping("/fileUpload")
-    public String loadFile(@RequestParam MultipartFile file,
+    public String loadFile(@RequestParam MultipartFile file, @RequestParam Integer businessId,
                            @AuthenticationPrincipal AuthUser authUser, @Value("${pathToRepo}") String pathToRepo,
                            Model model) throws IOException {
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
-        String fileName = pathToRepo + file.getOriginalFilename();
+        String simpleFileName = file.getOriginalFilename();
+        String fullFileName = pathToRepo + simpleFileName;
         File newFile = File.createTempFile("temp", ".docx", null);
         file.transferTo(newFile);
-        String html = fileService.addDoc(newFile, fileName);
+        String html = fileService.addDoc(newFile, fullFileName, simpleFileName, businessId);
         model.addAttribute("htmlFile", html);
         return "docs/viewForDoc";
     }

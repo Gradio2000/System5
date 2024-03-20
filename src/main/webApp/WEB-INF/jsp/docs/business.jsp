@@ -33,11 +33,12 @@
       <c:forEach var="docs" items="${business.docsList}">
         <tr>
           <td class="tblsht">
-            <a href="/docs/getDoc/${docs.fileName}">${docs.docName}</a>
+            <a href="/docs/getDoc/${docs.docId}">${docs.docName}</a>
         </tr>
       </c:forEach>
     </table>
     <form id="loadFile" method="POST" action="/docs/fileUpload" enctype="multipart/form-data">
+      <input type="hidden" value="${business.businessId}" name="businessId"/>
       <input type="file" name="file"/>
       <button name="addDiv" id="mybtn" class="btn" type="submit">Загрузить файл</button>
     </form>
