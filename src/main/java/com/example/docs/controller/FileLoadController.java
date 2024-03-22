@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -25,7 +26,8 @@ public class FileLoadController {
     @Autowired
     FileService fileService;
 
-    @PostMapping("/fileUpload")
+    @PostMapping(value = "/fileUpload")
+    @ResponseBody
     public String loadFile(@RequestParam MultipartFile file, @RequestParam Integer businessId,
                            @AuthenticationPrincipal AuthUser authUser, @Value("${pathToRepo}") String pathToRepo,
                            Model model) throws IOException {
@@ -36,8 +38,6 @@ public class FileLoadController {
         String fullFileName = pathToRepo + simpleFileName;
         File newFile = File.createTempFile("temp", ".docx", null);
         file.transferTo(newFile);
-        String html = fileService.addDoc(newFile, fullFileName, simpleFileName, businessId);
-        model.addAttribute("htmlFile", html);
-        return "docs/viewForDoc";
+        return fileService.addDoc(newFile, fullFileName, simpleFileName, businessId);
     }
 }

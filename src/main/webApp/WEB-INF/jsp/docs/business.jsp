@@ -12,6 +12,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml"       prefix="x"   %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"  %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"  %>
+<%@ taglib prefix="enctype" uri="http://www.springframework.org/tags/form" %>
 <script type="text/javascript" src="../../../js/jquery-3.6.0.js"></script>
 <html>
 <style>
@@ -41,8 +42,7 @@
       </div>
 
       <div class="sticky" style="margin-top: 10px">
-        <input form="loadFile" type="file" id="mybtn"
-               class="btn" name="file" accept=".docx" onchange="form.submit()"/>
+        <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${business.businessId})"/>
         <label class="btn" for="mybtn" style="margin-top: 2px; height: auto">Загрузить</label>
       </div>
 
@@ -52,7 +52,7 @@
 
 
 
-    <form id="loadFile" method="POST" action="/docs/fileUpload" enctype="multipart/form-data">
+    <form id="loadFile" enctype="multipart/form-data">
       <input type="hidden" value="${business.businessId}" name="businessId"/>
     </form>
 
@@ -60,6 +60,30 @@
   </div>
 </body>
 <script>
+
+  function upLoadFile(businessId){
+    var $input = $("#mybtn");
+    var fd = new FormData;
+
+    fd.append('file', $input.prop('files')[0]);
+    fd.append('businessId', businessId);
+
+    console.log($input);
+
+    $.ajax({
+      url: '/docs/fileUpload',
+      data: fd,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function (data) {
+        $('#textFromFile').html(data);
+      },
+      error: function () {
+        alert('Ошибка получения файла!');
+      }
+    });
+  }
 
   function getTextFromFile(id){
     $.ajax({
@@ -70,7 +94,7 @@
         $('#textFromFile').html(data);
       },
       error: function () {
-        alert('Ошибка получения фвйла!');
+        alert('Ошибка получения файла!');
       }
     });
   }
