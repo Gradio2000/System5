@@ -27,12 +27,10 @@
 <body>
   <div class="main">
 
-    <div id="wrapper">
+    <div id="wrapper" style="margin-right: 5px">
       <div id="left">
-        <table id="color_table" style="table-layout: auto">
-          <tr>
-            <th class="tblsht">${business.businessName}</th>
-          </tr>
+        <p class="heading">${business.businessName}</p>
+        <table id="color_table" style="margin-top: 50px">
           <c:forEach var="docs" items="${business.docsList}">
             <tr>
               <td class="tblsht">
@@ -40,11 +38,19 @@
             </tr>
           </c:forEach>
         </table>
-        <input form="loadFile" type="file" name="file"/>
-        <button form="loadFile" name="addDiv" id="mybtn" class="btn" type="submit">Загрузить файл</button>
       </div>
-      <div id="textFromFile"></div>
+
+      <div class="sticky" style="margin-top: 10px">
+        <input form="loadFile" type="file" id="mybtn"
+               class="btn" name="file" accept=".docx" onchange="form.submit()"/>
+        <label class="btn" for="mybtn" style="margin-top: 2px; height: auto">Загрузить</label>
+      </div>
+
+      <div id="textFromFile"  ></div>
     </div>
+
+
+
 
     <form id="loadFile" method="POST" action="/docs/fileUpload" enctype="multipart/form-data">
       <input type="hidden" value="${business.businessId}" name="businessId"/>
@@ -54,6 +60,7 @@
   </div>
 </body>
 <script>
+
   function getTextFromFile(id){
     $.ajax({
       type: 'GET',
@@ -72,18 +79,41 @@
 
 <style>
   #left {
-    float: left;
-    width: 40%;
-    overflow: hidden;
+    height: 200px;
+    width: 100%;
+    overflow: scroll;
   }
 
   #textFromFile {
-    overflow: hidden;
-    border: thin solid gray;
-    min-height: 100%;
+    overflow: scroll;
+    /*border: thin solid gray;*/
+    height: 50vw;
+    margin-top: 10px;
+    resize: both;
   }
 
+  #mybtn {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
 
+  .heading{
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #1fb5bf;
+      color: white;
+      padding-left: 4px;
+      margin: auto;
+      position: fixed;
+      width: 100%;
+  }
 
+  .sticky {
+    background-color: white;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 110px;
+  }
 </style>
 </html>
