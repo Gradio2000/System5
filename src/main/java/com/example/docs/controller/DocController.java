@@ -2,15 +2,15 @@ package com.example.docs.controller;
 
 import com.example.docs.model.Docs;
 import com.example.docs.repository.DocsRepository;
+import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -27,7 +27,10 @@ public class DocController {
     @GetMapping("/getDoc/{docId}")
     @ResponseBody
     public StringBuilder getDoc(Model model, @Value("${pathToRepo}") String pathToRepo,
-                             @PathVariable Integer docId){
+                             @PathVariable Integer docId, @AuthenticationPrincipal AuthUser authUser){
+
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
 
         Docs docs = docsRepository.findById(docId).orElse(null);
 
@@ -51,6 +54,20 @@ public class DocController {
         return text;
     }
 
+    @PostMapping("/changeDocs")
+    @ResponseBody
+    public HttpStatus changeDocs(@AuthenticationPrincipal AuthUser authUser,
+                                 @RequestParam (required = false) String docName,
+                                 @RequestParam (required = false) Integer docId){
 
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        Docs docs = docsRepository.findById(docId).orElse(null);
+        assert docs != null;
+        docs.setDocName(docName);
+        docsRepository.save(docs);
+        return HttpStatus.OK;
+    }
 
 }

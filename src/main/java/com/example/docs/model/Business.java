@@ -27,5 +27,6 @@ public class Business {
     @OneToMany(targetEntity = Docs.class, cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     @JoinColumn(name = "business_id")
+    @OrderBy(value = "docId")
     private List<Docs> docsList;
 }

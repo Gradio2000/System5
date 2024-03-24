@@ -80,7 +80,8 @@
   function changeGroupName(id){
     const msg = document.getElementById("editGroup" + id);
     let d = $(msg).serializeArray();
-    console.log(d);
+
+
     $.ajax({
       type: 'POST',
       url: '/docs/changeBusinessName',

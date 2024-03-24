@@ -30,12 +30,14 @@
 
     <div id="wrapper" style="margin-right: 5px">
       <div id="left">
-        <p class="heading">${business.businessName}</p>
+        <p class="heading">${business.businessName}: ${business.docsList.size()} документов</p>
         <table id="color_table" style="margin-top: 50px">
           <c:forEach var="docs" items="${business.docsList}">
             <tr>
               <td class="tblsht">
-                <a onclick="getTextFromFile(${docs.docId})">${docs.docName}</a>
+                <input type="text" class="myinput" onclick="getTextFromFile(${docs.docId})"
+                       value="${docs.docName}" onchange="changeDocs(${docs.docId}, this.value)"
+                       style="margin-top: 0; padding: 0"/>
             </tr>
           </c:forEach>
         </table>
@@ -43,12 +45,11 @@
 
       <div class="sticky" style="margin-top: 10px">
         <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${business.businessId})"/>
-        <label class="btn" for="mybtn" style="margin-top: 2px; height: auto">Загрузить</label>
+        <label class="btn" for="mybtn" style="margin-top: 2px; height: auto">+</label>
       </div>
 
       <div id="textFromFile"  ></div>
     </div>
-
 
 
 
@@ -61,14 +62,14 @@
 </body>
 <script>
 
+
+
   function upLoadFile(businessId){
     var $input = $("#mybtn");
     var fd = new FormData;
 
     fd.append('file', $input.prop('files')[0]);
     fd.append('businessId', businessId);
-
-    console.log($input);
 
     $.ajax({
       url: '/docs/fileUpload',
@@ -95,6 +96,22 @@
       },
       error: function () {
         alert('Ошибка получения файла!');
+      }
+    });
+  }
+
+  function changeDocs(docId, docName){
+    let data = {docName: docName, docId: docId};
+
+    $.ajax({
+      url: '/docs/changeDocs',
+      type: 'POST',
+      data: data,
+      success: function (d){
+
+      },
+      error: function (){
+        alert('Ошибка изменения данных!')
       }
     });
   }
