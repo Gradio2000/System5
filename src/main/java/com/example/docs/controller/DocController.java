@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 @Controller
 @RequestMapping("/docs")
@@ -65,9 +66,25 @@ public class DocController {
 
         Docs docs = docsRepository.findById(docId).orElse(null);
         assert docs != null;
-        docs.setDocName(docName);
+        docs.setDocName(docName.toUpperCase().replace("\n", " ").replace("  ", " "));
         docsRepository.save(docs);
         return HttpStatus.OK;
     }
+
+    @PostMapping("/deleteDocs")
+    public String deleteBusiness(@AuthenticationPrincipal AuthUser authUser,@RequestParam String businessId,
+                                 @RequestParam (required = false, name = "check") Integer[] docsIds){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        try {
+            docsRepository.deleteAllById(Arrays.asList(docsIds));
+        } catch (NullPointerException e) {
+            return "redirect:/docs/getBusinessById/" + businessId + "?error=100";
+        }
+
+        return "redirect:/docs/getBusinessById/" + businessId;
+    }
+
 
 }

@@ -30,22 +30,39 @@
 
     <div id="wrapper" style="margin-right: 5px">
       <div id="left">
-        <p class="heading">${business.businessName}: ${business.docsList.size()} документов</p>
+        <p class="heading">${business.businessName}: ${business.docsList.size()} документа(ов)</p>
         <table id="color_table" style="margin-top: 50px">
-          <c:forEach var="docs" items="${business.docsList}">
+          <tbody>
             <tr>
-              <td class="tblsht">
-                <input type="text" class="myinput" onclick="getTextFromFile(${docs.docId})"
-                       value="${docs.docName}" onchange="changeDocs(${docs.docId}, this.value)"
-                       style="margin-top: 0; padding: 0"/>
+              <th style="width: 10%">Удалить</th>
+              <th style="width: 70%">Название документа</th>
+              <th style="width: 20%">Регистрационный номер</th>
             </tr>
-          </c:forEach>
+            <c:forEach var="docs" items="${business.docsList}">
+              <tr>
+                <td style="width: 10%;">
+                  <input form="del" value="${docs.docId}" type="checkbox" name="check"/>
+                </td>
+                <td class="tblsht" style="width: 80%">
+                  <textarea type="text" class="myinput" onclick="getTextFromFile(${docs.docId})"
+                          onchange="changeDocs(${docs.docId}, this.value)"
+                         style="margin-top: 0; padding: 0">${docs.docName}</textarea>
+                <td style="width: 20%">${docs.title}</td>
+              </tr>
+            </c:forEach>
+            <div>
+              <a style="color: crimson; font: bold italic 110% serif">
+                <c:if test="${param.get('error') == 100}">Не выбраны документы для удаления!</c:if>
+              </a>
+            </div>
+          </tbody>
         </table>
       </div>
 
       <div class="sticky" style="margin-top: 10px">
         <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${business.businessId})"/>
-        <label class="btn" for="mybtn" style="margin-top: 2px; height: auto">+</label>
+        <label class="btn" for="mybtn" style="margin-top: 2px; height: auto">Добавить</label>
+        <button form="del" name="delete" type="submit" class="btncancel">Удалить</button>
       </div>
 
       <div id="textFromFile"  ></div>
@@ -57,6 +74,9 @@
       <input type="hidden" value="${business.businessId}" name="businessId"/>
     </form>
 
+    <form id="del" action="/docs/deleteDocs" method="post">
+      <input type="hidden" name="businessId" value="${business.businessId}">
+    </form>
 
   </div>
 </body>

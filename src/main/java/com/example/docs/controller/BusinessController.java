@@ -48,6 +48,7 @@ public class BusinessController {
                                   @PathVariable Integer businessDtoId, Model model){
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
+
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 
         Business business = businessRepository.findById(businessDtoId).orElse(null);
