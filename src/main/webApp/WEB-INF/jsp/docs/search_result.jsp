@@ -30,7 +30,7 @@
 
     <div id="wrapper" style="margin-right: 5px">
       <div id="left">
-        <p class="heading">${business.businessName}: ${business.docsList.size()} документа(ов)</p>
+        <p class="heading">Найдено ${docsDtoList.size()} документа(ов)</p>
         <table id="color_table" style="margin-top: 50px">
           <tbody>
             <tr>
@@ -38,7 +38,7 @@
               <th style="width: 70%">Название документа</th>
               <th style="width: 20%">Регистрационный номер</th>
             </tr>
-            <c:forEach var="docs" items="${business.docsList}">
+            <c:forEach var="docs" items="${docsDtoList}">
               <tr>
                 <td style="width: 10%;">
                   <input form="del" value="${docs.docId}" type="checkbox" name="check"/>
@@ -50,7 +50,11 @@
                 <td style="width: 20%">${docs.regNumber}</td>
               </tr>
             </c:forEach>
-
+            <div>
+              <a style="color: crimson; font: bold italic 110% serif">
+                <c:if test="${param.get('error') == 100}">Не выбраны документы для удаления!</c:if>
+              </a>
+            </div>
           </tbody>
         </table>
       </div>
@@ -63,14 +67,7 @@
       </div>
 
       <div class="sticky" style="margin-top: 10px">
-        <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${business.businessId})"/>
-        <label class="btn" for="mybtn" style="margin-top: 2px; height: auto; font-size: smaller">Добавить</label>
         <button form="del" name="delete" type="submit" class="btncancel">Удалить</button>
-        <div>
-          <a style="color: crimson; font: bold italic 110% serif">
-            <c:if test="${param.get('error') == 100}">Не выбраны документы для удаления!</c:if>
-          </a>
-        </div>
       </div>
 
       <div id="textFromFile"  ></div>
@@ -78,13 +75,8 @@
     </div>
 
 
-
-    <form id="loadFile" enctype="multipart/form-data">
-      <input type="hidden" value="${business.businessId}" name="businessId"/>
-    </form>
-
-    <form id="del" action="/docs/deleteDocs" method="post">
-      <input type="hidden" name="businessId" value="${business.businessId}">
+    <form id="del" action="/docs/deleteSearchDocs" method="post">
+      <input type="hidden" name="businessId" value="">
     </form>
 
   </div>

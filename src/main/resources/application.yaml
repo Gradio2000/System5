@@ -71,7 +71,6 @@ spring:
       suffix: .jsp
 
   jpa:
-    #    show-sql: true
     open-in-view: false
     #   Настройка для автоматической инициализации БД. отключил
     #    hibernate:
@@ -84,6 +83,7 @@ spring:
         # https://stackoverflow.com/questions/21257819/what-is-the-difference-between-hibernate-jdbc-fetch-size-and-hibernate-jdbc-batc
         jdbc.batch_size: 20
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
   datasource:
     url: jdbc:postgresql://localhost:5432/system5DB_branch
     username: admin
@@ -122,3 +122,4 @@ server.servlet:
 
 # https://stackoverflow.com/questions/70036953/springboot-2-6-0-spring-fox-3-failed-to-start-bean-documentationpluginsboot:
 spring.mvc.pathmatch.matching-strategy: ant_path_matcher
+

@@ -26,10 +26,13 @@ public class Docs {
     @Column (name = "file_name")
     private String fileName;
 
-    @Column (name = "title")
-    private String title;
+    @Column (name = "reg_number")
+    private String regNumber;
 
     @Column(name = "business_id")
     private Integer businessId;
+
+    @Column(name = "text")
+    private String text;
 
 }

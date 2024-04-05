@@ -1,7 +1,10 @@
 package com.example.docs.controller;
 
+import com.example.docs.dao.DataBaseUserQueryes;
+import com.example.docs.dto.DocsDto;
 import com.example.docs.model.Docs;
 import com.example.docs.repository.DocsRepository;
+import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +20,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("/docs")
 @Slf4j
 public class DocController {
     @Autowired
-    DocsRepository docsRepository;
+    private DocsRepository docsRepository;
+
+    @Autowired
+    private DataBaseUserQueryes dataBaseUserQueryes;
 
     @GetMapping("/getDoc/{docId}")
     @ResponseBody
@@ -32,6 +39,7 @@ public class DocController {
 
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
+
 
         Docs docs = docsRepository.findById(docId).orElse(null);
 
@@ -84,6 +92,36 @@ public class DocController {
         }
 
         return "redirect:/docs/getBusinessById/" + businessId;
+    }
+
+    @GetMapping ("/search-doc")
+    public String search(@AuthenticationPrincipal AuthUser authUser, @RequestParam (required = false) String findQuery,
+                         Model model){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+
+        List<DocsDto> docsDtoList = dataBaseUserQueryes.getDocsByFullTextSearch(findQuery);
+        model.addAttribute("docsDtoList", docsDtoList);
+        model.addAttribute("");
+        return "/docs/search_result";
+    }
+
+    @PostMapping("deleteSearchDocs")
+    public String deleteSearchDocs(@AuthenticationPrincipal AuthUser authUser,
+                                   @RequestParam (required = false, name = "check") Integer[] docsIds){
+
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        try {
+            docsRepository.deleteAllById(Arrays.asList(docsIds));
+        } catch (NullPointerException e) {
+            return "redirect:/docs/search-doc/?error=100";
+        }
+
+        return "/docs/search_result";
     }
 
 

@@ -2,6 +2,8 @@ package com.example.docs.service;
 
 import com.example.docs.model.Docs;
 import com.example.docs.repository.DocsRepository;
+import org.apache.tika.Tika;
+import org.apache.tika.exception.TikaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zwobble.mammoth.DocumentConverter;
@@ -37,6 +39,7 @@ public class FileService {
             docs.setFileName(simpleFileNameWithNewExtension);
             docs.setDocName(simpleFileNameWithNewExtension);
             docs.setBusinessId(businessId);
+            docs.setText(getTxtFile(file));
 
             docsRepository.save(docs);
 
@@ -51,5 +54,14 @@ public class FileService {
         int i = fileName.lastIndexOf('.');
         String name = fileName.substring(0, i);
         return name + ".html";
+    }
+
+    public String getTxtFile(File file){
+        Tika tika = new Tika();
+        try {
+            return tika.parseToString(file);
+        } catch (IOException | TikaException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
