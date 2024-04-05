@@ -83,7 +83,7 @@ spring:
         # https://stackoverflow.com/questions/21257819/what-is-the-difference-between-hibernate-jdbc-fetch-size-and-hibernate-jdbc-batc
         jdbc.batch_size: 20
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+#    show-sql: true
   datasource:
     url: jdbc:postgresql://localhost:5432/system5DB_branch
     username: admin

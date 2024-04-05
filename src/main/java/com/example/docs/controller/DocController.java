@@ -124,5 +124,22 @@ public class DocController {
         return "/docs/search_result";
     }
 
+    @PostMapping("changeRegNumber")
+    @ResponseBody
+    public HttpStatus changeRegNumber(@AuthenticationPrincipal AuthUser authUser,
+                                      @RequestParam (required = false) String regNumber,
+                                      @RequestParam (required = false) Integer docId){
+
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
+        Docs docs = docsRepository.findById(docId).orElse(null);
+        assert docs != null;
+        docs.setRegNumber(regNumber.toUpperCase().replace("\n", " ").replace("  ", " "));
+        docsRepository.save(docs);
+
+        return HttpStatus.OK;
+    }
+
 
 }

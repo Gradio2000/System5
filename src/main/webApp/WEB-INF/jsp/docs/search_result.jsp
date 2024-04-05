@@ -69,7 +69,11 @@
       <div class="sticky" style="margin-top: 10px">
         <button form="del" name="delete" type="submit" class="btncancel">Удалить</button>
       </div>
-
+      <div>
+        <a style="color: crimson; font: bold italic 110% serif">
+          <c:if test="${param.get('error') == 100}">Не выбраны документы для удаления!</c:if>
+        </a>
+      </div>
       <div id="textFromFile"  ></div>
 
     </div>
