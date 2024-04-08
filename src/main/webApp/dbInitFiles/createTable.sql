@@ -27,4 +27,6 @@ create trigger tsvectorupdate
     before insert or update
     on d_docs
     for each row
-execute procedure ???('tsv', 'pg_catalog.russian', 'doc_name', 'text');
+execute procedure tsvector_update_trigger ('tsv', 'pg_catalog.russian', 'doc_name', 'text');
+
+
