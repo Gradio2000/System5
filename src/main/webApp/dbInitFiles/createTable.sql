@@ -8,7 +8,7 @@ create table d_business
 
 create table d_docs
 (
-    doc_id      integer default nextval('q_docs_doc_id_seq'::regclass) not null
+    doc_id      integer not null
         constraint q_docs_pkey
             primary key,
     doc_name    text,
