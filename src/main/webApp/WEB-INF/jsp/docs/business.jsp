@@ -58,12 +58,6 @@
         </table>
       </div>
 
-      <div>
-        <form id="search" method="get" action="/docs/search-doc">
-          <input type="text" class="myinput" name="findQuery" placeholder="Введите запрос для поиска" style="width: 50%; height: auto">
-          <button type="submit" class="btn">Найти</button>
-        </form>
-      </div>
 
       <div class="sticky" style="margin-top: 10px">
         <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${business.businessId})"/>
@@ -74,6 +68,14 @@
             <c:if test="${param.get('error') == 100}">Не выбраны документы для удаления!</c:if>
           </a>
         </div>
+      </div>
+
+
+      <div>
+        <form id="search" method="get" action="/docs/search-doc">
+          <input type="text" class="myinput" name="findQuery" placeholder="Введите запрос для поиска" style="width: 50%; height: auto">
+          <button type="submit" class="btn">Найти</button>
+        </form>
       </div>
 
       <div id="textFromFile"  ></div>

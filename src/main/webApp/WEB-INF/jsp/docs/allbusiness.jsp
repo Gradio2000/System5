@@ -71,6 +71,14 @@
     <form id="del" action="/docs/deleteBusiness" method="post"></form>
     <button form="add" name="addDiv" id="mybtn" type="submit" class="btn">Добавить</button>
     <button form="del" name="delete" type="submit" class="btncancel">Удалить</button>
+
+    <div>
+      <form id="search" method="get" action="/docs/search-doc">
+        <input type="text" class="myinput" name="findQuery" placeholder="Введите запрос для поиска" style="width: 50%; height: auto">
+        <button type="submit" class="btn">Найти</button>
+      </form>
+    </div>
+
   </div>
 
 
