@@ -72,7 +72,7 @@
 
 
       <div>
-        <form id="search" method="get" action="/docs/search-doc">
+        <form id="search" method="get" action="/ruk_doc/search-doc">
           <input type="text" class="myinput" name="findQuery" placeholder="Введите запрос для поиска" style="width: 50%; height: auto">
           <button type="submit" class="btn">Найти</button>
         </form>
@@ -88,7 +88,7 @@
       <input type="hidden" value="${business.businessId}" name="businessId"/>
     </form>
 
-    <form id="del" action="/docs/deleteDocs" method="post">
+    <form id="del" action="/ruk_doc/deleteDocs" method="post">
       <input type="hidden" name="businessId" value="${business.businessId}">
     </form>
 
@@ -99,7 +99,7 @@
   function changeRegNumber(docId, regNumber){
     let data = {docId: docId, regNumber: regNumber};
     $.ajax({
-      url: "/docs/changeRegNumber",
+      url: "/ruk_doc/changeRegNumber",
       type: 'POST',
       data: data,
       success: function (d){
@@ -120,7 +120,7 @@
     fd.append('businessId', businessId);
 
     $.ajax({
-      url: '/docs/fileUpload',
+      url: '/ruk_doc/fileUpload',
       data: fd,
       processData: false,
       contentType: false,
@@ -137,7 +137,7 @@
   function getTextFromFile(id){
     $.ajax({
       type: 'GET',
-      url: '/docs/getDoc/' + id,
+      url: '/ruk_doc/getDoc/' + id,
       dataType: 'html',
       success: function (data) {
         $('#textFromFile').html(data);
@@ -152,7 +152,7 @@
     let data = {docName: docName, docId: docId};
 
     $.ajax({
-      url: '/docs/changeDocs',
+      url: '/ruk_doc/changeDocs',
       type: 'POST',
       data: data,
       success: function (d){

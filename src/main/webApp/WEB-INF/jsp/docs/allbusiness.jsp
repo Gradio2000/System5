@@ -65,15 +65,15 @@
       </tbody>
     </table>
 
-    <form id="add" action="/docs/addbusiness" method="post">
+    <form id="add" action="/ruk_doc/addbusiness" method="post">
       <input name="businessName" class="myinput" type="text" placeholder="Введите название бизнес-процесса"/>
     </form>
-    <form id="del" action="/docs/deleteBusiness" method="post"></form>
+    <form id="del" action="/ruk_doc/deleteBusiness" method="post"></form>
     <button form="add" name="addDiv" id="mybtn" type="submit" class="btn">Добавить</button>
     <button form="del" name="delete" type="submit" class="btncancel">Удалить</button>
 
     <div>
-      <form id="search" method="get" action="/docs/search-doc">
+      <form id="search" method="get" action="/ruk_doc/search-doc">
         <input type="text" class="myinput" name="findQuery" placeholder="Введите запрос для поиска" style="width: 50%; height: auto">
         <button type="submit" class="btn">Найти</button>
       </form>
@@ -92,7 +92,7 @@
 
     $.ajax({
       type: 'POST',
-      url: '/docs/changeBusinessName',
+      url: '/ruk_doc/changeBusinessName',
       data: d,
       success: function (data) {
       },

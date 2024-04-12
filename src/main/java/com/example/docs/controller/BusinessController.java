@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/docs")
+@RequestMapping("/ruk_doc")
 @Slf4j
 public class BusinessController {
 
@@ -62,12 +62,12 @@ public class BusinessController {
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
-        if (businessName.isEmpty()) return "redirect:/docs/getAllBusiness?error=200";
+        if (businessName.isEmpty()) return "redirect:/ruk_doc/getAllBusiness?error=200";
 
         Business business = new Business();
         business.setBusinessName(businessName);
         businessRepository.save(business);
-        return "redirect:/docs/getAllBusiness";
+        return "redirect:/ruk_doc/getAllBusiness";
     }
 
     @PostMapping("/deleteBusiness")
@@ -85,12 +85,12 @@ public class BusinessController {
             }
             businessRepository.deleteAllById(Arrays.asList(businessIds));
         } catch (NullPointerException e) {
-            return "redirect:/docs/getAllBusiness?error=100";
+            return "redirect:/ruk_doc/getAllBusiness?error=100";
         } catch (BusinessDeleteException e) {
-            return "redirect:/docs/getAllBusiness?error=110";
+            return "redirect:/ruk_doc/getAllBusiness?error=110";
         }
 
-        return "redirect:/docs/getAllBusiness";
+        return "redirect:/ruk_doc/getAllBusiness";
     }
 
     @PostMapping("/changeBusinessName")

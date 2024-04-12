@@ -35,7 +35,7 @@
     <a href="/converter/converter">Конвертер ОИСФЛ</a>
     <a href="/search">Поиск индекса</a>
     <a href="/prizivAll">Призыв</a>
-    <a href="/docs/getAllBusiness">Положения и порядки</a>
+    <a href="/ruk_doc/getAllBusiness">Положения и порядки</a>
 
     <br/>
     <a href="/logout">Выйти</a>

@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping("/docs")
+@RequestMapping("/ruk_doc")
 @Slf4j
 public class DocController {
     @Autowired
@@ -88,10 +88,10 @@ public class DocController {
         try {
             docsRepository.deleteAllById(Arrays.asList(docsIds));
         } catch (NullPointerException e) {
-            return "redirect:/docs/getBusinessById/" + businessId + "?error=100";
+            return "redirect:/ruk_doc/getBusinessById/" + businessId + "?error=100";
         }
 
-        return "redirect:/docs/getBusinessById/" + businessId;
+        return "redirect:/ruk_doc/getBusinessById/" + businessId;
     }
 
     @GetMapping ("/search-doc")

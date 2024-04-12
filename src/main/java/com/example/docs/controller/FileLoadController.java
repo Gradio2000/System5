@@ -19,7 +19,7 @@ import java.io.IOException;
 
 
 @Controller
-@RequestMapping("/docs")
+@RequestMapping("/ruk_doc")
 @Slf4j
 public class FileLoadController {
 

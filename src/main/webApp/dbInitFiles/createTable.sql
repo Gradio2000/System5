@@ -8,8 +8,7 @@ create table d_business
 
 create table d_docs
 (
-    doc_id      integer not null
-        constraint q_docs_pkey
+    doc_id      serial
             primary key,
     doc_name    text,
     file_name   varchar,
