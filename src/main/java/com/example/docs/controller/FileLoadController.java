@@ -42,7 +42,7 @@ public class FileLoadController {
         file.transferTo(newFile);
 
         String htmlFileName = fileService.saveHtmlFile(newFile, fullFileName);
-        Docs docs = fileService.createDocsInstans(newFile, simpleFileName, businessId);
+        Docs docs = fileService.createDocsInstance(newFile, simpleFileName, businessId);
         docsRepository.save(docs);
         return fileService.getHtmlFile(htmlFileName);
     }

@@ -47,7 +47,7 @@ public class FileService {
     public String getHtmlFile(String fileName) {
         StringBuilder stringBuilder = new StringBuilder();
             try {
-                BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)));
+                BufferedReader reader = new BufferedReader(new FileReader(fileName));
                 String line = reader.readLine();
                 stringBuilder.append(line);
                 while (reader.readLine() != null) {
@@ -60,7 +60,7 @@ public class FileService {
         return stringBuilder.toString();
     }
 
-    public Docs createDocsInstans(File newFile, String simpleFileName, Integer businessId){
+    public Docs createDocsInstance(File newFile, String simpleFileName, Integer businessId){
         String simpleFileNameWithNewExtension = changeExtension(simpleFileName);
         Docs docs = new Docs();
         docs.setFileName(simpleFileNameWithNewExtension);
