@@ -30,7 +30,7 @@
 
     <div id="wrapper" style="margin-right: 5px">
       <div id="left">
-        <p class="heading">${business.businessName}: ${business.docsList.size()} документа(ов)</p>
+        <p class="heading">${businessDto.dtoBusinessName}: ${businessDto.docsDtoList.size()} документа(ов)</p>
         <table id="color_table" style="margin-top: 50px">
           <tbody id="insresult">
             <tr>
@@ -38,7 +38,7 @@
               <th style="width: 70%">Название документа</th>
               <th style="width: 20%">Регистрационный номер</th>
             </tr>
-            <c:forEach var="docs" items="${business.docsList}">
+            <c:forEach var="docs" items="${businessDto.docsDtoList}">
               <tr class="tableRow">
                   <td style="width: 10%;">
                     <input form="del" value="${docs.docId}" type="checkbox" name="check"/>
@@ -59,7 +59,7 @@
 
 
       <div class="sticky" style="margin-top: 10px">
-        <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${business.businessId})"/>
+        <input form="loadFile" type="file" id="mybtn" class="btn" name="file" accept=".docx" onchange="upLoadFile(${businessDto.dtoBusinessId})"/>
         <label class="btn" for="mybtn" style="margin-top: 2px; height: auto; font-size: smaller">Добавить</label>
         <button form="del" name="delete" type="submit" class="btncancel">Удалить</button>
         <div>

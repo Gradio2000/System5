@@ -55,7 +55,8 @@ public class BusinessController {
 
         Business business = businessRepository.findById(businessDtoId).orElse(null);
         assert business != null;
-        model.addAttribute(business);
+        BusinessDto businessDto = new BusinessDto(business.getBusinessId(), business.getBusinessName(), business.getDocsList());
+        model.addAttribute(businessDto);
         return "docs/business";
     }
 
@@ -114,7 +115,12 @@ public class BusinessController {
 
     @GetMapping("/getDocsDtoList/{bussinessId}")
     @ResponseBody
-    public List<DocsDto> getDocsDtoListByBussinessId(@PathVariable Integer bussinessId){
+    public List<DocsDto> getDocsDtoListByBussinessId(@PathVariable Integer bussinessId,
+                                                     @AuthenticationPrincipal AuthUser authUser){
+
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
+                authUser.getUser().getName());
+
         Business business = businessRepository.findById(bussinessId).orElse(null);
         assert business != null;
         List<Docs> docsList = business.getDocsList();
