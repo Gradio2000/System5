@@ -1,54 +1,17 @@
 package com.example.docs.service;
 
 import com.example.docs.model.Docs;
-import com.example.docs.repository.DocsRepository;
+import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLConverter;
+import fr.opensagres.poi.xwpf.converter.xhtml.XHTMLOptions;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.zwobble.mammoth.DocumentConverter;
-import org.zwobble.mammoth.Result;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.io.*;
 
 @Service
 public class FileService {
-
-    @Autowired
-    DocsRepository docsRepository;
-
-    public String addDoc(File file, String fullFileName, String simpleFileName, Integer businessId){
-        DocumentConverter converter = new DocumentConverter();
-        Result<String> result;
-        String html;
-        try {
-            result = converter.convertToHtml(file);
-            html = result.getValue(); // The generated HTML
-
-            String simpleFileNameWithNewExtension = changeExtension(simpleFileName);
-            String fullFileNameWithNewExtension = changeExtension(fullFileName);
-
-            try (FileWriter fileWriter = new FileWriter(fullFileNameWithNewExtension, StandardCharsets.UTF_16))
-            {
-                fileWriter.write(html);
-            }
-            Docs docs = new Docs();
-            docs.setFileName(simpleFileNameWithNewExtension);
-            docs.setDocName(simpleFileNameWithNewExtension);
-            docs.setBusinessId(businessId);
-            docs.setText(getTxtFile(file));
-
-            docsRepository.save(docs);
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return html;
-    }
 
     public static String changeExtension(String fileName) {
         int i = fileName.lastIndexOf('.');
@@ -64,4 +27,47 @@ public class FileService {
             throw new RuntimeException(e);
         }
     }
+
+
+    public String saveHtmlFile(File file, String fullFileName){
+        String fullFileNameWithNewExtension = changeExtension(fullFileName);
+
+        try(InputStream docxInputStream = new FileInputStream(file);
+            OutputStream pdfOutputStream = new FileOutputStream(fullFileNameWithNewExtension)) {
+            XWPFDocument document = new XWPFDocument(docxInputStream);
+            XHTMLOptions options = XHTMLOptions.create();
+            // Convert .docx file to .html file
+            XHTMLConverter.getInstance().convert(document, pdfOutputStream, options);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return fullFileNameWithNewExtension;
+    }
+
+    public String getHtmlFile(String fileName) {
+        StringBuilder stringBuilder = new StringBuilder();
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)));
+                String line = reader.readLine();
+                stringBuilder.append(line);
+                while (reader.readLine() != null) {
+                    line = reader.readLine();
+                    stringBuilder.append(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        return stringBuilder.toString();
+    }
+
+    public Docs createDocsInstans(File newFile, String simpleFileName, Integer businessId){
+        String simpleFileNameWithNewExtension = changeExtension(simpleFileName);
+        Docs docs = new Docs();
+        docs.setFileName(simpleFileNameWithNewExtension);
+        docs.setDocName(simpleFileNameWithNewExtension);
+        docs.setBusinessId(businessId);
+        docs.setText(getTxtFile(newFile));
+        return docs;
+    }
 }
+

@@ -4,6 +4,7 @@ import com.example.docs.dao.DataBaseUserQueryes;
 import com.example.docs.dto.DocsDto;
 import com.example.docs.model.Docs;
 import com.example.docs.repository.DocsRepository;
+import com.example.docs.service.FileService;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import lombok.extern.slf4j.Slf4j;
@@ -15,10 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,35 +29,22 @@ public class DocController {
     @Autowired
     private DataBaseUserQueryes dataBaseUserQueryes;
 
+    @Autowired
+    private FileService fileService;
+
     @GetMapping("/getDoc/{docId}")
     @ResponseBody
-    public StringBuilder getDoc(Model model, @Value("${pathToRepo}") String pathToRepo,
+    public String getDoc(@Value("${pathToRepo}") String pathToRepo,
                              @PathVariable Integer docId, @AuthenticationPrincipal AuthUser authUser){
 
         log.info(new Object(){}.getClass().getEnclosingMethod().getName() + " " +
                 authUser.getUser().getName());
 
-
         Docs docs = docsRepository.findById(docId).orElse(null);
 
         assert docs != null;
-        String url = pathToRepo + docs.getFileName();
-        StringBuilder text = null;
-
-        try (FileReader fileReader = new FileReader(url, StandardCharsets.UTF_16)) {
-            int c;
-            text = new StringBuilder();
-            while((c = fileReader.read())!=-1){
-                text.append((char) c);
-            }
-            model.addAttribute("htmlFile", text);
-        } catch (FileNotFoundException e){
-            model.addAttribute("htmlFile", "Файл не найден");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return text;
+        String fileName = pathToRepo + docs.getFileName();
+        return fileService.getHtmlFile(fileName);
     }
 
     @PostMapping("/changeDocs")
