@@ -32,28 +32,27 @@
       <div id="left">
         <p class="heading">${business.businessName}: ${business.docsList.size()} документа(ов)</p>
         <table id="color_table" style="margin-top: 50px">
-          <tbody>
+          <tbody id="insresult">
             <tr>
               <th style="width: 10%">Удалить</th>
               <th style="width: 70%">Название документа</th>
               <th style="width: 20%">Регистрационный номер</th>
             </tr>
             <c:forEach var="docs" items="${business.docsList}">
-              <tr>
-                <td style="width: 10%;">
-                  <input form="del" value="${docs.docId}" type="checkbox" name="check"/>
-                </td>
-                <td class="tblsht" style="width: 80%">
-                  <textarea type="text" class="myinput" onclick="getTextFromFile(${docs.docId})"
-                          onchange="changeDocs(${docs.docId}, this.value)"
-                         style="margin-top: 0; padding: 0">${docs.docName}</textarea>
-                <td style="width: 20%">
-                  <textarea class="myinput" style="margin-top: 0; padding: 0"
-                            onchange="changeRegNumber(${docs.docId}, this.value)">${docs.regNumber}</textarea>
-                </td>
-              </tr>
-            </c:forEach>
-
+              <tr class="tableRow">
+                  <td style="width: 10%;">
+                    <input form="del" value="${docs.docId}" type="checkbox" name="check"/>
+                  </td>
+                  <td class="tblsht" style="width: 80%">
+                    <textarea type="text" class="myinput" onclick="getTextFromFile(${docs.docId})"
+                            onchange="changeDocs(${docs.docId}, this.value)"
+                           style="margin-top: 0; padding: 0">${docs.docName}</textarea>
+                  <td style="width: 20%">
+                    <textarea class="myinput" style="margin-top: 0; padding: 0"
+                              onchange="changeRegNumber(${docs.docId}, this.value)">${docs.regNumber}</textarea>
+                  </td>
+                </tr>
+              </c:forEach>
           </tbody>
         </table>
       </div>
@@ -111,7 +110,6 @@
     });
   }
 
-
   function upLoadFile(businessId){
     var $input = $("#mybtn");
     var fd = new FormData;
@@ -127,6 +125,70 @@
       type: 'POST',
       success: function (data) {
         $('#textFromFile').html(data);
+
+        $.ajax({
+          url: '/ruk_doc/getDocsDtoList/2',
+          type: 'GET',
+          success: function (data){
+            console.log(data)
+            $('.tableRow').remove();
+
+            for (let i = 0; i < data.length; i++) {
+              const tr = document.createElement("tr");
+              tr.setAttribute("class", "tableRow");
+
+              const td1 = document.createElement("td");
+              td1.setAttribute("style", "width: 10%");
+
+              const input = document.createElement("input");
+              input.setAttribute("form", "del");
+              input.setAttribute("value", data[i].docId);
+              input.setAttribute("type", "checkbox");
+              input.setAttribute("name", "check");
+
+              const td2 = document.createElement("td");
+              td2.setAttribute("class", "tblsht");
+              td2.setAttribute("style", "width: 80%");
+
+              const textarea1 = document.createElement("textarea");
+              textarea1.setAttribute("type", "text");
+              textarea1.setAttribute("class", "myinput");
+              textarea1.setAttribute("onclick", "getTextFromFile(" + data[i].docId + ")");
+              textarea1.setAttribute("onchange", "changeDocs(" + data[i].docId + ", this.value)");
+              textarea1.setAttribute("style", "margin-top: 0; padding: 0");
+
+              const text1 = document.createTextNode(data[i].docName);
+
+              const td3 = document.createElement("td");
+              td3.setAttribute("style", "width: 20%");
+
+              const textarea2 = document.createElement("textarea");
+              textarea2.setAttribute("class", "myinput");
+              textarea2.setAttribute("style", "margin-top: 0; padding: 0");
+              textarea2.setAttribute("onchange", "changeRegNumber(" + data[i].docId + ", this.value)");
+
+              const text2 = document.createTextNode(data[i].regNumber != null ? data[i].regNumber : "");
+
+              textarea1.appendChild(text1);
+              textarea2.appendChild(text2);
+
+              td1.appendChild(input);
+              td2.appendChild(textarea1);
+              td3.appendChild(textarea2);
+
+              tr.appendChild(td1);
+              tr.appendChild(td2);
+              tr.appendChild(td3);
+
+              let elem = document.getElementById("insresult");
+              elem.appendChild(tr);
+            }
+
+          },
+          error: function (){
+            alert('Не успех!');
+          }
+        })
       },
       error: function () {
         alert('Ошибка получения файла!');

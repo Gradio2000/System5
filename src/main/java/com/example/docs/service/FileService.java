@@ -64,7 +64,7 @@ public class FileService {
         String simpleFileNameWithNewExtension = changeExtension(simpleFileName);
         Docs docs = new Docs();
         docs.setFileName(simpleFileNameWithNewExtension);
-        docs.setDocName(simpleFileNameWithNewExtension);
+        docs.setDocName(simpleFileNameWithNewExtension + " (измените название документа)");
         docs.setBusinessId(businessId);
         docs.setText(getTxtFile(newFile));
         return docs;

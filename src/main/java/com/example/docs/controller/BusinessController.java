@@ -1,7 +1,9 @@
 package com.example.docs.controller;
 
 import com.example.docs.dto.BusinessDto;
+import com.example.docs.dto.DocsDto;
 import com.example.docs.model.Business;
+import com.example.docs.model.Docs;
 import com.example.docs.repository.BusinessRepository;
 import com.example.docs.service.BusinessDeleteException;
 import com.example.system5.dto.UserDto;
@@ -108,5 +110,16 @@ public class BusinessController {
         businessRepository.save(business);
 
         return HttpStatus.OK;
+    }
+
+    @GetMapping("/getDocsDtoList/{bussinessId}")
+    @ResponseBody
+    public List<DocsDto> getDocsDtoListByBussinessId(@PathVariable Integer bussinessId){
+        Business business = businessRepository.findById(bussinessId).orElse(null);
+        assert business != null;
+        List<Docs> docsList = business.getDocsList();
+        return docsList.stream().
+                map(DocsDto::new).
+                collect(Collectors.toList());
     }
 }
