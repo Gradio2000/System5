@@ -47,7 +47,10 @@
                   <textarea type="text" class="myinput" onclick="getTextFromFile(${docs.docId})"
                           onchange="changeDocs(${docs.docId}, this.value)"
                          style="margin-top: 0; padding: 0">${docs.docName}</textarea>
-                <td style="width: 20%">${docs.regNumber}</td>
+                <td style="width: 20%">
+                  <textarea class="myinput" style="margin-top: 0; padding: 0"
+                            onchange="changeRegNumber(${docs.docId}, this.value)">${docs.regNumber}</textarea>
+                </td>
               </tr>
             </c:forEach>
             <div>
@@ -130,6 +133,21 @@
 
     $.ajax({
       url: '/ruk_doc/changeDocs',
+      type: 'POST',
+      data: data,
+      success: function (d){
+
+      },
+      error: function (){
+        alert('Ошибка изменения данных!')
+      }
+    });
+  }
+
+  function changeRegNumber(docId, regNumber){
+    let data = {docId: docId, regNumber: regNumber};
+    $.ajax({
+      url: "/ruk_doc/changeRegNumber",
       type: 'POST',
       data: data,
       success: function (d){
