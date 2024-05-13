@@ -84,11 +84,11 @@
 
 
     <form id="loadFile" enctype="multipart/form-data">
-      <input type="hidden" value="${business.businessId}" name="businessId"/>
+      <input type="hidden" value="${businessDto.dtoBusinessId}" name="businessId"/>
     </form>
 
     <form id="del" action="/ruk_doc/deleteDocs" method="post">
-      <input type="hidden" name="businessId" value="${business.businessId}">
+      <input type="hidden" name="businessId" value="${businessDto.dtoBusinessId}">
     </form>
 
   </div>
@@ -127,7 +127,7 @@
         $('#textFromFile').html(data);
 
         $.ajax({
-          url: '/ruk_doc/getDocsDtoList/2',
+          url: '/ruk_doc/getDocsDtoList/' + businessId,
           type: 'GET',
           success: function (data){
             console.log(data)
