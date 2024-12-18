@@ -1,0 +1,1 @@
+version: '3.1'services:  db:    image: gradio1/newmypost:latest    restart: always    ports:      - "8002:5432"    environment:      POSTGRES_PASSWORD: admin      POSTGRES_DB: "system5DB_branch"  service:    image: gradio1/kanbanservice:latest    ports:      - "8001:8080"    depends_on:      - db
