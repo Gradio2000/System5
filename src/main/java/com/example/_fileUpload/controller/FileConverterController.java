@@ -1,10 +1,11 @@
-package com.example.fnsConverter.controller;
+package com.example._fileUpload.controller;
 
+import com.example.converter.service.ImportExcel;
+import com.example.converter.service.LoadFile;
 import com.example.fnsConverter.service.FnsService;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,30 +14,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
+import java.util.Objects;
 
-@Controller
-@RequestMapping("fnsconverter")
-public class FnsController {
+@org.springframework.stereotype.Controller
+@RequestMapping("/fileConverter")
+public class FileConverterController {
+
     @GetMapping("/converter")
     public String getConverterPage(@AuthenticationPrincipal AuthUser authUser, Model model){
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
-        return "fnsconverter/fnsConverter";
+        model.addAttribute("filePath", ImportExcel.getFilename());
+        return "_fileConverter/converter";
     }
 
     @PostMapping("/fileUpload")
     public String fileUpload(@RequestParam MultipartFile file, @AuthenticationPrincipal AuthUser authUser,
                              Model model){
-        try {
-            Map<String, String> resultMap = FnsService.loadUNOfile(file);
-            model.addAttribute("resultMap", resultMap);
+
+        if (Objects.requireNonNull(file.getOriginalFilename()).contains("UNO")) {
+            try {
+                Map<String, String> resultMap = FnsService.loadUNOfile(file);
+                model.addAttribute("resultMap", resultMap);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "redirect:/fileConverter/converter?error=100";
+            }
+            model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+
+            return "/fnsconverter/report";
+        }
+        else
+            try {
+            LoadFile.loadFile(file);
         } catch (Exception e) {
             e.printStackTrace();
-            return "redirect:/fnsconverter/converter?error=100";
+            return "redirect:/fileConverter/converter?error=100";
         }
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
-
-        return "/fnsconverter/report";
+        return "/converter/download";
     }
-
-
 }

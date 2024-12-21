@@ -35,8 +35,7 @@
     <a href="/search">Поиск индекса</a>
     <a href="/prizivAll">Призыв</a>
 <%--    <a href="/ruk_doc/getAllBusiness">Положения и порядки</a>--%>
-    <a href="/converter/converter">Конвертер ОИСФЛ</a>
-    <a href="/fnsconverter/converter">Конвертер ФНС</a>
+    <a href="/fileConverter/converter">Конвертер файлов</a>
 
     <br/>
     <a href="/logout">Выйти</a>

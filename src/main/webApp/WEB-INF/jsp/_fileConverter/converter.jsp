@@ -30,7 +30,9 @@
     <c:if test="${param.get('error') == 100}">Произошла ошибка при загрузке файла. Проверьте его структуру!</c:if>
   </a>
 
-  <form id="load" method="POST" action="/converter/fileUpload" enctype="multipart/form-data">
+  <p>Внимание! Поддерживается загрузка файлов из ПК ОИФЛ ПУ и файлы UNO ФНС России</p>
+
+  <form id="load" method="POST" action="/fileConverter/fileUpload" enctype="multipart/form-data">
     <input type="file" name="file" style="margin-top: 10px"><br />
     <button class="btn" type="submit" value="Upload">Загрузить</button>
   </form>
