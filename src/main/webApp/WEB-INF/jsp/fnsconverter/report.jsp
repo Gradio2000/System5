@@ -29,8 +29,8 @@
       </tr>
       <c:forEach var="item" items="${resultMap}">
         <tr>
-          <td>${item.key}</td>
-          <td>${item.value}</td>
+          <td style="padding: 2; text-align: left">${item.key}</td>
+          <td style="padding: 2">${item.value}</td>
         </tr>
       </c:forEach>
       </tbody>

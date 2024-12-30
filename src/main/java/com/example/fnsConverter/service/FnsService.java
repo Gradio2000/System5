@@ -8,6 +8,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.nio.file.Files;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -68,16 +70,17 @@ public class FnsService {
         map.put("Версия формата ", rootTagUno.getFormVersion());
         map.put("", "Поручение налогового органа");
         map.put("Номер Поручения налогового органа, реквизит (3)", rootTagUno.getUNO().getNomPoruch());
-        map.put("Дата составления Поручения налогового органа, реквизит (4)", rootTagUno.getUNO().getDataPoruch());
+        map.put("Дата составления Поручения налогового органа, реквизит (4)",
+                dateCunveert(rootTagUno.getUNO().getDataPoruch()));
         map.put("Вид платежа, реквизит (5)", rootTagUno.getUNO().getVidPlat());
-        map.put("Сумма платежа, указывается в копейках, реквизит (7)", rootTagUno.getUNO().getSumPlat());
+        map.put("Сумма платежа, указывается в копейках, реквизит (7)", sumConvert(rootTagUno.getUNO().getSumPlat()));
         map.put("Статус, реквизит (101): 04 - налоговый орган", rootTagUno.getUNO().getStatus());
         map.put("ИНН или КИО плательщика, реквизит (60)", rootTagUno.getUNO().getInnnp());
         map.put("КПП плательщика, реквизит (102)", rootTagUno.getUNO().getKppnp());
         map.put("Плательщик, реквизит (8)", rootTagUno.getUNO().getPlatelsh());
         map.put("Номер счета плательщика, реквизит (9)", rootTagUno.getUNO().getNomSchPl());
         map.put("Банк плательщика, реквизит (10)", rootTagUno.getUNO().getBankPl());
-        map.put("БИК банка плательщика, реквизит (11)", rootTagUno.getUNO().getBicBPol());
+        map.put("БИК банка плательщика, реквизит (11)", rootTagUno.getUNO().getBicPl());
         map.put("Номер счета банка плательщика, реквизит (12)", rootTagUno.getUNO().getNomSchPl());
         map.put("Порядковый номер филиала банка, исполняющего поручение, по КГРКО, без лидирующих нулей. " +
                 "Для банков, подразделений Банка России принимает значение 0", rootTagUno.getUNO().getNomF());
@@ -105,6 +108,18 @@ public class FnsService {
         map.put("Срок уплаты по требованию, реквизит (107)", rootTagUno.getUNO().getSrokUplTr());
         map.put("Номер требования, реквизит (108)", rootTagUno.getUNO().getNomTreb());
         map.put("Дата требования, реквизит (109)", rootTagUno.getUNO().getDataTreb());
+        map.put("Сумма прописью", SumInWords.moneyInWords(rootTagUno.getUNO().getSumPlat()));
         return map;
     }
+
+    private static String sumConvert(String sumPlat){
+        return sumPlat.substring(0, sumPlat.length() - 2) + "-" + sumPlat.substring(sumPlat.length() - 2);
+    }
+
+    public static String dateCunveert(String olddate){
+        LocalDate date = LocalDate.parse(olddate);
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return df.format(date);
+    }
+
 }

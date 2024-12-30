@@ -380,7 +380,7 @@ table {
 
 table td, table th {
     text-align: center;
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
     padding: 8px;
 }
 
@@ -394,7 +394,7 @@ table th {
 }
 
 table  b {
-    writing-mode: vertical-rl; /* поворачивает всю таблицу, но не содержимое отдельной ячейки, поэтому нужен вложенный элемент */
+    /*writing-mode: vertical-rl; !* поворачивает всю таблицу, но не содержимое отдельной ячейки, поэтому нужен вложенный элемент *!*/
     transform: scale(-1);
     font-weight: normal;
 }
