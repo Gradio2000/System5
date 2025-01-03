@@ -1,23 +1,25 @@
 package com.example.fnsConverter.service;
 
 import com.example.fnsConverter.model.uno.RootTagUno;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
+import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
+@Service
 public class FnsService {
-    public static Map<String, String> loadUNOfile(MultipartFile file) {
+    public RootTagUno loadUNOfile(MultipartFile file) {
 
-        File newFile = null;
+        File newFile;
         try {
             newFile = File.createTempFile("temp", null, null);
         } catch (IOException e) {
@@ -45,21 +47,20 @@ public class FnsService {
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
-        Unmarshaller unmarshaller = null;
+        Unmarshaller unmarshaller;
         try {
             unmarshaller = context.createUnmarshaller();
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
         try {
-            RootTagUno rootTagUno = (RootTagUno) unmarshaller.unmarshal(reader);
-            return createMap(rootTagUno);
+            return  (RootTagUno) unmarshaller.unmarshal(reader);
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static Map<String, String> createMap(RootTagUno rootTagUno){
+    public Map<String, String> createMap(RootTagUno rootTagUno){
         Map<String, String> map = new LinkedHashMap<>();
         map.put("Уникальный идентификатор сообщения (GUID)", rootTagUno.getId());
         map.put("Тип информации ", rootTagUno.getType());
@@ -71,7 +72,7 @@ public class FnsService {
         map.put("", "Поручение налогового органа");
         map.put("Номер Поручения налогового органа, реквизит (3)", rootTagUno.getUNO().getNomPoruch());
         map.put("Дата составления Поручения налогового органа, реквизит (4)",
-                dateCunveert(rootTagUno.getUNO().getDataPoruch()));
+                dateConvert(rootTagUno.getUNO().getDataPoruch()));
         map.put("Вид платежа, реквизит (5)", rootTagUno.getUNO().getVidPlat());
         map.put("Сумма платежа, указывается в копейках, реквизит (7)", sumConvert(rootTagUno.getUNO().getSumPlat()));
         map.put("Статус, реквизит (101): 04 - налоговый орган", rootTagUno.getUNO().getStatus());
@@ -109,17 +110,47 @@ public class FnsService {
         map.put("Номер требования, реквизит (108)", rootTagUno.getUNO().getNomTreb());
         map.put("Дата требования, реквизит (109)", rootTagUno.getUNO().getDataTreb());
         map.put("Сумма прописью", SumInWords.moneyInWords(rootTagUno.getUNO().getSumPlat()));
+        convertMap(map, rootTagUno);
         return map;
+    }
+
+    public Map<String, String[]> convertMap(Map<String, String> map, RootTagUno rootTagUno){
+        Map<String, String[]> newMap = new LinkedHashMap<>();
+
+        Class<?> clazz = rootTagUno.getClass();
+        Field[] fields = clazz.getDeclaredFields();
+
+        Class<?> clazzUno = rootTagUno.getUNO().getClass();
+        Field[] fieldsUno = clazzUno.getDeclaredFields();
+
+        List<String> list = new LinkedList<>();
+        for(Field field : fields){
+            list.add(field.getName());
+        }
+        for (Field field : fieldsUno){
+            list.add(field.getName());
+        }
+
+
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        byte i = 0;
+        for (Map.Entry<String, String> entry : entrySet){
+            newMap.put(list.get(i), new String[]{entry.getKey(), entry.getValue()});
+            i++;
+        }
+        return newMap;
+
     }
 
     private static String sumConvert(String sumPlat){
         return sumPlat.substring(0, sumPlat.length() - 2) + "-" + sumPlat.substring(sumPlat.length() - 2);
     }
 
-    public static String dateCunveert(String olddate){
+    public static String dateConvert(String olddate){
         LocalDate date = LocalDate.parse(olddate);
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return df.format(date);
     }
+
 
 }

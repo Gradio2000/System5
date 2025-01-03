@@ -110,4 +110,6 @@ public class UNO {
 
     @XmlAttribute(name = "ДатаТреб")
     private String dataTreb = "";
+
+    private String sumProp;
 }

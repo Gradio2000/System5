@@ -173,6 +173,16 @@
 </head>
 
 <div class="main">
+
+  <div>
+    <form id="tableView" method="post" action="/fnsconverter/getTableView">
+      <input type="hidden" name="jsonObject" id="jsonObject">
+    </form>
+    <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
+    <input type="submit" form="tableView" value="Таблица" class="btn">
+    <input type="button" value="Test" class="btn" onclick="printZ()">
+  </div>
+
   <body lang=RU style='tab-interval:36.0pt;word-wrap:break-word;text-justify-trim:
 punctuation'>
   <div id="printableArea">
@@ -737,13 +747,25 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
     </div>
   </div>
 
-  <div>
-    <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
-  </div>
-
   </body>
 
   <script>
+    const text111 = ${jsonObject};
+
+    document.getElementById('tableView').addEventListener('submit', function(event) {
+      // Предотвращаем отправку формы по умолчанию
+      event.preventDefault();
+
+      // Находим элементы формы
+      var jsonObject = document.getElementById('jsonObject');
+
+      // Добавляем данные в скрытое поле
+      jsonObject.value = JSON.stringify(text111);
+
+      // Отправляем форму
+      this.submit();
+    });
+
     function printDiv(divName) {
       const printContents = document.getElementById(divName).innerHTML;
       const originalContents = document.body.innerHTML;
@@ -752,9 +774,16 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
       window.print();
       document.body.innerHTML = originalContents;
     }
+
+    function printZ(){
+
+      // const jsonString = JSON.stringify(myObject);
+      console.log(JSON.stringify(text111));
+    }
+
   </script>
 
-
+</div>
   </html>
 
 
