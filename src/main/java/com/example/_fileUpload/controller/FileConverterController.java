@@ -52,6 +52,7 @@ public class FileConverterController {
                 model.addAttribute("resultMap", resultMap);
                 model.addAttribute("bigMap", bigMap);
                 model.addAttribute("jsonObject", jsonObject);
+                model.addAttribute("testMap", converters.createJSONObject(fnsService.getTestMap()));
 
             } catch (Exception e) {
                 e.printStackTrace();

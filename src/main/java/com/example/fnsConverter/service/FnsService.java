@@ -152,5 +152,12 @@ public class FnsService {
         return df.format(date);
     }
 
+    public Map<String, String> getTestMap(){
+        Map<String, String> testMap = new HashMap<>();
+        testMap.put("key1", "value1");
+        testMap.put("key2", "value2");
+        return testMap;
+    }
+
 
 }

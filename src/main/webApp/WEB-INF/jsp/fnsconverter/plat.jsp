@@ -751,6 +751,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
 
   <script>
     const text111 = ${jsonObject};
+    const text222 = ${testMap};
 
     document.getElementById('tableView').addEventListener('submit', function(event) {
       // Предотвращаем отправку формы по умолчанию
@@ -761,6 +762,9 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
 
       // Добавляем данные в скрытое поле
       jsonObject.value = JSON.stringify(text111);
+
+      // console.log(text111);
+      console.log(text222);
 
       // Отправляем форму
       this.submit();
