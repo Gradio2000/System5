@@ -180,7 +180,6 @@
     </form>
     <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
     <input type="submit" form="tableView" value="Таблица" class="btn">
-    <input type="button" value="Test" class="btn" onclick="printZ()">
   </div>
 
   <body lang=RU style='tab-interval:36.0pt;word-wrap:break-word;text-justify-trim:
@@ -750,8 +749,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   </body>
 
   <script>
-    const text111 = ${jsonObject};
-    const text222 = ${testMap};
+    const js = ${jsonObject};
 
     document.getElementById('tableView').addEventListener('submit', function(event) {
       // Предотвращаем отправку формы по умолчанию
@@ -761,10 +759,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
       var jsonObject = document.getElementById('jsonObject');
 
       // Добавляем данные в скрытое поле
-      jsonObject.value = JSON.stringify(text111);
-
-      // console.log(text111);
-      console.log(text222);
+      jsonObject.value = JSON.stringify(js);
 
       // Отправляем форму
       this.submit();

@@ -62,8 +62,8 @@ public class FileConverterController {
             }
             model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 
-//            return "/fnsconverter/report";
-            return "/fnsconverter/plat";
+            return "/fnsconverter/report";
+//            return "/fnsconverter/plat";
         }
         else
             try {

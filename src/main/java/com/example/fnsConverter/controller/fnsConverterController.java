@@ -22,7 +22,20 @@ public class fnsConverterController {
 
         model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
         model.addAttribute("resultMap", jsonObject.toMap());
+        model.addAttribute("jsonObject", jsonObject);
 
         return "/fnsconverter/report";
+    }
+
+    @PostMapping("getPlatView")
+    public String getPlatWiew(@RequestParam JSONObject jsonObject,
+                               @AuthenticationPrincipal AuthUser authUser,
+                               Model model) {
+
+        model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
+        model.addAttribute("resultMap", jsonObject.toMap());
+        model.addAttribute("jsonObject", jsonObject);
+
+        return "/fnsconverter/plat";
     }
 }

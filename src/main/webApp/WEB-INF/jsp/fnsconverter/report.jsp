@@ -21,6 +21,10 @@
 
   <div class="main">
     <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
+    <input type="submit" value="Платежное поручение" class="btn" form="platView"/>
+    <form id="platView" method="post" action="/fnsconverter/getPlatView">
+      <input type="hidden" name="jsonObject" id="jsonObject">
+    </form>
     <p></p>
     <div id="printableArea">
     <table>
@@ -44,6 +48,22 @@
 </body>
 
 <script>
+  const js = ${jsonObject};
+
+  document.getElementById('platView').addEventListener('submit', function(event) {
+    // Предотвращаем отправку формы по умолчанию
+    event.preventDefault();
+
+    // Находим элементы формы
+    var jsonObject = document.getElementById('jsonObject');
+
+    // Добавляем данные в скрытое поле
+    jsonObject.value = JSON.stringify(js);
+
+    // Отправляем форму
+    this.submit();
+  });
+
   function printDiv(divName) {
     const printContents = document.getElementById(divName).innerHTML;
     const originalContents = document.body.innerHTML;
@@ -54,6 +74,7 @@
 
     document.body.innerHTML = originalContents;
   }
+
 </script>
 
 </html>
