@@ -109,7 +109,7 @@ public class FnsService {
         map.put("Срок уплаты по требованию, реквизит (107)", rootTagUno.getUNO().getSrokUplTr());
         map.put("Номер требования, реквизит (108)", rootTagUno.getUNO().getNomTreb());
         map.put("Дата требования, реквизит (109)", rootTagUno.getUNO().getDataTreb());
-        map.put("Сумма прописью", SumInWords.moneyInWords(rootTagUno.getUNO().getSumPlat()));
+//        map.put("Сумма прописью", SumInWords.moneyInWords(rootTagUno.getUNO().getSumPlat()));
         convertMap(map, rootTagUno);
         return map;
     }

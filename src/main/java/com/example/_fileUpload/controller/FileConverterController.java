@@ -5,6 +5,7 @@ import com.example.converter.service.LoadFile;
 import com.example.fnsConverter.model.uno.RootTagUno;
 import com.example.fnsConverter.service.Converters;
 import com.example.fnsConverter.service.FnsService;
+import com.example.fnsConverter.service.SumInWords;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
 import org.json.JSONObject;
@@ -53,6 +54,7 @@ public class FileConverterController {
                 model.addAttribute("bigMap", bigMap);
                 model.addAttribute("jsonObject", jsonObject);
                 model.addAttribute("testMap", converters.createJSONObject(fnsService.getTestMap()));
+                model.addAttribute("sumProp", SumInWords.moneyInWords(rootTagUno.getUNO().getSumPlat()));
 
             } catch (Exception e) {
                 e.printStackTrace();

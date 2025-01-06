@@ -20,6 +20,8 @@
 <body>
 
   <div class="main">
+    <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
+    <p></p>
     <div id="printableArea">
     <table>
       <tbody>
@@ -29,14 +31,13 @@
       </tr>
       <c:forEach var="item" items="${resultMap}">
         <tr>
-          <td style="padding: 2; text-align: left">${item.key}</td>
-          <td style="padding: 2">${item.value}</td>
+          <td style="padding: 2px; text-align: left">${item.key}</td>
+          <td style="padding: 2px">${item.value}</td>
         </tr>
       </c:forEach>
       </tbody>
     </table>
   </div>
-  <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
 </div>
 
 

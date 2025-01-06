@@ -201,7 +201,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   padding:0cm 1.4pt 0cm 1.4pt'>
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
         </td>
-        <td width=79 valign=bottom style='width:59.55pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=79 valign=bottom style='width:59.55pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal><o:p>&nbsp;</o:p></p>
         </td>
         <td width=132 valign=bottom style='width:99.25pt;border:none;border-bottom:
@@ -209,7 +209,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   padding:0cm 1.4pt 0cm 1.4pt'>
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
         </td>
-        <td width=284 valign=bottom style='width:212.65pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=284 valign=bottom style='width:212.65pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal><o:p>&nbsp;</o:p></p>
         </td>
         <td width=57 valign=bottom style='width:42.5pt;border:solid windowtext 1.0pt;
@@ -218,22 +218,22 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
       </tr>
       <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;page-break-inside:avoid'>
-        <td width=132 valign=bottom style='width:99.25pt;padding:0cm 1.4pt 0cm 1.4pt'>
-          <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
+        <td width=132 valign=bottom style='width:99.25pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
+          <p class=MsoNormal align=center style='text-align:center; border: none'><span class=SpellE><span
                   style='font-size:8.0pt'>Поступ</span></span><span style='font-size:8.0pt'>. в
   банк плат.<o:p></o:p></span></p>
         </td>
-        <td width=79 valign=bottom style='width:59.55pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=79 valign=bottom style='width:59.55pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal style='text-align:justify'><span style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
-        <td width=132 valign=bottom style='width:99.25pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=132 valign=bottom style='width:99.25pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><span
                   style='font-size:8.0pt'>Списано со <span class=SpellE>сч</span>. плат.<o:p></o:p></span></p>
         </td>
-        <td width=284 valign=bottom style='width:212.65pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=284 valign=bottom style='width:212.65pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal style='text-align:justify'><span style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
-        <td width=57 valign=bottom style='width:42.5pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=57 valign=bottom style='width:42.5pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal style='text-align:justify'><span style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
       </tr>
@@ -246,7 +246,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
  0cm 1.4pt 0cm 1.4pt'>
       <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:18.0pt'>
         <td width=344 valign=bottom style='width:258.0pt;padding:0cm 1.4pt 0cm 1.4pt;
-  height:18.0pt'>
+  height:18.0pt; border: none'>
           <p class=MsoNormal style='margin-left:2.85pt'><b><span style='font-size:12.0pt'>ПЛАТЕЖНОЕ
   ПОРУЧЕНИЕ № ${resultMap.get("Номер Поручения налогового органа, реквизит (3)")}<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
         </td>
@@ -256,7 +256,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Дата составления Поручения налогового органа, реквизит (4)")}</p>
         </td>
         <td width=19 valign=bottom style='width:14.2pt;padding:0cm 1.4pt 0cm 1.4pt;
-  height:18.0pt'>
+  height:18.0pt; border: none'>
           <p class=MsoNormal><o:p>&nbsp;</o:p>${resultMap.get("Вид платежа, реквизит (5)")}</p>
         </td>
         <td width=132 valign=bottom style='width:99.2pt;border:none;border-bottom:
@@ -265,7 +265,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
         </td>
         <td width=28 valign=bottom style='width:21.25pt;padding:0cm 1.4pt 0cm 1.4pt;
-  height:18.0pt'>
+  height:18.0pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
         </td>
         <td width=28 valign=bottom style='width:21.25pt;border:solid windowtext 1.0pt;
@@ -274,27 +274,27 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
       </tr>
       <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
-        <td width=344 valign=bottom style='width:258.0pt;padding:0cm 1.4pt 0cm 1.4pt'>
-          <p class=MsoNormal align=center style='text-align:center'><span
+        <td width=344 valign=bottom style='width:258.0pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
+          <p class=MsoNormal align=center style='text-align:center; border: none'><span
                   style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
-        <td width=132 valign=bottom style='width:99.2pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=132 valign=bottom style='width:99.2pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><span
                   style='font-size:8.0pt'>Дата<o:p></o:p></span></p>
         </td>
-        <td width=19 valign=bottom style='width:14.2pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=19 valign=bottom style='width:14.2pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><span
                   style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
-        <td width=132 valign=bottom style='width:99.2pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=132 valign=bottom style='width:99.2pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><span
                   style='font-size:8.0pt'>Вид платежа<o:p></o:p></span></p>
         </td>
-        <td width=28 valign=bottom style='width:21.25pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=28 valign=bottom style='width:21.25pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><span
                   style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
-        <td width=28 valign=bottom style='width:21.25pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=28 valign=bottom style='width:21.25pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><span
                   style='font-size:8.0pt'><o:p>&nbsp;</o:p></span></p>
         </td>
@@ -320,7 +320,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   border-bottom:solid windowtext 1.0pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:41.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Сумма прописью")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${sumProp}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:41.0pt;border:none' width=0 height=41></td>
@@ -716,7 +716,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
            style='border-collapse:collapse;mso-table-layout-alt:fixed;mso-padding-alt:
  0cm 1.4pt 0cm 1.4pt'>
       <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
-        <td width=227 valign=bottom style='width:6.0cm;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=227 valign=bottom style='width:6.0cm;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal><o:p>&nbsp;</o:p></p>
         </td>
         <td width=227 valign=bottom style='width:6.0cm;border:none;border-bottom:
@@ -724,14 +724,14 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   padding:0cm 1.4pt 0cm 1.4pt'>
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
         </td>
-        <td width=231 rowspan=2 valign=top style='width:172.95pt;padding:0cm 1.4pt 0cm 1.4pt'>
+        <td width=231 rowspan=2 valign=top style='width:172.95pt;padding:0cm 1.4pt 0cm 1.4pt; border: none'>
           <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
         </td>
       </tr>
       <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes;page-break-inside:avoid;
   height:41.0pt'>
         <td width=227 valign=top style='width:6.0cm;padding:0cm 1.4pt 0cm 1.4pt;
-  height:41.0pt'>
+  height:41.0pt; border: none'>
           <p class=MsoNormal align=center style='margin-left:-1.4pt;text-align:center'>М.П.</p>
         </td>
         <td width=227 valign=bottom style='width:6.0cm;border:none;border-bottom:
