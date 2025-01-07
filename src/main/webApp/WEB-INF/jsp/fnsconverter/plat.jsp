@@ -95,19 +95,19 @@
   }
 
   /* Page Definitions */
-  @page {
-    mso-footnote-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") fs;
-    mso-footnote-continuation-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") fcs;
-    mso-endnote-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") es;
-    mso-endnote-continuation-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") ecs;
-  }
+  /*@page {*/
+  /*  mso-footnote-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") fs;*/
+  /*  mso-footnote-continuation-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") fcs;*/
+  /*  mso-endnote-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") es;*/
+  /*  mso-endnote-continuation-separator: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") ecs;*/
+  /*}*/
 
   @page WordSection1 {
     size: 595.3pt 841.9pt;
     margin: 34.0pt 1.0cm 1.0cm 2.0cm;
     mso-header-margin: 14.2pt;
     mso-footer-margin: 14.2pt;
-    mso-header: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") h1;
+    /*mso-header: url("LAW_32449.attach_LAW_394047_2%20\(1\).fld/header.html") h1;*/
     mso-paper-source: 0;
   }
 
@@ -176,7 +176,7 @@
 
   <div>
     <form id="tableView" method="post" action="/fnsconverter/getTableView">
-      <input type="hidden" name="jsonObject" id="jsonObject">
+      <input type="hidden" name="stringTo" id="stringTo" value="${stringMap}">
     </form>
     <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
     <input type="submit" form="tableView" value="Таблица" class="btn">
@@ -247,7 +247,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         <td width=344 valign=bottom style='width:258.0pt;padding:0cm 1.4pt 0cm 1.4pt;
   height:18.0pt; border: none'>
           <p class=MsoNormal style='margin-left:2.85pt'><b><span style='font-size:12.0pt'>ПЛАТЕЖНОЕ
-  ПОРУЧЕНИЕ № ${resultMap.get("Номер Поручения налогового органа, реквизит (3)")}<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
+  ПОРУЧЕНИЕ № ${resultMap.get("Номер Поручения налогового органа - реквизит (3)")}<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></b></p>
         </td>
         <td width=132 valign=bottom style='width:99.2pt;border:none;border-bottom:
   solid windowtext 1.0pt;mso-border-bottom-alt:solid windowtext .5pt;
@@ -256,7 +256,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
         <td width=19 valign=bottom style='width:14.2pt;padding:0cm 1.4pt 0cm 1.4pt;
   height:18.0pt; border: none'>
-          <p class=MsoNormal><o:p>&nbsp;</o:p>${resultMap.get("Вид платежа, реквизит (5)")}</p>
+          <p class=MsoNormal><o:p>&nbsp;</o:p>${resultMap.get("Вид платежа - реквизит (5)")}</p>
         </td>
         <td width=132 valign=bottom style='width:99.2pt;border:none;border-bottom:
   solid windowtext 1.0pt;mso-border-bottom-alt:solid windowtext .5pt;
@@ -269,7 +269,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
         <td width=28 valign=bottom style='width:21.25pt;border:solid windowtext 1.0pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;height:18.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Статус, реквизит (101): 04 - налоговый орган")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Статус реквизит (101) - 04 - налоговый орган")}</p>
         </td>
       </tr>
       <tr style='mso-yfti-irow:1;mso-yfti-lastrow:yes'>
@@ -330,14 +330,14 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'>ИНН ${resultMap.get("ИНН или КИО плательщика, реквизит (60)")}<span
+          <p class=MsoNormal style='margin-left:2.85pt'>ИНН ${resultMap.get("ИНН или КИО плательщика - реквизит (60)")}<span
                   style='mso-spacerun:yes'>  </span></p>
         </td>
         <td width=189 colspan=3 style='width:5.0cm;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'>КПП ${resultMap.get("КПП плательщика, реквизит (102)")}<span
+          <p class=MsoNormal style='margin-left:2.85pt'>КПП ${resultMap.get("КПП плательщика - реквизит (102)")}<span
                   style='mso-spacerun:yes'>  </span></p>
         </td>
         <td width=57 colspan=2 rowspan=2 valign=top style='width:42.55pt;border-top:
@@ -349,7 +349,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         <td width=249 colspan=5 rowspan=2 valign=top style='width:187.0pt;border:
   none;border-bottom:solid windowtext 1.0pt;mso-border-bottom-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Сумма платежа, указывается в копейках, реквизит (7)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Сумма платежа - указывается в копейках - реквизит (7)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:13.0pt;border:none' width=0 height=13></td>
@@ -360,7 +360,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   border-right:solid windowtext 1.0pt;mso-border-right-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:28.5pt; text-align: left'>
           <p class=MsoNormal style='margin-left:2.85pt'><span lang=EN-US
-          style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span>${resultMap.get("Плательщик, реквизит (8)")}</p>
+          style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span>${resultMap.get("Плательщик - реквизит (8)")}</p>
         </td>
         <span style='font-size:10.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
   "Times New Roman";mso-ansi-language:RU;mso-fareast-language:RU;mso-bidi-language:
@@ -379,7 +379,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         <td width=249 colspan=5 rowspan=2 valign=top style='width:187.0pt;border:
   none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;
   height:28.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Номер счета плательщика, реквизит (9)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Номер счета плательщика - реквизит (9)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:28.0pt;border:none' width=0 height=28></td>
@@ -400,7 +400,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         <td width=378 colspan=6 rowspan=2 valign=top style='width:10.0cm;border:none;
   padding:0cm 1.4pt 0cm 1.4pt;height:14.0pt'>
           <p class=MsoNormal style='margin-left:2.85pt'><span lang=EN-US
-          style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span>${resultMap.get("Банк плательщика, реквизит (10)")}</p>
+          style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span>${resultMap.get("Банк плательщика - реквизит (10)")}</p>
         </td>
         <td width=57 colspan=2 valign=top style='width:42.55pt;border:solid windowtext 1.0pt;
   border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
@@ -409,7 +409,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
         <td width=249 colspan=5 valign=top style='width:187.0pt;border:none;
   padding:0cm 1.4pt 0cm 1.4pt;height:14.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("БИК банка плательщика, реквизит (11)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("БИК банка плательщика - реквизит (11)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:14.0pt;border:none' width=0 height=14></td>
@@ -444,7 +444,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         <td width=378 colspan=6 rowspan=2 valign=top style='width:10.0cm;border:none;
   padding:0cm 1.4pt 0cm 1.4pt;height:14.0pt'>
           <p class=MsoNormal style='margin-left:2.85pt'><span lang=EN-US
-                                                              style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span>${resultMap.get("Банк получателя, реквизит (13)")}</p>
+                                                              style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span>${resultMap.get("Банк получателя - реквизит (13)")}</p>
         </td>
         <td width=57 colspan=2 valign=top style='width:42.55pt;border:solid windowtext 1.0pt;
   border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
@@ -453,7 +453,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
         <td width=249 colspan=5 valign=top style='width:187.0pt;border:none;
   padding:0cm 1.4pt 0cm 1.4pt;height:14.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("БИК банка получателя, реквизит (14)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("БИК банка получателя - реквизит (14)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:14.0pt;border:none' width=0 height=14></td>
@@ -469,7 +469,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
         <td width=249 colspan=5 rowspan=2 valign=top style='width:187.0pt;border:
   none;padding:0cm 1.4pt 0cm 1.4pt;height:14.65pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Номер счета банка получателя, реквизит (15)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Номер счета банка получателя - реквизит (15)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:14.65pt;border:none' width=0 height=15></td>
@@ -489,7 +489,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   border-left:none;mso-border-top-alt:solid windowtext .5pt;mso-border-bottom-alt:
   solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
   0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'>ИНН ${resultMap.get("ИНН или КИО получателя, реквизит (61)")}<span
+          <p class=MsoNormal style='margin-left:2.85pt'>ИНН ${resultMap.get("ИНН или КИО получателя - реквизит (61)")}<span
                   style='mso-spacerun:yes'>  </span></p>
         </td>
         <td width=189 colspan=3 style='width:5.0cm;border-top:solid windowtext 1.0pt;
@@ -497,7 +497,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   mso-border-left-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
   mso-border-left-alt:solid windowtext .5pt;mso-border-bottom-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'>КПП ${resultMap.get("КПП получателя, реквизит (103)")}<span
+          <p class=MsoNormal style='margin-left:2.85pt'>КПП ${resultMap.get("КПП получателя - реквизит (103)")}<span
                   style='mso-spacerun:yes'>  </span></p>
         </td>
         <td width=57 colspan=2 rowspan=2 valign=top style='width:42.55pt;border:solid windowtext 1.0pt;
@@ -506,7 +506,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         </td>
         <td width=249 colspan=5 rowspan=2 valign=top style='width:187.0pt;border:
   none;padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-            <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Номер счета получателя, реквизит (17)")}</p>
+            <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Номер счета получателя - реквизит (17)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:13.0pt;border:none' width=0 height=13></td>
@@ -515,7 +515,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
       <tr style='mso-yfti-irow:12;page-break-inside:avoid;height:28.0pt'>
         <td width=378 colspan=6 rowspan=3 valign=top style='width:10.0cm;border:none;
   padding:0cm 1.4pt 0cm 1.4pt;height:28.0pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'>${resultMap.get("Получатель, реквизит (16)")}<o:p>&nbsp;</o:p></p>
+          <p class=MsoNormal style='margin-left:2.85pt'>${resultMap.get("Получатель - реквизит (16)")}<o:p>&nbsp;</o:p></p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:28.0pt;border:none' width=0 height=28></td>
@@ -531,7 +531,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   none;border-bottom:none;border-right:solid windowtext 1.0pt;mso-border-top-alt:
   solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
   0cm 1.4pt 0cm 1.4pt;height:13.5pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Вид операции, реквизит (18). Равен <06>")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Вид операции - реквизит (18) Равен <06>")}</p>
         </td>
         <td width=76 colspan=2 style='width:2.0cm;border-top:solid 1pt;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -559,7 +559,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
   mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;
   height:13.5pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Назначение платежа кодовое, реквизит (20). Не заполняется до указаний Банка России")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Назначение платежа кодовое - реквизит (20) Не заполняется до указаний Банка России")}</p>
         </td>
         <td width=76 colspan=2 style='width:2.0cm;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -573,7 +573,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   border-bottom:none;
   mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
   mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Указывается очередность платежа цифрой в соответствии с федеральным законом, реквизит (21)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Указывается очередность платежа цифрой в соответствии с федеральным законом - реквизит (21)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:13.5pt;border:none' width=0 height=14></td>
@@ -594,7 +594,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-bottom-alt:
   solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:
   0cm 1.4pt 0cm 1.4pt;height:13.5pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Уникальный идентификатор поручения (УИД), реквизит (22)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Уникальный идентификатор поручения (УИД) - реквизит (22)")}</p>
         </td>
         <td width=76 colspan=2 style='width:2.0cm;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -608,7 +608,7 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
   mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;
   height:13.5pt'>
-          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Резервное поле, реквизит (23)")}</p>
+          <p class=MsoNormal style='margin-left:2.85pt'><o:p>&nbsp;</o:p>${resultMap.get("Резервное поле - реквизит (23)")}</p>
         </td>
         <![if !supportMisalignedRows]>
         <td style='height:13.5pt;border:none' width=0 height=14></td>
@@ -620,37 +620,37 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   mso-border-top-alt:solid windowtext .5pt;mso-border-top-alt:solid windowtext .5pt;
   mso-border-bottom-alt:solid windowtext .5pt;mso-border-right-alt:solid windowtext .5pt;
   padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Код бюджетной классификации платежа, реквизит (104)")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Код бюджетной классификации платежа - реквизит (104)")}</p>
         </td>
         <td width=113 colspan=2 style='width:3.0cm;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("ОКТМО, реквизит (105)")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("ОКТМО - реквизит (105)")}</p>
         </td>
         <td width=38 style='width:1.0cm;border-top:none;border-left:none;border-bottom:
   solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;mso-border-top-alt:
   solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
   solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Код основания платежа, реквизит (106)")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Код основания платежа - реквизит (106)")}</p>
         </td>
         <td width=95 colspan=2 style='width:70.9pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Срок уплаты по требованию, реквизит (107)")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Срок уплаты по требованию - реквизит (107)")}</p>
         </td>
         <td width=132 colspan=3 style='width:99.25pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Номер требования, реквизит (108)")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Номер требования - реквизит (108)")}</p>
         </td>
         <td width=95 colspan=2 style='width:70.9pt;border-top:none;border-left:none;
   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
   mso-border-alt:solid windowtext .5pt;padding:0cm 1.4pt 0cm 1.4pt;height:13.0pt'>
-          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Дата требования, реквизит (109)")}</p>
+          <p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p>${resultMap.get("Дата требования - реквизит (109)")}</p>
         </td>
         <td width=41 style='width:31.0pt;border:none;border-bottom:solid windowtext 1.0pt;
   mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
@@ -667,9 +667,9 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
         <td width=684 colspan=13 valign=top style='width:513.05pt;border:none;
   padding:0cm 1.4pt 0cm 1.4pt;height:69.55pt'>
           <p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p>
-          </span>${resultMap.get("Назначение платежа, реквизит (24)")}
-            ${resultMap.get("Вид поручения: КГН - заполняется в случае взыскания за счёт денежных средств участника консолидированной группы налогоплательщиков, реквизит (24)")}
-            ${resultMap.get("Уникальный номер КГН, реквизит (24)")}
+          </span>${resultMap.get("Назначение платежа - реквизит (24)")}
+            ${resultMap.get("Вид поручения КГН - заполняется в случае взыскания за счёт денежных средств участника консолидированной группы налогоплательщиков - реквизит (24)")}
+            ${resultMap.get("Уникальный номер КГН - реквизит (24)")}
           </p>
         </td>
         <![if !supportMisalignedRows]>
@@ -749,21 +749,20 @@ margin-bottom:12.0pt;margin-left:402.55pt;text-align:right'><span lang=EN-US
   </body>
 
   <script>
-    const js = ${jsonObject};
 
-    document.getElementById('tableView').addEventListener('submit', function(event) {
-      // Предотвращаем отправку формы по умолчанию
-      event.preventDefault();
+    <%--document.getElementById('tableView').addEventListener('submit', function(event) {--%>
+    <%--  // Предотвращаем отправку формы по умолчанию--%>
+    <%--  event.preventDefault();--%>
 
-      // Находим элементы формы
-      var jsonObject = document.getElementById('jsonObject');
+    <%--  // Находим элементы формы--%>
+    <%--  var jsonObject = document.getElementById('stringTo');--%>
 
-      // Добавляем данные в скрытое поле
-      jsonObject.value = JSON.stringify(js);
+    <%--  // Добавляем данные в скрытое поле--%>
+    <%--  stringTo.value = ${stringMap};--%>
 
-      // Отправляем форму
-      this.submit();
-    });
+    <%--  // Отправляем форму--%>
+    <%--  this.submit();--%>
+    <%--});--%>
 
     function printDiv(divName) {
       const printContents = document.getElementById(divName).innerHTML;

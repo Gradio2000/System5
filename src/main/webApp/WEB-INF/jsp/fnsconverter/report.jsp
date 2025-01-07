@@ -23,7 +23,7 @@
     <input type="button" onclick="printDiv('printableArea')" value="Печать" class="btn"/>
     <input type="submit" value="Платежное поручение" class="btn" form="platView"/>
     <form id="platView" method="post" action="/fnsconverter/getPlatView">
-      <input type="hidden" name="jsonObject" id="jsonObject">
+      <input type="hidden" name="stringTo" id="stringTo" value="${stringMap}">
     </form>
     <p></p>
     <div id="printableArea">
@@ -48,21 +48,20 @@
 </body>
 
 <script>
-  const js = ${jsonObject};
 
-  document.getElementById('platView').addEventListener('submit', function(event) {
-    // Предотвращаем отправку формы по умолчанию
-    event.preventDefault();
+  <%--document.getElementById('platView').addEventListener('submit', function(event) {--%>
+  <%--  // Предотвращаем отправку формы по умолчанию--%>
+  <%--  event.preventDefault();--%>
 
-    // Находим элементы формы
-    var jsonObject = document.getElementById('jsonObject');
+  <%--  // Находим элементы формы--%>
+  <%--  var textMap = document.getElementById('stringTo');--%>
 
-    // Добавляем данные в скрытое поле
-    jsonObject.value = JSON.stringify(js);
+  <%--  // Добавляем данные в скрытое поле--%>
+  <%--  stringTo.value = ${stringMap};--%>
 
-    // Отправляем форму
-    this.submit();
-  });
+  <%--  // Отправляем форму--%>
+  <%--  this.submit();--%>
+  <%--});--%>
 
   function printDiv(divName) {
     const printContents = document.getElementById(divName).innerHTML;
@@ -74,6 +73,7 @@
 
     document.body.innerHTML = originalContents;
   }
+
 
 </script>
 

@@ -5,10 +5,8 @@ import com.example.converter.service.LoadFile;
 import com.example.fnsConverter.model.uno.RootTagUno;
 import com.example.fnsConverter.service.Converters;
 import com.example.fnsConverter.service.FnsService;
-import com.example.fnsConverter.service.SumInWords;
 import com.example.system5.dto.UserDto;
 import com.example.system5.util.AuthUser;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
@@ -46,15 +44,12 @@ public class FileConverterController {
             try {
                 RootTagUno rootTagUno = fnsService.loadUNOfile(file);
                 Map<String, String> resultMap = fnsService.createMap(rootTagUno);
-                Map<String, String[]> bigMap = fnsService.convertMap(resultMap, rootTagUno);
 
-                JSONObject jsonObject = converters.createJSONObject(resultMap);
+                //убрать лишние запятые в значениях Map
+                converters.deleteCharsFromValues(resultMap);
 
                 model.addAttribute("resultMap", resultMap);
-                model.addAttribute("bigMap", bigMap);
-                model.addAttribute("jsonObject", jsonObject);
-                model.addAttribute("testMap", converters.createJSONObject(fnsService.getTestMap()));
-                model.addAttribute("sumProp", SumInWords.moneyInWords(rootTagUno.getUNO().getSumPlat()));
+                model.addAttribute("stringMap", converters.convertMapToString(resultMap));
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,7 +58,6 @@ public class FileConverterController {
             model.addAttribute("user", UserDto.getInstance(authUser.getUser()));
 
             return "/fnsconverter/report";
-//            return "/fnsconverter/plat";
         }
         else
             try {

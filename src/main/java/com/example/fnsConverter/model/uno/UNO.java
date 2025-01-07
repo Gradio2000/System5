@@ -10,106 +10,106 @@ import javax.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UNO {
     @XmlAttribute(name = "НомПоруч")
-    private String nomPoruch = "";
+    private String nomPoruch = " ";
 
     @XmlAttribute(name = "ДатаПоруч")
-    private String dataPoruch = "";
+    private String dataPoruch = " ";
 
     @XmlAttribute(name = "ВидПлат")
-    private String vidPlat = "";
+    private String vidPlat = " ";
 
     @XmlAttribute(name = "СумПлат")
-    private String sumPlat = "";
+    private String sumPlat = " ";
 
     @XmlAttribute(name = "Статус")
-    private String status = "";
+    private String status = " ";
 
     @XmlAttribute(name = "ИНННП")
-    private String innnp = "";
+    private String innnp = " ";
 
     @XmlAttribute(name = "КППНП")
-    private String kppnp = "";
+    private String kppnp = " ";
 
     @XmlAttribute(name = "Плательщ")
-    private String platelsh = "";
+    private String platelsh = " ";
 
     @XmlAttribute(name = "НомСчПл")
-    private String nomSchPl = "";
+    private String nomSchPl = " ";
 
     @XmlAttribute(name = "БанкПл")
-    private String bankPl = "";
+    private String bankPl = " ";
 
     @XmlAttribute(name = "БИКБПл")
-    private String bicPl = "";
+    private String bicPl = " ";
 
     @XmlAttribute(name = "НомСчБПл")
-    private String nomSchBPl = "";
+    private String nomSchBPl = " ";
 
     @XmlAttribute(name = "НомФ")
-    private String nomF = "";
+    private String nomF = " ";
 
     @XmlAttribute(name = "БанкПол")
-    private String bankPol = "";
+    private String bankPol = " ";
 
     @XmlAttribute(name = "БИКБПол")
-    private String bicBPol = "";
+    private String bicBPol = " ";
 
     @XmlAttribute(name = "НомСчБПол")
-    private String nomSchBPol = "";
+    private String nomSchBPol = " ";
 
     @XmlAttribute(name = "ИННПол")
-    private String innPol = "";
+    private String innPol = " ";
 
     @XmlAttribute(name = "КПППол")
-    private String kppPol = "";
+    private String kppPol = " ";
 
     @XmlAttribute(name = "Получ")
-    private String poluch = "";
+    private String poluch = " ";
 
     @XmlAttribute(name = "НомСчПол")
-    private String nomSchPol = "";
+    private String nomSchPol = " ";
 
     @XmlAttribute(name = "ВидОп")
-    private String vidOp = "";
+    private String vidOp = " ";
 
     @XmlAttribute(name = "НазПлКод")
-    private String nazPlKod = "";
+    private String nazPlKod = " ";
 
     @XmlAttribute(name = "ОчерПл")
-    private String ocherPl = "";
+    private String ocherPl = " ";
 
     @XmlAttribute(name = "КодПл")
-    private String kodPl = "";
+    private String kodPl = " ";
 
     @XmlAttribute(name = "РезПоле")
-    private String rezPole = "";
+    private String rezPole = " ";
 
     @XmlAttribute(name = "НазнПл")
-    private String naznPl = "";
+    private String naznPl = " ";
 
     @XmlAttribute(name = "ВидПор")
-    private String vidPor = "";
+    private String vidPor = " ";
 
     @XmlAttribute(name = "УНКГН")
-    private String unkgn = "";
+    private String unkgn = " ";
 
     @XmlAttribute(name = "КБК")
-    private String kbk = "";
+    private String kbk = " ";
 
     @XmlAttribute(name = "ОКТМО")
-    private String oktmo = "";
+    private String oktmo = " ";
 
     @XmlAttribute(name = "КодОсн")
-    private String kodOsn = "";
+    private String kodOsn = " ";
 
     @XmlAttribute(name = "СрокУплТр")
-    private String srokUplTr = "";
+    private String srokUplTr = " ";
 
     @XmlAttribute(name = "НомТреб")
-    private String nomTreb = "";
+    private String nomTreb = " ";
 
     @XmlAttribute(name = "ДатаТреб")
-    private String dataTreb = "";
+    private String dataTreb = " ";
 
     private String sumProp;
 }
