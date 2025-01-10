@@ -141,8 +141,7 @@ public class SumInWords {
                     return BILLIONS[3];
             }
         }
-
-        private static String getKopecks (long number){
+    private static String getKopecks (long number){
             if (number >= 10 && number <= 20) {
                 return KOPECKS[3];
             }
@@ -157,8 +156,7 @@ public class SumInWords {
                     return KOPECKS[3];
             }
         }
-
-        private static String getRubles(long number){
+    private static String getRubles(long number){
             if (number >= 10 && number <= 20) {
                 return RUBLES[3];
             }
@@ -173,19 +171,31 @@ public class SumInWords {
                     return RUBLES[3];
             }
         }
+    public static String moneyInWords (String amount){
 
-        public static String moneyInWords (String amount){
-            long rubles = Long.parseLong(amount.substring(0, amount.length() - 2));
-            long kopecks = Long.parseLong(amount.substring(amount.length() - 2));
+        long rubles;
+        long kopecks;
+        String rublesInWords;
+        String kopecksInWords;
 
+        if (amount.length() > 2){
+            rubles = Long.parseLong(amount.substring(0, amount.length() - 2));
+            kopecks = Long.parseLong(amount.substring(amount.length() - 2));
             String kopecksString = amount.substring(amount.length() - 2);
-
-            String rublesInWords = numberToWords(rubles) + " " + getRubles(rubles % 100);
-            String kopecksInWords = kopecks > 0 ? kopecksString + " " + getKopecks(kopecks) : "";
-
-            return capitalizeFirstLetter(rublesInWords + " " + kopecksInWords);
+            rublesInWords = numberToWords(rubles) + " " + getRubles(rubles % 100);
+            kopecksInWords = kopecks > 0 ? kopecksString + " " + getKopecks(kopecks) : "";
+        } else  if (amount.equals("0")){
+            return "Ноль рублей";
+        } else if (amount.length() == 1) {
+            rublesInWords = "Ноль рублей";
+            kopecksInWords = "0" + amount + " " + getKopecks(Long.parseLong(amount));
+        } else {
+            rublesInWords = "Ноль рублей";
+            kopecksInWords = amount + " " + getKopecks(Long.parseLong(amount));
         }
 
+        return capitalizeFirstLetter(rublesInWords + " " + kopecksInWords);
+    }
     public static String capitalizeFirstLetter(String input) {
         if (input == null || input.isEmpty()) {
             return input;
@@ -193,9 +203,11 @@ public class SumInWords {
         return input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase();
     }
 
-        public static void main (String[]args){
-            System.out.println(moneyInWords("11211211200000"));
 
+        public static void main (String[]args){
+            for (int i = 100; i < 200; i++) {
+                System.out.println(moneyInWords(String.valueOf(i)));
+            }
 
         }
     }

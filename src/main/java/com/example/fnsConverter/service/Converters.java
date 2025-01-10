@@ -11,6 +11,15 @@ import java.util.Set;
 public class Converters {
 
     public String sumConvert(String sumPlat){
+        if (sumPlat.equals("0")){
+            return "0-00";
+        }
+        else if (sumPlat.length() == 1){
+            return "0-" + "0" + sumPlat;
+        }
+        else if (sumPlat.length() == 2){
+            return "0-" + sumPlat;
+        }
         return sumPlat.substring(0, sumPlat.length() - 2) + "-" + sumPlat.substring(sumPlat.length() - 2);
     }
 
