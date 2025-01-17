@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Service {
-    public static void createClientList(Map<Integer, Map<String, String>> fullMap) throws IOException, ClassNotFoundException {
+    public static void createClientList(Map<Integer, Map<String, String>> fullMap) throws IOException {
         List<Client> clientList = new ArrayList<>();
         for (Map.Entry<Integer, Map<String, String>> entry : fullMap.entrySet()){
             Map<String, String> map = entry.getValue();
@@ -18,6 +18,6 @@ public class Service {
             Client client = objectMapper.readValue(clientJSON, Client.class);
             clientList.add(client);
         }
-        ImportExcel.importToExcel(clientList);
+        ImportToExcelAndWord.importToExcel(clientList);
     }
 }

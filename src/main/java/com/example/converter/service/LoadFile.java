@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoadFile {
-    public static void loadFile(MultipartFile file) throws IOException, ClassNotFoundException {
+    public static void loadFile(MultipartFile file) throws IOException {
 
             File newFile = File.createTempFile("temp", null, null);
             file.transferTo(newFile);

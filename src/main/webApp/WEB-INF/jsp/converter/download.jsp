@@ -27,9 +27,9 @@
 <body>
 <div class="main">
   <div style="margin-top: 80px;">
-    <a style=" color: blue">Конвертация прошла успешно</a>
+    <a style=" color: blue">Конвертация прошла успешно!</a>
+    <a style=" color: blue">Обработано: ${mapSize} файл(-а, -ов).</a>
   </div>
-
   <div>
     <button class="btn" type="button" onclick="document.location='/converter/download'">Скачать</button>
   </div>

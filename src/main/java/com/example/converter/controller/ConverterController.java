@@ -1,6 +1,6 @@
 package com.example.converter.controller;
 
-import com.example.converter.service.ImportExcel;
+import com.example.converter.service.ImportToExcelAndWord;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -15,15 +15,13 @@ import java.nio.file.Files;
 
 @Controller
 @RequestMapping("/converter")
+
 public class ConverterController {
-
-
-
 
     @GetMapping("/download")
     public ResponseEntity<InputStreamResource> downloadFile() throws IOException {
 
-        File file = new File(ImportExcel.getFilename());
+        File file = new File(ImportToExcelAndWord.getFilename());
         InputStreamResource resource = new InputStreamResource(Files.newInputStream(file.toPath()));
 
         return ResponseEntity.ok()

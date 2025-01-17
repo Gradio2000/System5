@@ -29,16 +29,36 @@
     <div id="printableArea">
     <table>
       <tbody>
-      <tr>
-        <th>Атрибут</th>
-        <th>Значение</th>
-      </tr>
-      <c:forEach var="item" items="${resultMap}">
+
+      <c:if test="${resultMap.size() != 0}">
         <tr>
-          <td style="padding: 2px; text-align: left">${item.key}</td>
-          <td style="padding: 2px">${item.value}</td>
+          <th>Атрибут</th>
+          <th>Значение</th>
         </tr>
-      </c:forEach>
+        <c:forEach var="item" items="${resultMap}">
+          <tr>
+            <td style="padding: 2px; text-align: left">${item.key}</td>
+            <td style="padding: 2px">${item.value}</td>
+          </tr>
+        </c:forEach>
+      </c:if>
+
+
+      <c:if test="${resultList.size() != 0}">
+        <c:forEach var="map" items="${resultList}">
+          <tr>
+            <th>Атрибут</th>
+            <th>Значение</th>
+          </tr>
+          <c:forEach var="item" items="${map}">
+            <tr>
+              <td style="padding: 2px; text-align: left">${item.key}</td>
+              <td style="padding: 2px">${item.value}</td>
+            </tr>
+          </c:forEach>
+        </c:forEach>
+      </c:if>
+
       </tbody>
     </table>
   </div>

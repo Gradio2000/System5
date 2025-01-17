@@ -1,24 +1,32 @@
 package com.example.fnsConverter.service;
 
+import com.example.converter.service.ImportToExcelAndWord;
+import com.example.fnsConverter.model.sff.RootTagSFF;
 import com.example.fnsConverter.model.uno.RootTagUno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import java.io.*;
-import java.nio.file.Files;
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class FnsService {
 
     @Autowired
     private Converters converters;
+
+    @Autowired
+    private ArchiveService archiveService;
+
+    @Autowired
+    private SFFService sffService;
+
+    @Autowired
+    private Marshalling marshalling;
 
     public RootTagUno loadUNOfile(MultipartFile file) {
 
@@ -34,33 +42,7 @@ public class FnsService {
             throw new RuntimeException(e);
         }
 
-
-        BufferedReader br;
-        try {
-            br = new BufferedReader(new InputStreamReader(Files.newInputStream(newFile.toPath()), "WINDOWS-1251"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        String body = br.lines().collect(Collectors.joining());
-        StringReader reader = new StringReader(body);
-        JAXBContext context;
-        try {
-            context = JAXBContext.newInstance(RootTagUno.class);
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
-        Unmarshaller unmarshaller;
-        try {
-            unmarshaller = context.createUnmarshaller();
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            return  (RootTagUno) unmarshaller.unmarshal(reader);
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
+        return (RootTagUno) marshalling.unMarshalling(newFile.getPath(), RootTagUno.class);
     }
 
     public Map<String, String> createMap(RootTagUno rootTagUno){
@@ -112,6 +94,8 @@ public class FnsService {
         map.put("Срок уплаты по требованию - реквизит (107)", rootTagUno.getUNO().getSrokUplTr());
         map.put("Номер требования - реквизит (108)", rootTagUno.getUNO().getNomTreb());
         map.put("Дата требования - реквизит (109)", rootTagUno.getUNO().getDataTreb());
+        //убрать лишние запятые в значениях Map
+        converters.deleteCharsFromValues(map);
         return map;
     }
 
@@ -126,4 +110,12 @@ public class FnsService {
         return map;
     }
 
+    public int convert2zFile(MultipartFile file) {
+        String tempDirectory = archiveService.unpuckArhive(file);
+        List<RootTagSFF> rootTagSFFS = sffService.createSFF(tempDirectory);
+        List<Map<String, String>> mapList = sffService.getSFFListMaps(rootTagSFFS);
+        archiveService.deleteTempDirectory(tempDirectory);
+        ImportToExcelAndWord.importToWord(mapList);
+        return mapList.size();
+    }
 }

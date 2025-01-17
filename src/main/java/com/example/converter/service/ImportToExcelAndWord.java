@@ -6,14 +6,18 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Map;
 
-public class ImportExcel {
+public class ImportToExcelAndWord {
     private static String filename;
 
     public static String getFilename() {
@@ -126,5 +130,43 @@ public class ImportExcel {
         workbook.write(outFile);
         outFile.close();
         filename = file.getPath();
+    }
+
+
+    public static void importToWord(List<Map<String, String>> resultList){
+        // Создаем новый документ Word
+        XWPFDocument document = new XWPFDocument();
+
+        int i = 0;
+        for (Map<String, String> map: resultList){
+            i++;
+            String text;
+            for (Map.Entry<String, String> entry : map.entrySet()){
+                XWPFParagraph paragraph = document.createParagraph();
+                XWPFRun run = paragraph.createRun();
+                text = entry.getKey() + ": " + entry.getValue();
+                run.setText(text);
+            }
+            if (i < resultList.size()){
+                // Вставляем разрыв страницы
+                XWPFParagraph pageBreak = document.createParagraph();
+                pageBreak.setPageBreak(true);
+            }
+
+        }
+
+        // Сохраняем документ в файл
+        File file;
+        FileOutputStream outFile;
+        try {
+            file = File.createTempFile("2zh",".docx", null);
+            outFile = new FileOutputStream(file);
+            document.write(outFile);
+            outFile.close();
+            filename = file.getPath();
+            document.close();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
