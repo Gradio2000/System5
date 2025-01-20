@@ -2,6 +2,7 @@ package com.example.fnsConverter.service;
 
 
 import com.example.fnsConverter.model.sff.RootTagSFF;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +17,15 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class SFFService {
 
     @Autowired
     private Marshalling marshalling;
 
     public List<RootTagSFF> createSFF(String pathToFolder){
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+
         Path directoryPath = Paths.get(pathToFolder);
         List<RootTagSFF> rootTagSFFS = new ArrayList<>();
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(directoryPath)) {
@@ -37,6 +41,7 @@ public class SFFService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        log.info("rootTagSFFS size " + rootTagSFFS.size());
         return rootTagSFFS;
     }
 

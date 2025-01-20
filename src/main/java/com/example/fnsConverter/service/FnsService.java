@@ -3,6 +3,7 @@ package com.example.fnsConverter.service;
 import com.example.converter.service.ImportToExcelAndWord;
 import com.example.fnsConverter.model.sff.RootTagSFF;
 import com.example.fnsConverter.model.uno.RootTagUno;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Slf4j
 public class FnsService {
 
     @Autowired
@@ -116,6 +118,12 @@ public class FnsService {
         List<Map<String, String>> mapList = sffService.getSFFListMaps(rootTagSFFS);
         archiveService.deleteTempDirectory(tempDirectory);
         ImportToExcelAndWord.importToWord(mapList);
+
+
+        log.info("file " + file.getOriginalFilename());
+        log.info("tempDirectory " + tempDirectory);
+        log.info("mapList size " + mapList.size());
+
         return mapList.size();
     }
 }

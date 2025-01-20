@@ -4,6 +4,7 @@ package com.example.fnsConverter.service;
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
 import com.github.junrar.rarfile.FileHeader;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,9 +18,12 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 @Service
+@Slf4j
 public class ArchiveService {
 
     public String unpuckArhive(MultipartFile file) {
+        log.info(new Object(){}.getClass().getEnclosingMethod().getName());
+
         File newFile;
         String destinationPath;
         try {
@@ -32,7 +36,11 @@ public class ArchiveService {
 
             while (fileHeader != null) {
                 if (!fileHeader.isDirectory()) {
-                    File fileFromArchive = new File(destinationPath + File.separator + fileHeader.getFileNameString());
+
+                    String fileName = fileHeader.getFileNameString();
+                    // Remove the directory part from the file name
+                    String baseFileName = getFileName(fileName);
+                    File fileFromArchive = new File(destinationPath, baseFileName);
                     if (!fileFromArchive.getParentFile().exists()) {
                         fileFromArchive.getParentFile().mkdirs();
                     }
@@ -44,12 +52,13 @@ public class ArchiveService {
                 fileHeader = archive.nextFileHeader();
             }
             archive.close();
-
-            System.out.println(newFile.toPath());
-
         } catch (IOException | RarException e) {
             throw new RuntimeException(e);
         }
+
+        log.info("destinationPath " + destinationPath);
+        log.info("newFile.toPath() " + newFile.toPath());
+
         return destinationPath;
     }
 
@@ -85,6 +94,12 @@ public class ArchiveService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String getFileName(String fullName){
+        int index = fullName.lastIndexOf("\\");
+//        if (index < prefixLength) return path.substring(prefixLength);
+        return fullName.substring(index + 1);
     }
 
 
