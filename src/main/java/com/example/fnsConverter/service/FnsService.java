@@ -116,7 +116,7 @@ public class FnsService {
         String tempDirectory = archiveService.unpuckArhive(file);
         List<RootTagSFF> rootTagSFFS = sffService.createSFF(tempDirectory);
         List<Map<String, String>> mapList = sffService.getSFFListMaps(rootTagSFFS);
-        archiveService.deleteTempDirectory(tempDirectory);
+//        archiveService.deleteTempDirectory(tempDirectory);
         ImportToExcelAndWord.importToWord(mapList);
 
 
